@@ -1,0 +1,9 @@
+.numbers {
+  color: #d40242;
+  font-weight: 700;
+  font-size: 4em;
+  line-height: 0.8em;
+  opacity: 0.7;
+  width: 8vw;
+  flex-shrink: 0;
+}
