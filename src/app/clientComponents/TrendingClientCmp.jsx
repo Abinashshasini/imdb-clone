@@ -26,7 +26,7 @@ const TrendingClientCmp = ({ data }) => {
   return (
     <div>
       <SectionHeader
-        title="Trending Movies"
+        title="Trending"
         options={options}
         handleGetSelectedTab={(_params) => setSelectedCategory(_params)}
       />
@@ -37,8 +37,8 @@ const TrendingClientCmp = ({ data }) => {
             <MovieCard
               key={element.id}
               src={element.poster_path}
-              title={element.title}
-              date={element.release_date}
+              title={element.title || element.name}
+              date={element.release_date || element.first_air_date}
               percentage={element.vote_average}
             />
           ))}

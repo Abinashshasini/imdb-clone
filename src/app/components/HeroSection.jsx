@@ -7,14 +7,11 @@ import Hero3 from '../assets/hero3.jpg';
 import Hero4 from '../assets/hero4.jpg';
 import Hero5 from '../assets/hero5.jpg';
 import Hero6 from '../assets/hero6.jpg';
+import handleGenerateRandomNumber from '../utils';
 
 const HeroSection = () => {
   // * Required States * //
   const searchText = useRef('');
-  // * Functoion to generate random number between 2 ranges * //
-  const handleGenerateRandomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  };
 
   // * creating image array of object for random images * //
   const images = {

@@ -11,10 +11,7 @@
   flex-direction: column;
   align-content: flex-start;
   width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  padding: 30px 120px;
+  padding: 30px 100px;
 }
 
 .textWrapper h1 {
@@ -77,4 +74,21 @@
   top: 0;
   right: -1px;
   color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    height: calc(100vh / 2.5);
+    padding: 30px 20px;
+    background-size: cover;
+    background-position: 100%;
+  }
+
+  .searchWrapper > input {
+    font-size: 0.8rem;
+  }
+
+  .searchWrapper > button {
+    font-size: 0.8rem;
+  }
 }

@@ -8,6 +8,7 @@ import {
   SESSION_ID_URL,
   TRENDING_MOVIES_BASE_URL,
   QUERY_PARAMETERS,
+  TOPRATED_BASE_URL,
 } from './config';
 
 const defaultConfig = {
@@ -20,6 +21,13 @@ const defaultConfig = {
 const apiSettings = {
   fetchTrendingMovies: async (type) => {
     const endpoint = `${TRENDING_MOVIES_BASE_URL}/${type}?${QUERY_PARAMETERS}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
+  },
+
+  fetchTopRatedMovies: async () => {
+    const endpoint = `${TOPRATED_BASE_URL}`;
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();

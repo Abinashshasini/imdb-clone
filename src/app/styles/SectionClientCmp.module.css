@@ -7,9 +7,15 @@
   justify-content: flex-start;
   align-items: flex-start;
   transition: height 0.5s linear;
-  padding: 20px;
+  padding: 20px 100px;
 }
 
 .container::-webkit-scrollbar {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
 }

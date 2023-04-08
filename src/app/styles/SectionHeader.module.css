@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 30px 40px 10px;
+  padding: 30px 100px 10px;
 }
 
 .container > h2 {
@@ -52,4 +52,18 @@
   color: rgba(3, 37, 65, 1);
   font-size: 1rem;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  .container > h2 {
+    font-size: 1rem;
+  }
+
+  .optionsWrapper .option > p {
+    font-size: 0.8rem;
+  }
 }

@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
-import styles from '../styles/MovieCard.module.css';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
+import styles from '../styles/MovieCard.module.css';
 
 const MovieCard = ({
   src = '',
@@ -22,7 +22,7 @@ const MovieCard = ({
     const _percentage = Math.floor((Number(percentage) * 100) / 10);
     circleAnimationRef.current.style.strokeDashoffset = 0;
     circleAnimationRef.current.style.strokeDasharray =
-      (_percentage / length) * 100;
+      (_percentage / 100) * 100;
   }, []);
 
   return (

@@ -7,7 +7,7 @@ import styles from '../styles/SectionClientCmp.module.css';
 
 const PopularClientCmp = ({ data }) => {
   // * Required states * //
-  const [selectdCategory, setSelectedCategory] = useState('today');
+  const [selectdCategory, setSelectedCategory] = useState('movie');
 
   // * options for trending movie section * //
   const options = [
@@ -20,11 +20,6 @@ const PopularClientCmp = ({ data }) => {
       id: 2,
       name: 'TV Shows',
       category: 'tv',
-    },
-    {
-      id: 3,
-      name: 'Persons',
-      category: 'person',
     },
   ];
 
