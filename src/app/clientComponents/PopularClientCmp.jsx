@@ -5,9 +5,11 @@ import MovieCard from '../components/MovieCard';
 import SectionHeader from '../components/SectionHeader';
 import styles from '../styles/SectionClientCmp.module.css';
 
-const PopularClientCmp = ({ data }) => {
+const PopularClientCmp = ({ data: dataFromServer }) => {
   // * Required states * //
-  const [selectdCategory, setSelectedCategory] = useState('movie');
+  const [data, setData] = useState(dataFromServer);
+  const [selectdCategory, setSelectedCategory] = useState();
+  const [loading, setLoading] = useState(false);
 
   // * options for trending movie section * //
   const options = [
@@ -23,6 +25,25 @@ const PopularClientCmp = ({ data }) => {
     },
   ];
 
+  // * Function to fetch data * //
+  const handleFetchPopularData = async (type) => {
+    try {
+      setLoading(true);
+      const results = await API.fetchWhatsPopular(type, 1);
+      if (results) {
+        setLoading(true);
+        setData(results.results);
+      }
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  // * Effect to fetch data when user changes category * //
+  useEffect(() => {
+    if (selectdCategory) handleFetchPopularData(selectdCategory);
+  }, [selectdCategory]);
+
   return (
     <div>
       <SectionHeader
@@ -37,8 +58,8 @@ const PopularClientCmp = ({ data }) => {
             <MovieCard
               key={element.id}
               src={element.poster_path}
-              title={element.title}
-              date={element.release_date}
+              title={element.title || element.name}
+              date={element.release_date || element.first_air_date}
               percentage={element.vote_average}
             />
           ))}

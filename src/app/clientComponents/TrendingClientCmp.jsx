@@ -1,20 +1,22 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import API from '../api';
 import SectionHeader from '../components/SectionHeader';
 import MovieCard from '../components/MovieCard';
-import API from '../api';
 import styles from '../styles/SectionClientCmp.module.css';
 
-const TrendingClientCmp = ({ data }) => {
+const TrendingClientCmp = ({ data: dataFromServer }) => {
   // * Required states * //
-  const [selectdCategory, setSelectedCategory] = useState('today');
+  const [data, setData] = useState(dataFromServer);
+  const [selectdCategory, setSelectedCategory] = useState();
+  const [loading, setLoading] = useState(false);
 
   // * options for trending movie section * //
   const options = [
     {
       id: 1,
       name: 'Today',
-      category: 'today',
+      category: 'day',
     },
     {
       id: 2,
@@ -22,6 +24,25 @@ const TrendingClientCmp = ({ data }) => {
       category: 'week',
     },
   ];
+
+  // * Function to fetch data * //
+  const handleFetchTrendingData = async (type) => {
+    try {
+      setLoading(true);
+      const results = await API.fetchTrendingMovies(type);
+      if (results) {
+        setLoading(true);
+        setData(results.results);
+      }
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  // * Effect to fetch data when user changes category * //
+  useEffect(() => {
+    if (selectdCategory) handleFetchTrendingData(selectdCategory);
+  }, [selectdCategory]);
 
   return (
     <div>
