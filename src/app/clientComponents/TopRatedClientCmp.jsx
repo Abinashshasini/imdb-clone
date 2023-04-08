@@ -7,6 +7,7 @@ import handleGenerateRandomNumber from '../utils';
 const TopRatedClientCmp = ({ data }) => {
   // * Function to handle Clik on Card * //
   const handelClickOnCard = () => {};
+
   return (
     <div className={styles.container}>
       <div
@@ -21,7 +22,7 @@ const TopRatedClientCmp = ({ data }) => {
           })`,
         }}
       >
-        <h3 className={styles.heading}>Top Rated Movies</h3>
+        <h3 className={styles.heading}>Top Rated Movies of All Time</h3>
         <div className={styles.innerWrapper}>
           {data &&
             data.length > 0 &&

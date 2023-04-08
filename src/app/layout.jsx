@@ -1,7 +1,8 @@
 import Header from './components/Header';
 import Providers from './Providers';
-import './globals.css';
 import HeroSection from './components/HeroSection';
+import Footer from './components/Footer';
+import './globals.css';
 
 export const metadata = {
   title: 'IMDb clone',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
           {/* Header */}
           <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>

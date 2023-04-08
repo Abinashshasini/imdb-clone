@@ -9,6 +9,7 @@ import {
   TRENDING_MOVIES_BASE_URL,
   QUERY_PARAMETERS,
   TOPRATED_BASE_URL,
+  POPULAR_PERSON_BASE_URL,
 } from './config';
 
 const defaultConfig = {
@@ -28,6 +29,13 @@ const apiSettings = {
 
   fetchTopRatedMovies: async () => {
     const endpoint = `${TOPRATED_BASE_URL}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
+  },
+
+  fetchPopularPersons: async () => {
+    const endpoint = `${POPULAR_PERSON_BASE_URL}`;
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();
