@@ -1,6 +1,5 @@
 'use client';
 import { useRef } from 'react';
-import styles from '../styles/HeroSection.module.css';
 import Hero1 from '../assets/hero1.jpg';
 import Hero2 from '../assets/hero2.jpg';
 import Hero3 from '../assets/hero3.jpg';
@@ -8,6 +7,7 @@ import Hero4 from '../assets/hero4.jpg';
 import Hero5 from '../assets/hero5.jpg';
 import Hero6 from '../assets/hero6.jpg';
 import handleGenerateRandomNumber from '../utils';
+import styles from '../styles/HeroSection.module.css';
 
 const HeroSection = () => {
   // * Required States * //

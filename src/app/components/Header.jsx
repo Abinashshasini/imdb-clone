@@ -1,26 +1,20 @@
-import MenuItem from './MenuItem';
-import { AiFillHome } from 'react-icons/ai';
-import { BsFillInfoCircleFill } from 'react-icons/bs';
-import Link from 'next/link';
 import DarkModeSwitch from './DarkModeSwitch';
+import Logo from '../assets/logo.svg';
+import Image from 'next/image';
+import styles from '../styles/Header.module.css';
 
 const Header = () => {
   return (
-    <div className="flex justify-between mx-2 max-w-6xl sm:mx-auto items-center py-6">
-      <div className="flex mx">
-        <MenuItem title="HOME" address="/" Icon={AiFillHome} />
-        <MenuItem title="ABOUT" address="/about" Icon={BsFillInfoCircleFill} />
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <Image src={Logo} alt="Logo" height={20} width={150} />
+        <h2 className="hidden sm:inline">Movies</h2>
+        <h2 className="hidden sm:inline">TV Shows</h2>
+        <h2 className="hidden sm:inline">More</h2>
       </div>
-      <div className="flex items-center space-x-5">
+      <div className={styles.wrapper}>
         <DarkModeSwitch />
-        <Link href="/">
-          <h2 className="text-2xl">
-            <span className="font-bold bg-amber py-1 px-2 rounded-lg mr-1">
-              IMDb
-            </span>
-            <span className="text-xl hidden sm:inline">Clone</span>
-          </h2>
-        </Link>
+        <div className={styles.userIcon}>A</div>
       </div>
     </div>
   );

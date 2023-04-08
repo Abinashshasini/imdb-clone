@@ -21,7 +21,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .textWrapper h3 {
@@ -52,6 +52,7 @@
   background-color: #fff;
   outline: none;
 }
+
 .searchWrapper > input:hover,
 .searchWrapper > input:active {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -82,6 +83,14 @@
     padding: 30px 20px;
     background-size: cover;
     background-position: 100%;
+  }
+
+  .textWrapper h3 {
+    font-size: 1.5rem;
+  }
+
+  .searchWrapper {
+    margin-top: 40px;
   }
 
   .searchWrapper > input {
