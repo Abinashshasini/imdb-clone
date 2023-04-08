@@ -5,14 +5,16 @@ import containerStyles from '../styles/SectionClientCmp.module.css';
 
 const PersonClientCmp = ({ data }) => {
   const [toggleView, setToggleView] = useState(false);
+
   // * Function to toggle view more and less * //
   const handleToggleView = () => {
     setToggleView(!toggleView);
   };
+
   return (
-    <div
+    <section
       className={containerStyles.container}
-      style={{ flexDirection: 'column' }}
+      style={{ flexDirection: 'column', paddingTop: 0 }}
     >
       <h2>Popular Person&apos;s</h2>
       <div
@@ -36,7 +38,7 @@ const PersonClientCmp = ({ data }) => {
           <p>{toggleView ? 'View Less' : 'View More'}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

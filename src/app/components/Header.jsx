@@ -5,7 +5,7 @@ import styles from '../styles/Header.module.css';
 
 const Header = () => {
   return (
-    <div className={styles.container}>
+    <header className={styles.container}>
       <div className={styles.wrapper}>
         <Image src={Logo} alt="Logo" height={20} width={150} />
         <h2 className="hidden sm:inline">Movies</h2>
@@ -16,7 +16,7 @@ const Header = () => {
         <DarkModeSwitch />
         <div className={styles.userIcon}>A</div>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -9,7 +9,7 @@ const TopRatedClientCmp = ({ data }) => {
   const handelClickOnCard = () => {};
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div
         className={styles.wrapper}
         style={{
@@ -38,7 +38,7 @@ const TopRatedClientCmp = ({ data }) => {
             ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

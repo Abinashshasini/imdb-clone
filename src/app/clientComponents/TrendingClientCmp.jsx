@@ -46,7 +46,7 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
   }, [selectdCategory]);
 
   return (
-    <div>
+    <section>
       <SectionHeader
         title="Trending"
         options={options}
@@ -67,7 +67,7 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
           <MovieCardSkeleton />
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

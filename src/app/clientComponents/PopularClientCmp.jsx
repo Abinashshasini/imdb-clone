@@ -46,7 +46,7 @@ const PopularClientCmp = ({ data: dataFromServer }) => {
   }, [selectdCategory]);
 
   return (
-    <div>
+    <section>
       <SectionHeader
         title="What's Popular"
         options={options}
@@ -67,7 +67,7 @@ const PopularClientCmp = ({ data: dataFromServer }) => {
           <MovieCardSkeleton />
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
