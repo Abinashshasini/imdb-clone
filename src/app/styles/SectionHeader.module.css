@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px 40px 10px;
+}
+
+.container > h2 {
+  margin-right: 20px;
+  white-space: nowrap;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.optionsWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  border: 1px solid rgba(3, 37, 65, 1);
+  border-radius: 30px;
+  gap: 0 10px;
+}
+
+.optionsWrapper > input {
+  display: none;
+}
+
+.optionsWrapper > input[type='checkbox']:checked + span {
+  background: rgba(3, 37, 65, 1);
+  border-radius: 30px;
+}
+
+.optionsWrapper > input[type='checkbox']:checked + span > p {
+  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.optionsWrapper .option {
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  padding: 4px 20px;
+  margin-bottom: 0;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.optionsWrapper .option > p {
+  color: rgba(3, 37, 65, 1);
+  font-size: 1rem;
+  font-weight: 600;
+}

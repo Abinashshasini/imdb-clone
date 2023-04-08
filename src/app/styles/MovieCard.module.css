@@ -1,0 +1,107 @@
+.container {
+  width: 150px;
+  min-width: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  border: 8px;
+  margin-left: 20px;
+}
+
+.imgContainer {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  min-height: calc(150px * 1.5);
+  height: calc(150px * 1.5);
+  background: #dbdbdb;
+  overflow: hidden;
+  position: relative;
+}
+
+.imgContainer:hover {
+  opacity: 0.8;
+}
+
+.threeDots {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 4;
+  opacity: 0.6;
+  border-radius: 50%;
+  background-color: rgb(208, 208, 208);
+  display: flex;
+  justify-content: center;
+  min-width: 1em;
+  min-height: 1em;
+  padding: 3px;
+}
+
+.textContainer {
+  position: relative;
+  top: -30px;
+  width: 100%;
+  padding: 10px;
+}
+
+.textContainer h3 {
+  font-weight: 700;
+  color: #000;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+  font-size: 1rem;
+  /* autoprefixer: off */
+}
+
+.textContainer p {
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.percentageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 2px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.percentage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+  color: #fff;
+  font-size: 0.6rem;
+  z-index: 10;
+}
+
+.percentageContainer > svg {
+  display: inline-block;
+  transform: rotate(-90deg);
+}
+
+.percentageContainer svg circle {
+  stroke-linecap: round;
+}
+
+.circle1 {
+  stroke-width: 3px;
+  stroke: gray;
+}
+.circle2 {
+  stroke-width: 2px;
+  stroke: #00e55b;
+}

@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  min-height: 355px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: height 0.5s linear;
+  padding: 20px;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
