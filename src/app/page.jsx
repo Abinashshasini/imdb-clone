@@ -4,6 +4,7 @@ import PopularSrvCmp from './serverComponents/PopularSrvCmp';
 import TopRatedSrvCmp from './serverComponents/TopRatedSrvCmp';
 import styles from './page.module.css';
 import PersonSrvCmp from './serverComponents/PersonSrvCmp';
+import MovieCardSkeleton from './components/MovieCardSkeleton';
 
 export default function Home() {
   return (

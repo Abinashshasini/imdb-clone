@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import API from '../api';
 import SectionHeader from '../components/SectionHeader';
 import MovieCard from '../components/MovieCard';
+import MovieCardSkeleton from '../components/MovieCardSkeleton';
 import styles from '../styles/SectionClientCmp.module.css';
 
 const TrendingClientCmp = ({ data: dataFromServer }) => {
@@ -31,7 +32,7 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
       setLoading(true);
       const results = await API.fetchTrendingMovies(type);
       if (results) {
-        setLoading(true);
+        setLoading(false);
         setData(results.results);
       }
     } catch (error) {
@@ -52,8 +53,7 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
         handleGetSelectedTab={(_params) => setSelectedCategory(_params)}
       />
       <div className={styles.container}>
-        {data &&
-          data.length > 0 &&
+        {!loading && data && data.length > 0 ? (
           data.map((element) => (
             <MovieCard
               key={element.id}
@@ -62,7 +62,10 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
               date={element.release_date || element.first_air_date}
               percentage={element.vote_average}
             />
-          ))}
+          ))
+        ) : (
+          <MovieCardSkeleton />
+        )}
       </div>
     </div>
   );
