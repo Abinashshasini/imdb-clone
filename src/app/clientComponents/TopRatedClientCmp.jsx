@@ -17,7 +17,7 @@ const TopRatedClientCmp = ({ data }) => {
             data && data.length > 0
               ? IMAGE_BASE_URL +
                 BACKDROP_SIZE +
-                data[handleGenerateRandomNumber(1, 20)].backdrop_path
+                data[handleGenerateRandomNumber(1, 20)]?.backdrop_path
               : ''
           })`,
         }}
