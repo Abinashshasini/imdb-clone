@@ -102,10 +102,10 @@
 }
 
 .circle1 {
-  stroke-width: 3px;
-  stroke: gray;
+  stroke-width: 4px;
+  opacity: 0.3;
+  stroke: #777777;
 }
 .circle2 {
   stroke-width: 2px;
-  stroke: #00e55b;
 }
