@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  min-height: 355px;
+  min-height: 100vh;
   padding: 30px 200px;
 }
 

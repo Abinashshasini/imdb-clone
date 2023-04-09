@@ -1,6 +1,5 @@
 'use client';
 import MovieCard from '@/components/MovieCard';
-import CardBigSkeleton from '@/skeleton/CardBigSkeleton';
 import { useState } from 'react';
 import styles from '../styles/Results.module.css';
 
@@ -9,7 +8,7 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
 
   return (
     <div className={styles.container}>
-      <h1>Popular Movies</h1>
+      <h1>{type === 'tv' ? 'Popular TV Shows' : 'Popular Movies'}</h1>
       <div className={styles.wrapper}>
         {data &&
           data.length > 0 &&

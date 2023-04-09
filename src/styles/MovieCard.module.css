@@ -17,20 +17,21 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #e3e3e3;
-  background-color: #fff;
   height: 375px;
 }
 
 .imgContainerBig {
-  min-height: 270px;
-  height: 270px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 265px;
+  height: 265px;
   border-radius: 8px;
   width: 100%;
-  background: #dbdbdb;
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  background-image: url(https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
 }
 
 .imgContainerSmall {
@@ -39,8 +40,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 100%;
-
-  background: #dbdbdb;
+  background-image: url(https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
   overflow: hidden;
   position: relative;
   cursor: pointer;
