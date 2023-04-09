@@ -1,7 +1,17 @@
-.container {
+.containerSmall {
   width: 150px;
   min-width: 150px;
   min-height: 360px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-right: 20px;
+}
+
+.containerBig {
+  width: 225px;
+  min-width: 225px;
+  min-height: 420px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -13,12 +23,20 @@
   border: 8px;
 }
 
-.skeletonImage {
+.skeletonImageSmall {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 100%;
   min-height: calc(150px * 1.5);
   height: calc(150px * 1.5);
+}
+
+.skeletonImageBig {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  min-height: calc(150px * 1.5);
+  height: calc(150px * 2.2);
 }
 
 .lineContainer {

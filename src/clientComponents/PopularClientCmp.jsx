@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import API from '../api';
 import MovieCard from '../components/MovieCard';
 import SectionHeader from '../components/SectionHeader';
-import MovieCardSkeleton from '../components/MovieCardSkeleton';
+import CardBigSkeleton from '../skeleton/CardBigSkeleton';
 import styles from '../styles/SectionClientCmp.module.css';
 
 const PopularClientCmp = ({ data: dataFromServer }) => {
@@ -64,7 +64,7 @@ const PopularClientCmp = ({ data: dataFromServer }) => {
             />
           ))
         ) : (
-          <MovieCardSkeleton />
+          <CardBigSkeleton />
         )}
       </div>
     </section>
