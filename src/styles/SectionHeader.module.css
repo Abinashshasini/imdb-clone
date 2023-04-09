@@ -23,16 +23,16 @@
   cursor: pointer;
 }
 
-.optionsWrapper > input {
+.optionsWrapper input {
   display: none;
 }
 
-.optionsWrapper > input[type='checkbox']:checked + span {
+.optionsWrapper input[type='checkbox']:checked + span {
   background: rgba(3, 37, 65, 1);
   border-radius: 30px;
 }
 
-.optionsWrapper > input[type='checkbox']:checked + span > p {
+.optionsWrapper input[type='checkbox']:checked + span > p {
   background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -21,7 +21,8 @@
   align-items: center;
 }
 
-.wrapper > h2 {
+.wrapper > h2,
+.wrapper > a {
   font-size: 0.8rem;
   color: #fff;
   font-weight: 600;

@@ -7,7 +7,6 @@ import {
   LOGIN_URL,
   SESSION_ID_URL,
   TRENDING_MOVIES_BASE_URL,
-  QUERY_PARAMETERS,
   TOPRATED_BASE_URL,
   POPULAR_PERSON_BASE_URL,
 } from './config';
@@ -21,7 +20,7 @@ const defaultConfig = {
 
 const apiSettings = {
   fetchTrendingMovies: async (type) => {
-    const endpoint = `${TRENDING_MOVIES_BASE_URL}/${type}?${QUERY_PARAMETERS}`;
+    const endpoint = `${TRENDING_MOVIES_BASE_URL}/${type}?api_key=${API_KEY}`;
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();
@@ -42,7 +41,7 @@ const apiSettings = {
   },
 
   fetchWhatsPopular: async (type, page) => {
-    const endpoint = `${API_URL}${type}/popular?${QUERY_PARAMETERS}&page=${page}`;
+    const endpoint = `${API_URL}${type}/popular?api_key=${API_KEY}&page=${page}`;
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();

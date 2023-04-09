@@ -2,7 +2,6 @@
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'af7d46d1e35063713f4171c68a2b965c';
 
-const QUERY_PARAMETERS = `api_key=${API_KEY}&language=en-US`;
 const SEARCH_BASE_URL = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=`;
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
 const POPULAR_PERSON_BASE_URL = `${API_URL}person/popular?api_key=${API_KEY}&language=en-US`;
@@ -23,7 +22,6 @@ const POSTER_SIZE = 'w780';
 export {
   SEARCH_BASE_URL,
   POPULAR_BASE_URL,
-  QUERY_PARAMETERS,
   TRENDING_MOVIES_BASE_URL,
   API_URL,
   API_KEY,
