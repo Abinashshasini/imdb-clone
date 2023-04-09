@@ -1,18 +1,14 @@
-'use client';
-import { useRef } from 'react';
 import Hero1 from '../assets/hero1.jpg';
 import Hero2 from '../assets/hero2.jpg';
 import Hero3 from '../assets/hero3.jpg';
 import Hero4 from '../assets/hero4.jpg';
 import Hero5 from '../assets/hero5.jpg';
 import Hero6 from '../assets/hero6.jpg';
+import HeroSearchBar from './HeroSearchBar';
 import handleGenerateRandomNumber from '../utils';
 import styles from '../styles/HeroSection.module.css';
 
 const HeroSection = () => {
-  // * Required States * //
-  const searchText = useRef('');
-
   // * creating image array of object for random images * //
   const images = {
     1: Hero1.src,
@@ -21,11 +17,6 @@ const HeroSection = () => {
     4: Hero4.src,
     5: Hero5.src,
     6: Hero6.src,
-  };
-
-  // * Function to handle search functionalaty * //
-  const handleSearch = (event) => {
-    searchText.current = event.target.value;
   };
 
   return (
@@ -43,16 +34,7 @@ const HeroSection = () => {
           Millions of movies, TV shows and people to discover. Explore now.
         </h3>
       </div>
-      <div className={styles.searchWrapper}>
-        <input
-          type="text"
-          placeholder="Search for a movie, tv show, person...."
-          ref={searchText}
-          onChange={handleSearch}
-          autoComplete="off"
-        />
-        <button>Search</button>
-      </div>
+      <HeroSearchBar />
     </section>
   );
 };
