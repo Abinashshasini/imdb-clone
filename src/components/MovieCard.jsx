@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import Image from 'next/image';
@@ -16,6 +16,9 @@ const MovieCard = ({
   type,
 }) => {
   // * Required states and refs * //
+  const [imagePath, setImagePath] = useState(
+    IMAGE_BASE_URL + POSTER_SIZE + src
+  );
   const componentRef = useRef(null);
   const circleOneRef = useRef(null);
   const circleTwoRef = useRef(null);
@@ -64,10 +67,15 @@ const MovieCard = ({
         }
       >
         <Image
-          src={IMAGE_BASE_URL + POSTER_SIZE + src}
+          src={imagePath}
           alt="Picture of the author"
           width={type === 'small' ? 150 : 180}
           height={100}
+          onError={() =>
+            setImagePath(
+              'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg'
+            )
+          }
         />
         <div className={styles.threeDots}>
           <BsThreeDots />

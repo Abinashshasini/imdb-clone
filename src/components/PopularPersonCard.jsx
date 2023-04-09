@@ -1,16 +1,26 @@
 import Image from 'next/image';
+import { useState } from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../config';
 import styles from '../styles/PopularPersonCard.module.css';
 
 const PopularPersonCard = ({ key, knownFor, department, title, photo }) => {
+  // * Required states for src * //
+  const [imagePath, setImagePath] = useState(
+    IMAGE_BASE_URL + POSTER_SIZE + photo
+  );
   return (
     <div key={key} className={styles.container}>
       <div className={styles.imageContainer}>
         <Image
-          src={IMAGE_BASE_URL + POSTER_SIZE + photo}
+          src={imagePath}
           alt="Picture of the author"
           width={150}
           height={100}
+          onError={() =>
+            setImagePath(
+              'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg'
+            )
+          }
         />
         <div className={styles.departmentCnt}>
           <p className={styles.department}>{department}</p>
