@@ -1,4 +1,4 @@
-.container {
+.containerSmall {
   width: 150px;
   min-width: 150px;
   display: flex;
@@ -8,20 +8,50 @@
   margin-right: 20px;
 }
 
-.imgContainer {
+.containerBig {
+  width: 180px;
+  min-width: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e3e3e3;
+  background-color: #fff;
+  height: 375px;
+}
+
+.imgContainerBig {
+  min-height: 270px;
+  height: 270px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 100%;
-  min-height: calc(150px * 1.5);
-  height: calc(150px * 1.5);
   background: #dbdbdb;
   overflow: hidden;
   position: relative;
   cursor: pointer;
 }
 
-.imgContainer:hover {
+.imgContainerSmall {
+  min-height: calc(150px * 1.5);
+  height: calc(150px * 1.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+
+  background: #dbdbdb;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.imgContainerSmall:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  opacity: 0.9;
+}
+
+.imgContainerBig:hover {
   opacity: 0.9;
 }
 

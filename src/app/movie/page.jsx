@@ -1,7 +1,7 @@
-import DetailsClientCmp from '@/clientComponents/DetailsClientCmp';
 import API from '../../api';
+import ResultsClientCmp from '@/clientComponents/ResultsClientCmp';
 
-export default async function MovieServerPage() {
+export default async function MovieResultsPage() {
   const res = await API.fetchWhatsPopular('movie', 1);
 
   // * This will be caught by the error page and passed to the page as props * //
@@ -9,5 +9,5 @@ export default async function MovieServerPage() {
     throw new Error('Failed to fetch data');
   }
 
-  return <DetailsClientCmp data={res.results} type="movie" />;
+  return <ResultsClientCmp data={res.results} type="movie" />;
 }

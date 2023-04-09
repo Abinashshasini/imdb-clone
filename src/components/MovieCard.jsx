@@ -12,6 +12,7 @@ const MovieCard = ({
   date = '',
   percentage = '',
   key,
+  type,
 }) => {
   // * Required states and refs * //
   const circleOneRef = useRef(null);
@@ -43,12 +44,19 @@ const MovieCard = ({
   }, []);
 
   return (
-    <div className={styles.container} key={key}>
-      <div className={styles.imgContainer}>
+    <div
+      className={type === 'small' ? styles.containerSmall : styles.containerBig}
+      key={key}
+    >
+      <div
+        className={
+          type === 'small' ? styles.imgContainerSmall : styles.imgContainerBig
+        }
+      >
         <Image
           src={IMAGE_BASE_URL + POSTER_SIZE + src}
           alt="Picture of the author"
-          width={150}
+          width={type === 'small' ? 150 : 180}
           height={100}
         />
         <div className={styles.threeDots}>
