@@ -18,10 +18,10 @@ const SectionHeader = ({ title, options, handleGetSelectedTab }) => {
       <div className={styles.optionsWrapper}>
         {options &&
           options.length > 0 &&
-          options.map((element) => (
-            <>
+          options.map((element, index) => (
+            <div key={`${element.name}-${index}`}>
               <input
-                type="checkbox" 
+                type="checkbox"
                 checked={selected === element.name}
                 readOnly
               />
@@ -34,7 +34,7 @@ const SectionHeader = ({ title, options, handleGetSelectedTab }) => {
               >
                 <p>{element.name}</p>
               </span>
-            </>
+            </div>
           ))}
       </div>
     </div>

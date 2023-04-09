@@ -8,9 +8,9 @@ const Header = () => {
     <header className={styles.container}>
       <div className={styles.wrapper}>
         <Image src={Logo} alt="Logo" height={20} width={150} />
-        <h2 className="hidden sm:inline">Movies</h2>
-        <h2 className="hidden sm:inline">TV Shows</h2>
-        <h2 className="hidden sm:inline">More</h2>
+        <h2 className="hidden sm:inline cursor: pointer;">Movies</h2>
+        <h2 className="hidden sm:inline cursor: pointer;">TV Shows</h2>
+        <h2 className="hidden sm:inline cursor: pointer;">More</h2>
       </div>
       <div className={styles.wrapper}>
         <DarkModeSwitch />

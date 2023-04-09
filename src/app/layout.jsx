@@ -1,8 +1,7 @@
-import Header from './components/Header';
+import Header from '../components/Header';
 import Providers from './Providers';
-import HeroSection from './components/HeroSection';
-import Footer from './components/Footer';
-import './globals.css';
+import Footer from '../components/Footer';
+import '../globals.css';
 
 export const metadata = {
   title: 'IMDb clone',
