@@ -11,13 +11,13 @@ const MovieHorizontalCard = ({
   description = '',
 }) => {
   return (
-    <div key={key} className={styles.container}>
+    <div key={`${key}-${title}`} className={styles.container}>
       <div className={styles.imageContainer}>
         <Image
           src={IMAGE_BASE_URL + POSTER_SIZE + src}
           alt="Picture of the author"
-          width={150}
-          height={100}
+          width={94}
+          height={141}
         />
       </div>
       <div className={styles.textContainer}>

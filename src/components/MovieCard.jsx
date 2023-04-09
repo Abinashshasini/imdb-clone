@@ -55,7 +55,7 @@ const MovieCard = ({
   return (
     <div
       className={type === 'small' ? styles.containerSmall : styles.containerBig}
-      key={key}
+      key={`${key}-${title}`}
       ref={componentRef}
     >
       <div
