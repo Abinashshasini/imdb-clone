@@ -17,9 +17,12 @@ const PersonClientCmp = ({ data }) => {
       style={{ flexDirection: 'column', paddingTop: 0 }}
     >
       <h2>Popular Person&apos;s</h2>
+      <div className={containerStyles.loadMore} onClick={handleToggleView}>
+        <p>{toggleView ? 'View Less...' : 'View More...'}</p>
+      </div>
       <div
         className={containerStyles.personsWrapperHidden}
-        style={{ maxHeight: toggleView ? 'max-content' : '490px' }}
+        style={{ maxHeight: toggleView ? 'max-content' : '530px' }}
       >
         <div className={containerStyles.personsWrapper}>
           {data &&
@@ -33,9 +36,6 @@ const PersonClientCmp = ({ data }) => {
                 photo={element.profile_path}
               />
             ))}
-        </div>
-        <div className={containerStyles.loadMore} onClick={handleToggleView}>
-          <p>{toggleView ? 'View Less' : 'View More'}</p>
         </div>
       </div>
     </section>

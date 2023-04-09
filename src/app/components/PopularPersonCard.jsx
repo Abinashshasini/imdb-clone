@@ -26,15 +26,9 @@ const PopularPersonCard = ({ key, knownFor, department, title, photo }) => {
                 key={elemnet.id}
                 className={styles.knownForCard}
                 style={{
-                  background: `linear-gradient(to right, rgba(0,0,0, 0.4) 0%, rgba(0,0,0, 0.4) 100%) ,url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${elemnet.backdrop_path})`,
+                  backgroundImage: `linear-gradient(to right, rgba(0,0,0, 0.5) 0%, rgba(0,0,0, 0.5) 100%) ,url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${elemnet.backdrop_path})`,
                 }}
               >
-                <Image
-                  src={IMAGE_BASE_URL + POSTER_SIZE + elemnet.poster_path}
-                  alt="Picture of the author"
-                  width={35}
-                  height={50}
-                />
                 <div className={styles.textContainer}>
                   <h5>{elemnet.title || elemnet.original_name}</h5>
                   <p>{elemnet.release_date || elemnet.first_air_date}</p>

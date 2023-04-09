@@ -17,6 +17,7 @@
   background: #dbdbdb;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .imgContainer:hover {

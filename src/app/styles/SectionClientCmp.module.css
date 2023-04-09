@@ -8,6 +8,7 @@
   align-items: flex-start;
   transition: height 0.5s linear;
   padding: 20px 100px;
+  position: relative;
 }
 
 .container::-webkit-scrollbar {
@@ -22,15 +23,16 @@
 }
 
 .personsWrapperHidden {
-  box-shadow: 0px 15px 10px -15px #111;
-  position: relative;
+  box-shadow: -10px 14px 8px -20px #111;
   transition: max-height 1s ease-in;
+  overflow: hidden;
+  width: 100%;
 }
 
 .loadMore {
   position: absolute;
   position: absolute;
-  bottom: -15px;
+  bottom: 5px;
   border-radius: 20px;
   background: rgba(3, 37, 65, 1);
   padding: 5px 10px;
@@ -40,6 +42,8 @@
   transform: translate(-50%, 0);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: white;
+  z-index: 30;
+  cursor: pointer;
 }
 
 .loadMore > p {
@@ -49,9 +53,11 @@
 }
 
 .personsWrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
   margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 @media only screen and (max-width: 600px) {
