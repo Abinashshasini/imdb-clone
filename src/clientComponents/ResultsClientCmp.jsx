@@ -1,13 +1,16 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import MovieCard from '@/components/MovieCard';
+import MovieHorizontalCard from '@/components/MovieHorizontalCard';
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-import styles from '../styles/Results.module.css';
+import Loader from '@/skeleton/Loader';
+import styles from '@/styles/Results.module.css';
 import API from '@/api';
+
 const ResultsClientCmp = ({ data: dataFromServer, type }) => {
   // * Required states and refs * //
   const [data, setData] = useState(dataFromServer);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const loadMoreRef = useRef(null);
   const { isIntersecting = false } = useInfiniteScroll(loadMoreRef, {
     threshold: 0,
@@ -39,14 +42,15 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
 
   // * Effect to call API when page changes * //
   useEffect(() => {
-    console.log('pages');
-    handleFetchData();
+    if (isIntersecting) {
+      handleFetchData();
+    }
   }, [page]);
 
   return (
     <div className={styles.container}>
       <h1>{type === 'tv' ? 'Popular TV Shows' : 'Popular Movies'}</h1>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapperGrid}>
         {data &&
           data.length > 0 &&
           data.map((element) => (
@@ -60,8 +64,21 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
             />
           ))}
       </div>
+      <div className={styles.wrapperFlex}>
+        {data &&
+          data.length > 0 &&
+          data.map((element) => (
+            <MovieHorizontalCard
+              key={element.id}
+              src={element.poster_path}
+              title={element.title || element.name}
+              date={element.release_date || element.first_air_date}
+              description={element.overview}
+            />
+          ))}
+      </div>
       <div data-observe={true} ref={loadMoreRef}>
-        loading
+        <Loader />
       </div>
     </div>
   );

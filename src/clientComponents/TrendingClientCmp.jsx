@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import API from '../api';
 import SectionHeader from '../components/SectionHeader';
 import MovieCard from '../components/MovieCard';
-import CardBigSkeleton from '../skeleton/CardBigSkeleton';
+import CardSkeleton from '../skeleton/CardSkeleton';
 import styles from '../styles/SectionClientCmp.module.css';
 
 const TrendingClientCmp = ({ data: dataFromServer }) => {
@@ -65,7 +65,7 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
             />
           ))
         ) : (
-          <CardBigSkeleton />
+          <CardSkeleton />
         )}
       </div>
     </section>

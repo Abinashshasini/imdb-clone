@@ -1,6 +1,5 @@
 .container {
   width: 100%;
-  min-height: 100vh;
   padding: 30px 200px;
 }
 
@@ -9,10 +8,16 @@
   font-weight: 600;
 }
 
-.wrapper {
+.wrapperGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 2rem;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.wrapperFlex {
+  display: none;
   margin-top: 20px;
   padding-bottom: 20px;
 }
@@ -22,8 +27,22 @@
     padding: 20px;
   }
 
-  .departmentCnt {
-    display: flex;
-    align-items: flex-end;
+  .container > h1 {
+    font-size: 1.2em;
+  }
+
+  .wrapperGrid {
+    display: none;
+    visibility: hidden;
+  }
+
+  .wrapperFlex {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 610px) {
+  .container {
+    padding: 30px 80px;
   }
 }

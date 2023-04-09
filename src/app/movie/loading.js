@@ -1,13 +1,5 @@
-import CardBigSkeleton from '@/skeleton/CardBigSkeleton';
-import styles from '../../styles/Results.module.css';
+import CardSkeleton from '@/skeleton/CardSkeleton';
 
 export default function Loading() {
-  return (
-    <div className={styles.container}>
-      <h1>Popular Movies</h1>
-      <div className={styles.wrapper}>
-        <CardBigSkeleton type="large" />
-      </div>
-    </div>
-  );
+  return <CardSkeleton type="large" />;
 }

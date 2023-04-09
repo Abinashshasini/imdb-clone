@@ -1,8 +1,8 @@
 import styles from '../styles/Skeleton.module.css';
 
-const CardBigSkeleton = ({ type = 'small' }) => {
+const CardSkeleton = ({ type = 'small' }) => {
   const dummyArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  return (
+  const SkeletonJSX = () => (
     <>
       {dummyArr.map((element) => (
         <div
@@ -28,6 +28,18 @@ const CardBigSkeleton = ({ type = 'small' }) => {
       ))}
     </>
   );
+
+  return (
+    <>
+      {type === 'small' ? (
+        SkeletonJSX()
+      ) : (
+        <div className={styles.container}>
+          <div className={styles.wrapper}>{SkeletonJSX()}</div>
+        </div>
+      )}
+    </>
+  );
 };
 
-export default CardBigSkeleton;
+export default CardSkeleton;
