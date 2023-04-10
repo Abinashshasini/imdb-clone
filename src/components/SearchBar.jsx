@@ -8,6 +8,7 @@ import styles from '../styles/SearchBar.module.css';
 
 const SearchBar = ({ page }) => {
   const router = useRouter();
+
   // * Required state for search term * //
   const [searchTerm, setSearchTerm] = useState('');
 

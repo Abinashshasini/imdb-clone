@@ -7,6 +7,7 @@ import Loader from '../skeleton/Loader';
 import API from '../api';
 
 const SearchResultsClientCmp = ({ data: dataFromServer }) => {
+  console.log('dataFromServer: ', dataFromServer);
   const { searchTerm } = useParams();
   // * Required states and refs * //
   const [data, setData] = useState(dataFromServer);
@@ -66,21 +67,17 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
     <>
       {data &&
         data.length > 0 &&
-        data.map((element) => {
-          if (element.media_type === 'person') {
-            return null;
-          } else {
-            return (
-              <MovieHorizontalCard
-                id={element.id}
-                src={element.poster_path}
-                title={element.title || element.name}
-                date={element.release_date || element.first_air_date}
-                description={element.overview}
-              />
-            );
-          }
-        })}
+        data.map((element) => (
+          <MovieHorizontalCard
+            id={element.id}
+            src={element.poster_path || element.profile_path}
+            title={element.title || element.name || ''}
+            date={element.release_date || element.first_air_date || ''}
+            description={element.overview || ''}
+            knownFor={element.known_for}
+            mediaType={element.media_type || ''}
+          />
+        ))}
       <div data-observe={true} ref={loadMoreRef}>
         {loading && <Loader />}
       </div>

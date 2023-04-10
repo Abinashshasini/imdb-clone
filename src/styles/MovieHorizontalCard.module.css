@@ -51,6 +51,7 @@
   white-space: nowrap;
   color: #999;
   font-size: 0.8em;
+  text-transform: capitalize;
 }
 
 .textContainer > p {
@@ -62,4 +63,33 @@
   overflow: hidden;
   margin-top: 10px;
   font-size: 0.9rem;
+}
+
+.textContainer > h4 {
+  font-weight: 500;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.textContainer > .knownForContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.textContainer > .knownForContainer > span {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.textContainer > .knownForContainer > span::after {
+  content: ',';
+  margin-left: 1px;
+  position: relative;
+  top: -1px;
+}
+
+.textContainer > .knownForContainer > span:last-child::after {
+  content: none;
 }

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import Image from 'next/image';
-import styles from '..//styles/MovieHorizontalCard.module.css';
+import styles from '../styles/MovieHorizontalCard.module.css';
 
 const MovieHorizontalCard = ({
   src = '',
@@ -10,6 +10,8 @@ const MovieHorizontalCard = ({
   date = '',
   id,
   description = '',
+  knownFor = {},
+  mediaType = '',
 }) => {
   // * Required states for src * //
   const [imagePath, setImagePath] = useState(
@@ -33,7 +35,18 @@ const MovieHorizontalCard = ({
       <div className={styles.textContainer}>
         <h2>{title}</h2>
         <h3>{date}</h3>
-        <p>{description}</p>
+        {mediaType === 'person' && <h3>{mediaType}</h3>}
+        {description && <p>{description}</p>}
+        {knownFor && knownFor.length > 0 && (
+          <>
+            <h4>Known For</h4>
+            <div className={styles.knownForContainer}>
+              {knownFor.map((element) => (
+                <span>{element.original_title}</span>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
