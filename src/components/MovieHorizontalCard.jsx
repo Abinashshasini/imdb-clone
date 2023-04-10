@@ -8,7 +8,7 @@ const MovieHorizontalCard = ({
   src = '',
   title = '',
   date = '',
-  key,
+  id,
   description = '',
 }) => {
   // * Required states for src * //
@@ -16,7 +16,7 @@ const MovieHorizontalCard = ({
     IMAGE_BASE_URL + POSTER_SIZE + src
   );
   return (
-    <div key={`${key}-${title}`} className={styles.container}>
+    <div key={`${id}-${title}`} className={styles.container}>
       <div className={styles.imageContainer}>
         <Image
           src={imagePath}

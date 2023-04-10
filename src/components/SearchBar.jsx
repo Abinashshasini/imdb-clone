@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useKeyPress from '../hooks/useKeyPress';
-import styles from '../styles/HeroSection.module.css';
+import { GoSearch } from 'react-icons/go';
+import { RxCross2 } from 'react-icons/rx';
+import styles from '../styles/SearchBar.module.css';
 
 const SearchBar = ({ page }) => {
   const router = useRouter();
@@ -26,7 +28,17 @@ const SearchBar = ({ page }) => {
   }, [enterKeyPressed]);
 
   return (
-    <div className={styles.searchWrapper}>
+    <div
+      className={
+        page === 'home' ? styles.searchBarHome : styles.searchBarSearch
+      }
+    >
+      {page === 'search' && (
+        <div>
+          <GoSearch />
+        </div>
+      )}
+
       <input
         type="text"
         placeholder="Search for a movie, tv show, person...."
@@ -34,7 +46,14 @@ const SearchBar = ({ page }) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button onClick={handleClicknOnSearch}>Search</button>
+      {page === 'search' && searchTerm.length > 0 && (
+        <div onClick={() => setSearchTerm('')}>
+          <RxCross2 />
+        </div>
+      )}
+      {page === 'home' && (
+        <button onClick={handleClicknOnSearch}>Search</button>
+      )}
     </div>
   );
 };

@@ -4,7 +4,6 @@ import { useParams } from 'next/navigation';
 import MovieHorizontalCard from '../components/MovieHorizontalCard';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import Loader from '../skeleton/Loader';
-import styles from '..//styles/SearchResults.module.css';
 import API from '../api';
 
 const SearchResultsClientCmp = ({ data: dataFromServer }) => {
@@ -12,8 +11,11 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
   // * Required states and refs * //
   const [data, setData] = useState(dataFromServer);
   const [page, setPage] = useState(1);
+  const [isDataAvailable, setIsDataAvailable] = useState(true);
   const [loading, setLoading] = useState(false);
   const loadMoreRef = useRef(null);
+
+  // * Hook for infinite scroll * //
   const { isIntersecting = false } = useInfiniteScroll(loadMoreRef, {
     threshold: 0,
     root: null,
@@ -28,6 +30,8 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
       setLoading(false);
       if (response && response.results && response.results.length > 0) {
         setData([...data, ...response.results]);
+      } else {
+        setIsDataAvailable(false);
       }
     } catch (error) {
       setLoading(false);
@@ -44,22 +48,31 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
 
   // * Effect to call API when page changes * //
   useEffect(() => {
-    if (isIntersecting) {
+    if (isIntersecting && isDataAvailable) {
       handleFetchData();
     }
   }, [page]);
 
+  // * If no data available * //
+  if (data.length === 0) {
+    return (
+      <div>
+        <p>No data found</p>
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.container}>
+    <>
       {data &&
         data.length > 0 &&
         data.map((element) => {
           if (element.media_type === 'person') {
-            return <div>{element.original_name}</div>;
+            return null;
           } else {
             return (
               <MovieHorizontalCard
-                key={element.id}
+                id={element.id}
                 src={element.poster_path}
                 title={element.title || element.name}
                 date={element.release_date || element.first_air_date}
@@ -71,7 +84,7 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
       <div data-observe={true} ref={loadMoreRef}>
         {loading && <Loader />}
       </div>
-    </div>
+    </>
   );
 };
 

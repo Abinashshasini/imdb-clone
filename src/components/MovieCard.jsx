@@ -12,7 +12,7 @@ const MovieCard = ({
   title = '',
   date = '',
   percentage = '',
-  key,
+  id,
   type,
 }) => {
   // * Required states and refs * //
@@ -58,7 +58,7 @@ const MovieCard = ({
   return (
     <div
       className={type === 'small' ? styles.containerSmall : styles.containerBig}
-      key={`${key}-${title}`}
+      key={`${id}-${title}`}
       ref={componentRef}
     >
       <div

@@ -60,7 +60,7 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
           data.map((element) => (
             <MovieCard
               type="large"
-              key={element.id}
+              id={element.id}
               src={element.poster_path}
               title={element.title || element.name}
               date={element.release_date || element.first_air_date}

@@ -8,7 +8,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 610px) {
+@media only screen and (max-width: 1200px) and (min-width: 600px) {
   .container {
     padding: 20px 50px;
   }
