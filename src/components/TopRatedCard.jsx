@@ -19,7 +19,7 @@ const TopRatedCard = ({
           src={IMAGE_BASE_URL + POSTER_SIZE + backdrop}
           alt="Picture of the author"
           width={300}
-          height={165}
+          height={168}
         />
         <div className={styles.payBtnContainer}>
           <BsFillPlayFill />

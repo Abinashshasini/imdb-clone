@@ -52,6 +52,8 @@
 
 .cardContainer img {
   border-radius: 6px;
+  width: auto;
+  height: auto;
 }
 
 .cardImageContaiiner:hover {

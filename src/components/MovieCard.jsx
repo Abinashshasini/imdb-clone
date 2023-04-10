@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import Image from 'next/image';
-import styles from '../styles/MovieCard.module.css';
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import styles from '../styles/MovieCard.module.css';
 
 const MovieCard = ({
   src = '',
@@ -24,11 +24,11 @@ const MovieCard = ({
   const circleTwoRef = useRef(null);
 
   // * Ref to find the component is in dom or not * //
-  const { isIntersecting } = useInfiniteScroll(componentRef, {});
+  const { isIntersecting: isVisible } = useInfiniteScroll(componentRef, {});
 
   // * Effect to calculate the total length of circle if content is available on DOM * //
   useEffect(() => {
-    if (isIntersecting) {
+    if (isVisible) {
       const length = circleTwoRef.current.getTotalLength();
       const _percentage = Math.floor((Number(percentage) * 100) / 10);
       circleTwoRef.current.style.strokeDasharray = length;
@@ -48,12 +48,12 @@ const MovieCard = ({
       // circle fill percentage code
       if (percentage !== 0) {
         circleTwoRef.current.style.strokeDashoffset =
-          100 - (_percentage / 95) * 100;
+          100 - (_percentage / 100) * 100;
       } else {
         circleTwoRef.current.style.strokeDashoffset = length;
       }
     }
-  }, [isIntersecting]);
+  }, [isVisible]);
 
   return (
     <div
@@ -70,7 +70,7 @@ const MovieCard = ({
           src={imagePath}
           alt="Picture of the author"
           width={type === 'small' ? 150 : 180}
-          height={100}
+          height={225}
           onError={() =>
             setImagePath(
               'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg'

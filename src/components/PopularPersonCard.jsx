@@ -15,7 +15,7 @@ const PopularPersonCard = ({ key, knownFor, department, title, photo }) => {
           src={imagePath}
           alt="Picture of the author"
           width={150}
-          height={100}
+          height={225}
           onError={() =>
             setImagePath(
               'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg'
