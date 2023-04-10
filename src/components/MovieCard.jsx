@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import Image from 'next/image';
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import styles from '../styles/MovieCard.module.css';
 
 const MovieCard = ({

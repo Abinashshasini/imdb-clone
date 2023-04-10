@@ -1,5 +1,5 @@
 import API from '../../api';
-import ResultsClientCmp from '@/clientComponents/ResultsClientCmp';
+import ResultsClientCmp from '../../clientComponents/ResultsClientCmp';
 
 export default async function MovieResultsPage() {
   const res = await API.fetchWhatsPopular('movie', 1);

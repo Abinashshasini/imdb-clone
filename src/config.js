@@ -2,10 +2,10 @@
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'af7d46d1e35063713f4171c68a2b965c';
 
-const SEARCH_BASE_URL = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=`;
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
 const POPULAR_PERSON_BASE_URL = `${API_URL}person/popular?api_key=${API_KEY}&language=en-US`;
 const TOPRATED_BASE_URL = `${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US`;
+const SEARCH_BASE_URL = `${API_URL}search/multi?api_key=${API_KEY}&language=en-US`;
 const TRENDING_MOVIES_BASE_URL = `${API_URL}trending/all`;
 
 // For login and voting
@@ -20,7 +20,6 @@ const BACKDROP_SIZE = 'w1280';
 const POSTER_SIZE = 'w780';
 
 export {
-  SEARCH_BASE_URL,
   POPULAR_BASE_URL,
   TRENDING_MOVIES_BASE_URL,
   API_URL,
@@ -33,4 +32,5 @@ export {
   SESSION_ID_URL,
   TOPRATED_BASE_URL,
   POPULAR_PERSON_BASE_URL,
+  SEARCH_BASE_URL,
 };

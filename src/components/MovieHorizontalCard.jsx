@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
-import { IMAGE_BASE_URL, POSTER_SIZE } from '@/config';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import Image from 'next/image';
-import styles from '@/styles/MovieHorizontalCard.module.css';
+import styles from '..//styles/MovieHorizontalCard.module.css';
 
 const MovieHorizontalCard = ({
   src = '',

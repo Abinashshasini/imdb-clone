@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className={styles.container}>
       <Image src={Logo} alt="Logo" height={20} width={150} />
-      <p>© {new Date().getFullYear()} TMDB clone, Inc</p>
+      <p>© {new Date().getFullYear()} IMDB clone, Inc</p>
     </footer>
   );
 };

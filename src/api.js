@@ -1,6 +1,4 @@
 import {
-  SEARCH_BASE_URL,
-  POPULAR_BASE_URL,
   API_URL,
   API_KEY,
   REQUEST_TOKEN_URL,
@@ -9,6 +7,7 @@ import {
   TRENDING_MOVIES_BASE_URL,
   TOPRATED_BASE_URL,
   POPULAR_PERSON_BASE_URL,
+  SEARCH_BASE_URL,
 } from './config';
 
 const defaultConfig = {
@@ -47,11 +46,9 @@ const apiSettings = {
     ).json();
   },
 
-  fetchMovies: async (searchTerm, page) => {
-    const endpoint = searchTerm
-      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
-      : `${POPULAR_BASE_URL}&page=${page}`;
-    return await (await fetch(endpoint)).json();
+  fetchSearchResults: async (searchTerm, page) => {
+    const endpoint = `${SEARCH_BASE_URL}&query=${searchTerm}&page=${page}`;
+    return await (await fetch(endpoint, { next: { revalidate: 10 } })).json();
   },
 
   fetchMovie: async (movieId) => {

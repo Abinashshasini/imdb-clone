@@ -1,10 +1,10 @@
-import HeroSection from '../components/HeroSection';
+import HeroSection from '../clientComponents/HeroSection';
 import TrendingSrvCmp from '../serverComponents/TrendingSrvCmp';
 import PopularSrvCmp from '../serverComponents/PopularSrvCmp';
 import TopRatedSrvCmp from '../serverComponents/TopRatedSrvCmp';
 import styles from './page.module.css';
 import PersonSrvCmp from '../serverComponents/PersonSrvCmp';
-import Footer from '@/components/Footer';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (

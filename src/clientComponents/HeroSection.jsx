@@ -4,7 +4,7 @@ import Hero3 from '../assets/hero3.jpg';
 import Hero4 from '../assets/hero4.jpg';
 import Hero5 from '../assets/hero5.jpg';
 import Hero6 from '../assets/hero6.jpg';
-import HeroSearchBar from './HeroSearchBar';
+import SearchBar from '../components/SearchBar';
 import handleGenerateRandomNumber from '../utils';
 import styles from '../styles/HeroSection.module.css';
 
@@ -34,7 +34,7 @@ const HeroSection = () => {
           Millions of movies, TV shows and people to discover. Explore now.
         </h3>
       </div>
-      <HeroSearchBar />
+      <SearchBar page="home" />
     </section>
   );
 };

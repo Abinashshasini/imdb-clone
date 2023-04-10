@@ -3,7 +3,8 @@ import Providers from './Providers';
 import '../globals.css';
 
 export const metadata = {
-  title: 'IMDb clone',
+  title:
+    'IMDB - Millions of movies, TV shows and people to discover. Explore now.',
   description: 'This is a IMDb clone website',
 };
 

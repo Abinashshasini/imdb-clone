@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import useKeyPress from '@/hooks/useKeyPress';
+import useKeyPress from '../hooks/useKeyPress';
 import styles from '../styles/HeroSection.module.css';
 
-const HeroSearchBar = () => {
+const SearchBar = ({ page }) => {
   const router = useRouter();
   // * Required state for search term * //
   const [searchTerm, setSearchTerm] = useState('');
@@ -12,13 +12,16 @@ const HeroSearchBar = () => {
   const enterKeyPressed = useKeyPress('Enter');
 
   // * Function to handle click on search bar * //
-  const handleClickonSearch = () => {
-    router.push(`/search?searchterm=${searchTerm}`);
+  const handleClicknOnSearch = (e) => {
+    if (searchTerm.length > 0) {
+      setSearchTerm('');
+      router.push(`/search/${searchTerm}`);
+    }
   };
 
   useEffect(() => {
     if (searchTerm.length > 0) {
-      handleClickonSearch();
+      handleClicknOnSearch();
     }
   }, [enterKeyPressed]);
 
@@ -31,9 +34,9 @@ const HeroSearchBar = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button onClick={handleClickonSearch}>Search</button>
+      <button onClick={handleClicknOnSearch}>Search</button>
     </div>
   );
 };
 
-export default HeroSearchBar;
+export default SearchBar;
