@@ -67,15 +67,16 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
     <>
       {data &&
         data.length > 0 &&
-        data.map((element) => (
+        data.map((element, index) => (
           <MovieHorizontalCard
-            id={element.id}
+            id={`${element.id}-${index}`}
             src={element.poster_path || element.profile_path}
             title={element.title || element.name || ''}
             date={element.release_date || element.first_air_date || ''}
             description={element.overview || ''}
             knownFor={element.known_for}
             mediaType={element.media_type || ''}
+            gender={element.gender}
           />
         ))}
       <div data-observe={true} ref={loadMoreRef}>
