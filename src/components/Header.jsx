@@ -12,7 +12,7 @@ const Header = () => {
           <Image src={Logo} alt="Logo" height={20} width={150} />
         </Link>
         <Link href="/movie">
-          <h2 className="hidden sm:inline cursor-pointer">Movies</h2>
+          <h2 className="sm:inline cursor-pointer">Movies</h2>
         </Link>
         <Link href="/tv">
           <h2 className="hidden sm:inline cursor-pointer">TV Shows</h2>

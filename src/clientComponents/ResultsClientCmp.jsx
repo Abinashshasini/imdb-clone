@@ -4,8 +4,8 @@ import MovieCard from '../components/MovieCard';
 import MovieHorizontalCard from '../components/MovieHorizontalCard';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import Loader from '../skeleton/Loader';
-import styles from '../styles/Results.module.css';
 import API from '../api';
+import styles from '../styles/MovieResultsPage.module.css';
 
 const ResultsClientCmp = ({ data: dataFromServer, type }) => {
   // * Required states and refs * //
@@ -52,7 +52,7 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
   }, [page]);
 
   return (
-    <div className={styles.container}>
+    <>
       <h1>{type === 'tv' ? 'Popular TV Shows' : 'Popular Movies'}</h1>
       <div className={styles.wrapperGrid}>
         {data &&
@@ -84,7 +84,7 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
       <div data-observe={true} ref={loadMoreRef}>
         {loading && <Loader />}
       </div>
-    </div>
+    </>
   );
 };
 
