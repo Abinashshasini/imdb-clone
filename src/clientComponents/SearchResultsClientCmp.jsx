@@ -5,9 +5,9 @@ import MovieHorizontalCard from '../components/MovieHorizontalCard';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import Loader from '../skeleton/Loader';
 import API from '../api';
+import styles from '../styles/SearchPage.module.css';
 
 const SearchResultsClientCmp = ({ data: dataFromServer }) => {
-  console.log('dataFromServer: ', dataFromServer);
   const { searchTerm } = useParams();
   // * Required states and refs * //
   const [data, setData] = useState(dataFromServer);
@@ -64,7 +64,7 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       {data &&
         data.length > 0 &&
         data.map((element, index) => (
@@ -82,7 +82,7 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
       <div data-observe={true} ref={loadMoreRef}>
         {loading && <Loader />}
       </div>
-    </>
+    </div>
   );
 };
 
