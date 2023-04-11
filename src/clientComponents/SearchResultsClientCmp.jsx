@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import MovieHorizontalCard from '../components/MovieHorizontalCard';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import Loader from '../skeleton/Loader';
+import NotFound from '../components/NotFound';
 import API from '../api';
 import styles from '../styles/SearchPage.module.css';
 
@@ -57,8 +58,8 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
   // * If no data available * //
   if (data.length === 0) {
     return (
-      <div>
-        <p>No data found</p>
+      <div className={styles.container}>
+        <NotFound />
       </div>
     );
   }

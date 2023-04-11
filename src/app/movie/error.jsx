@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
-import styles from '../../../styles/Error.module.css';
-import ErrorImage from '../../../assets/error.svg';
+import styles from '../../styles/Error.module.css';
+import ErrorImage from '../../assets/error.svg';
 
 export default function Error({ reset }) {
   return (

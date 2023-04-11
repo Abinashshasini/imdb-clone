@@ -9,7 +9,7 @@ const Loading = () => {
           gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
           gap: '2rem',
         }}
-        className="hidden md:grid mt-10 pb-20"
+        className="hidden lg:grid mt-10 pb-20"
       >
         {new Array(16).fill(1).map((_) => (
           <CardSkeleton type="large" />
