@@ -1,7 +1,21 @@
+import Image from 'next/image';
+import SearchImage from '../../assets/search.svg';
+import styles from '../../styles/NotFound.module.css';
+
 const SearchPage = () => {
   return (
-    <div>
-      <h1>SearchPage</h1>
+    <div className={styles.container}>
+      <div className={styles.imageContainer}>
+        <Image
+          src={SearchImage}
+          alt="Search for response"
+          height={250}
+          width={250}
+        />
+      </div>
+      <p className={styles.text}>
+        Empty space so boring!! start searching for a movie, tv show, person....
+      </p>
     </div>
   );
 };
