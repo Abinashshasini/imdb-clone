@@ -64,7 +64,7 @@ const MovieHorizontalCard = ({
           <>
             <h4>Known For</h4>
             <div className={styles.knownForContainer}>
-              {knownFor.map((element) => (
+              {knownFor.slice(0, 2).map((element) => (
                 <span key={element.id}>
                   {element.original_name || element.original_title}
                 </span>

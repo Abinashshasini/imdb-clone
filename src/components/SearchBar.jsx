@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import useKeyPress from '../hooks/useKeyPress';
 import { GoSearch } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
@@ -8,16 +8,16 @@ import styles from '../styles/SearchBar.module.css';
 
 const SearchBar = ({ page }) => {
   const router = useRouter();
+  const { searchTerm: searchedText } = useParams();
 
   // * Required state for search term * //
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(searchedText || '');
 
   const enterKeyPressed = useKeyPress('Enter');
 
   // * Function to handle click on search bar * //
   const handleClicknOnSearch = (e) => {
     if (searchTerm.length > 0) {
-      setSearchTerm('');
       router.push(`/search/${searchTerm}`);
     }
   };
@@ -34,12 +34,7 @@ const SearchBar = ({ page }) => {
         page === 'home' ? styles.searchBarHome : styles.searchBarSearch
       }
     >
-      {page === 'search' && (
-        <div>
-          <GoSearch />
-        </div>
-      )}
-
+      {page === 'search' && <GoSearch />}
       <input
         type="text"
         placeholder="Search for a movie, tv show, person...."
