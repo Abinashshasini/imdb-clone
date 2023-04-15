@@ -3,6 +3,7 @@
   height: calc(100vh / 2);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   color: #fff;
   display: flex;
   flex-wrap: wrap;
@@ -11,7 +12,7 @@
   flex-direction: column;
   align-content: flex-start;
   width: 100%;
-  padding: 30px 100px;
+  padding: 30px 140px;
 }
 
 .textWrapper h1 {
@@ -35,13 +36,17 @@
 
 @media only screen and (max-width: 600px) {
   .container {
-    height: calc(100vh / 2.5);
     padding: 30px 20px;
     background-size: cover;
-    background-position: 100%;
   }
 
   .textWrapper h3 {
     font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 601px) {
+  .container {
+    padding: 30px 60px;
   }
 }
