@@ -60,9 +60,9 @@ const Header = () => {
           <h2 className="hidden sm:inline cursor-pointer">People</h2>
           <h2 className="hidden sm:inline cursor-pointer">More</h2>
           <Link href="/search" className="cursor-pointer">
-            <HiOutlineSearch className="text-xl cursor-pointer hover:text-amber text-white" />
+            <HiOutlineSearch className="text-xl cursor-pointer text-white" />
           </Link>
-          <BiMenu className="md:hidden text-2xl cursor-pointer hover:text-amber text-white" />
+          <BiMenu className="md:hidden text-2xl cursor-pointer text-white" />
         </div>
       </div>
     </header>
