@@ -25,7 +25,7 @@ const Header = () => {
   // * Function to measure scroll position * //
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    if (scrollY > 200) {
+    if (scrollY > 400) {
       setStyle('hide');
     } else {
       setStyle('show');

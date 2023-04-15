@@ -1,4 +1,5 @@
 .container {
+  margin-top: 40px;
   min-height: 360px;
   height: calc(100vh / 2);
   background-size: cover;

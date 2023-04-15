@@ -52,19 +52,21 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
         options={options}
         handleGetSelectedTab={(_params) => setSelectedCategory(_params)}
       />
-      <div className={styles.wrapper}>
-        {!loading && data && data.length > 0
-          ? data.map((element) => (
-              <MovieCard
-                type="small"
-                id={element.id}
-                src={element.poster_path}
-                title={element.title || element.name}
-                date={element.release_date || element.first_air_date}
-                percentage={element.vote_average}
-              />
-            ))
-          : new Array(10).fill(1).map((_) => <CardSkeleton />)}
+      <div className={styles.shadowContainer}>
+        <div className={styles.wrapper}>
+          {!loading && data && data.length > 0
+            ? data.map((element) => (
+                <MovieCard
+                  type="small"
+                  id={element.id}
+                  src={element.poster_path}
+                  title={element.title || element.name}
+                  date={element.release_date || element.first_air_date}
+                  percentage={element.vote_average}
+                />
+              ))
+            : new Array(10).fill(1).map((_) => <CardSkeleton />)}
+        </div>
       </div>
     </section>
   );
