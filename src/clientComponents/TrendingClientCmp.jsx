@@ -46,13 +46,13 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
   }, [selectdCategory]);
 
   return (
-    <section>
+    <section className={styles.container}>
       <SectionHeader
         title="Trending"
         options={options}
         handleGetSelectedTab={(_params) => setSelectedCategory(_params)}
       />
-      <div className={styles.container}>
+      <div className={styles.wrapper}>
         {!loading && data && data.length > 0
           ? data.map((element) => (
               <MovieCard

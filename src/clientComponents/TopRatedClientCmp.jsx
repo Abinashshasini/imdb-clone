@@ -1,8 +1,8 @@
 'use client';
 import TopRatedCard from '../components/TopRatedCard';
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../config';
-import styles from '../styles/TopRatedClientCmp.module.css';
 import handleGenerateRandomNumber from '../utils';
+import styles from '../styles/TopRatedClientCmp.module.css';
 
 const TopRatedClientCmp = ({ data }) => {
   // * Function to handle Clik on Card * //

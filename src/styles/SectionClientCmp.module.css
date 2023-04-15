@@ -1,71 +1,44 @@
 .container {
   width: 100%;
-  min-height: 355px;
+  padding: 0px 140px;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 360px;
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   transition: height 0.5s linear;
-  padding: 20px 100px;
   position: relative;
 }
 
-.container::-webkit-scrollbar {
+.wrapper::-webkit-scrollbar {
   display: none;
 }
 
 .container > h2 {
-  margin-right: 20px;
+  padding: 30px 0;
   white-space: nowrap;
   font-size: 1.5em;
   font-weight: 600;
 }
 
-.personsWrapperHidden {
-  box-shadow: -10px 14px 8px -20px #111;
-  transition: max-height 1s ease-in;
-  overflow: hidden;
-  width: 100%;
-}
-
-.loadMore {
-  position: absolute;
-  position: absolute;
-  bottom: 5px;
-  border-radius: 20px;
-  background: rgba(3, 37, 65, 1);
-  padding: 5px 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  left: 50%;
-  transform: translate(-50%, 0);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  color: white;
-  z-index: 30;
-  cursor: pointer;
-}
-
-.loadMore > p {
-  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.personsWrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 20px;
-  padding-bottom: 20px;
-}
-
 @media only screen and (max-width: 600px) {
   .container {
-    padding: 15px;
+    padding: 0px 20px;
   }
 
   .container > h2 {
+    padding: 20px 0px;
     font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 601px) {
+  .container {
+    padding: 0px 60px;
   }
 }
