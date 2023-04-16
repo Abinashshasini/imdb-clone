@@ -42,6 +42,11 @@
   height: 450px;
   border-radius: 8px;
   position: relative;
+  transition: transform 0.5s;
+}
+
+.imgContainer:hover {
+  transform: scale(1.02);
 }
 
 .imgContainer > img {
@@ -145,6 +150,32 @@
   font-size: 1em;
 }
 
+.crewContainer {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.crewWrapper > h4 {
+  color: #fff;
+  font-size: 1rem;
+  overflow: visible;
+  font-weight: bold;
+  text-overflow: clip;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.crewWrapper > p {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     height: auto;
@@ -204,6 +235,14 @@
   .genres::before,
   .runtime::before {
     content: none;
+  }
+
+  .crewContainer {
+    margin-top: 0;
+    width: 100%;
+    gap: 25px;
+    justify-content: flex-start;
+    padding: 0 20px 20px;
   }
 }
 

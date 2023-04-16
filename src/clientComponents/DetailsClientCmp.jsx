@@ -5,8 +5,8 @@ import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import MediaPlay from '../components/MediaPlay';
 import styles from '../styles/DetailsPage.module.css';
 
-const DetailsClientCmp = ({ data }) => {
-  console.log('data from server ', data);
+const DetailsClientCmp = ({ data, creditsData }) => {
+  console.log('creditsData: ', creditsData);
   // * Destructuring Data * //
   const {
     backdrop_path = '',
@@ -22,6 +22,15 @@ const DetailsClientCmp = ({ data }) => {
     tagline = '',
     overview = '',
   } = data;
+
+  const { cast = [], crew = [] } = creditsData;
+  const mediaCrew = crew?.filter(
+    (element) =>
+      element.job === 'Director' ||
+      element.job === 'Writer' ||
+      element.job === 'Novel' ||
+      element.job === 'Visual Effects'
+  );
   return (
     <>
       <section className={styles.container}>
@@ -53,8 +62,9 @@ const DetailsClientCmp = ({ data }) => {
                 <div className="flex">
                   <div className={styles.certification}>UA</div>
                   <div className={styles.release}>
-                    {release_date || first_air_date} (
-                    {production_countries[0].iso_3166_1})
+                    {release_date || first_air_date}{' '}
+                    {production_countries[0]?.iso_3166_1 &&
+                      `(${production_countries[0]?.iso_3166_1})`}
                   </div>
                 </div>
                 <div className={styles.genres}>
@@ -70,12 +80,21 @@ const DetailsClientCmp = ({ data }) => {
               </div>
             </div>
             <MediaPlay percentage={vote_average} />
-            <div className="px-5 pb-5 md:px-0">
+            <div className="px-5 md:px-0">
               <div className={styles.tagline}>{tagline}</div>
               <div className={styles.overview}>
                 <h3>Overview</h3>
                 <p>{overview}</p>
               </div>
+            </div>
+            <div className={styles.crewContainer}>
+              {mediaCrew?.length > 0 &&
+                mediaCrew.slice(0, 5).map((_crew) => (
+                  <di key={_crew.credit_id} className={styles.crewWrapper}>
+                    <h4>{_crew.name}</h4>
+                    <p>{_crew.known_for_department}</p>
+                  </di>
+                ))}
             </div>
           </div>
         </div>
