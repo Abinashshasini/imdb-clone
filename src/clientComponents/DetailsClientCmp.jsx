@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { handleCalculateTime } from '../utils';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
+import MediaPlay from '../components/MediaPlay';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data }) => {
@@ -16,6 +17,7 @@ const DetailsClientCmp = ({ data }) => {
     first_air_date = '',
     production_countries = [],
     genres = [],
+    vote_average = '',
     runtime = 0,
     tagline = '',
     overview = '',
@@ -67,7 +69,8 @@ const DetailsClientCmp = ({ data }) => {
                 ) : null}
               </div>
             </div>
-            <div className="px-5 py-5 md:px-0 md:py-0">
+            <MediaPlay percentage={vote_average} />
+            <div className="px-5 pb-5 md:px-0">
               <div className={styles.tagline}>{tagline}</div>
               <div className={styles.overview}>
                 <h3>Overview</h3>
