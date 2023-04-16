@@ -4,7 +4,7 @@ const API_KEY = 'af7d46d1e35063713f4171c68a2b965c';
 
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
 const POPULAR_PERSON_BASE_URL = `${API_URL}person/popular?api_key=${API_KEY}&language=en-US`;
-const TOPRATED_BASE_URL = `${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US`;
+const TOPRATED_BASE_URL = `${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&append_to_response=videos`;
 const SEARCH_BASE_URL = `${API_URL}search/multi?api_key=${API_KEY}&language=en-US`;
 const TRENDING_MOVIES_BASE_URL = `${API_URL}trending/all`;
 

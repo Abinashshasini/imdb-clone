@@ -5,6 +5,7 @@ import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import MediaPlay from '../components/MediaPlay';
 import CastClientCmp from '../clientComponents/CastClientCmp';
 import MediaClientCmp from '../clientComponents/MediaClientCmp';
+import MovieReviewsComponent from './MediaReviewsClientCmp';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
@@ -106,6 +107,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
       <section className={styles.sectionTwoContainer}>
         <CastClientCmp cast={cast} crew={crew} />
         <MediaClientCmp videos={videos} images={images} />
+        <MovieReviewsComponent />
       </section>
     </>
   );
