@@ -58,7 +58,7 @@ const MovieCard = ({
   }, [isVisible]);
 
   return (
-    <Link href={`/${resultType}/${id}-${title.split(' ').join('-')}`}>
+    <Link href={`/${resultType}-${id}/${title.split(' ').join('-')}`}>
       <div
         className={
           type === 'small' ? styles.containerSmall : styles.containerBig
