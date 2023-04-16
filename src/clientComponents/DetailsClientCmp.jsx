@@ -3,9 +3,11 @@ import Image from 'next/image';
 import { handleCalculateTime } from '../utils';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import MediaPlay from '../components/MediaPlay';
+import CastClientCmp from '../clientComponents/CastClientCmp';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
+  console.log('data: ', data);
   // * Destructuring Data * //
   const {
     backdrop_path = '',
@@ -98,6 +100,9 @@ const DetailsClientCmp = ({ data, creditsData }) => {
             </div>
           </div>
         </div>
+      </section>
+      <section className={styles.sectionTwoContainer}>
+        <CastClientCmp data={cast} />
       </section>
     </>
   );

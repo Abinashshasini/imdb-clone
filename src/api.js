@@ -59,14 +59,7 @@ const apiSettings = {
 
   // * Movie or Tv Shows details API's * //
   fetchMovieOrTvDetails: async (type, id) => {
-    const endpoint = `${API_URL}${type}/${id}?api_key=${API_KEY}`;
-    return await (
-      await fetch(endpoint, { next: { revalidate: 10000 } })
-    ).json();
-  },
-
-  fetchMovieOrTvVideos: async (type, id) => {
-    const endpoint = `${API_URL}${type}/${id}/videos?api_key=${API_KEY}`;
+    const endpoint = `${API_URL}${type}/${id}?api_key=${API_KEY}&append_to_response=videos,images`;
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();

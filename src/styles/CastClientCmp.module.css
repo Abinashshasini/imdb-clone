@@ -1,0 +1,91 @@
+.container {
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+}
+
+.container > h2 {
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 320px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  transition: height 0.5s linear;
+  position: relative;
+}
+
+.backdropCnt::after {
+  content: '';
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    #fff 100%
+  );
+  will-change: opacity;
+  pointer-events: none;
+  transition: linear 0.3s;
+  opacity: 1;
+}
+
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.cardContainer {
+  min-width: 138px;
+  flex: 1;
+  min-height: 270px;
+  width: 138px;
+  margin-right: 20px;
+  border: 1px solid rgba(227, 227, 227, 1);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer {
+  min-width: 138px;
+  width: 138px;
+  height: 175px;
+  display: block;
+  position: relative;
+}
+
+.imageContainer > img {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  object-fit: cover;
+}
+
+.textContainer {
+  padding: 10px;
+}
+
+.textContainer > h3 {
+  font-weight: bold;
+  color: #000;
+  font-size: 1rem;
+}
+
+.textContainer > p {
+  font-weight: 400;
+  font-size: 0.9em;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}

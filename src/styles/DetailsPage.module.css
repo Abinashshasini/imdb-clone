@@ -176,6 +176,10 @@
   font-size: 0.9rem;
 }
 
+.sectionTwoContainer {
+  padding: 0px 140px;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     height: auto;
@@ -248,10 +252,18 @@
   .crewWrapper {
     width: 40%;
   }
+
+  .sectionTwoContainer {
+    padding: 0px 20px;
+  }
 }
 
 @media only screen and (max-width: 1200px) and (min-width: 610px) {
   .wrapper {
     padding: 30px 60px;
+  }
+
+  .sectionTwoContainer {
+    padding: 0px 60px;
   }
 }

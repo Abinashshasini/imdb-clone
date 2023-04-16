@@ -13,12 +13,12 @@ export default async function MovieDetailsPage({ params }) {
   const creditDetails = await API.fetchMovieOrTvCredits(mediaType, mediaID);
 
   // * This will be caught by the error page and passed to the page as props * //
-  if (!mediaDetails) {
+  if (!mediaDetails || !creditDetails) {
     throw new Error('Failed to fetch data');
   }
 
   return (
-    <main className="mt-14">
+    <main className="pt-14">
       <DetailsClientCmp
         data={mediaDetails}
         creditsData={creditDetails}
