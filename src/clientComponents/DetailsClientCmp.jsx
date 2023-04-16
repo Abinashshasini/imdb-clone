@@ -5,7 +5,7 @@ import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data }) => {
-  console.log('data: ', data);
+  console.log('data from server ', data);
   // * Destructuring Data * //
   const {
     backdrop_path = '',
