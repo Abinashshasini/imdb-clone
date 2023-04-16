@@ -1,6 +1,6 @@
 export default function RootLayout({ children }) {
   return (
-    <main className="mt-14">
+    <main>
       <div>{children}</div>
     </main>
   );

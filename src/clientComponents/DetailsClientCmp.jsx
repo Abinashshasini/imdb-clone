@@ -9,9 +9,11 @@ const DetailsClientCmp = ({ data }) => {
   // * Destructuring Data * //
   const {
     backdrop_path = '',
-    original_title = '',
+    title = '',
+    name = '',
     poster_path = '',
     release_date = '',
+    first_air_date = '',
     production_countries = [],
     genres = [],
     runtime = 0,
@@ -40,30 +42,37 @@ const DetailsClientCmp = ({ data }) => {
           <div className={styles.textContainer}>
             <div>
               <h2 className={styles.title}>
-                {original_title}{' '}
+                {title || name}{' '}
                 <span className={styles.tag_release_date}>
-                  ({release_date.split('-')[0]})
+                  ({release_date.split('-')[0] || first_air_date.split('-')[0]})
                 </span>
               </h2>
               <div className={styles.flexContainer}>
-                <div className={styles.certification}>UA</div>
-                <div className={styles.release}>
-                  {release_date} ({production_countries[0].iso_3166_1})
+                <div className="flex">
+                  <div className={styles.certification}>UA</div>
+                  <div className={styles.release}>
+                    {release_date || first_air_date} (
+                    {production_countries[0].iso_3166_1})
+                  </div>
                 </div>
                 <div className={styles.genres}>
                   {genres?.map((genre) => (
                     <span key={genre.id}>{genre.name}</span>
                   ))}
                 </div>
-                <div className={styles.runtime}>
-                  {handleCalculateTime(runtime)}
-                </div>
+                {runtime ? (
+                  <div className={styles.runtime}>
+                    {handleCalculateTime(runtime)}
+                  </div>
+                ) : null}
               </div>
             </div>
-            <div className={styles.tagline}>{tagline}</div>
-            <div className={styles.overview}>
-              <h3>Overview</h3>
-              <p>{overview}</p>
+            <div className="px-5 py-5 md:px-0 md:py-0">
+              <div className={styles.tagline}>{tagline}</div>
+              <div className={styles.overview}>
+                <h3>Overview</h3>
+                <p>{overview}</p>
+              </div>
             </div>
           </div>
         </div>

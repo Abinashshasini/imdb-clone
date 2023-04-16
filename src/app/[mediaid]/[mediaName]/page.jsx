@@ -12,5 +12,9 @@ export default async function MovieDetailsPage({ params }) {
     throw new Error('Failed to fetch data');
   }
 
-  return <DetailsClientCmp data={response} type={mediaType} />;
+  return (
+    <main className="mt-14">
+      <DetailsClientCmp data={response} type={mediaType} />
+    </main>
+  );
 }
