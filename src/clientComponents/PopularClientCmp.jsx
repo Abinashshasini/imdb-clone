@@ -59,6 +59,7 @@ const PopularClientCmp = ({ data: dataFromServer }) => {
                 <MovieCard
                   type="small"
                   id={element.id}
+                  resultType={element.title ? 'movie' : 'tv'}
                   src={element.poster_path}
                   title={element.title || element.name}
                   date={element.release_date || element.first_air_date}

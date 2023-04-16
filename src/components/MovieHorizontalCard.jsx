@@ -5,6 +5,7 @@ import Image from 'next/image';
 import MaleSvg from '../assets/male.svg';
 import FemaleSvg from '../assets/female.svg';
 import styles from '../styles/MovieHorizontalCard.module.css';
+import Link from 'next/link';
 
 const NOT_FOUND_IMAGE =
   'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg';
@@ -18,6 +19,7 @@ const MovieHorizontalCard = ({
   knownFor = {},
   mediaType = '',
   gender,
+  resultType,
 }) => {
   // * Required states for src * //
   const [imagePath, setImagePath] = useState(
@@ -40,40 +42,42 @@ const MovieHorizontalCard = ({
   };
 
   return (
-    <div key={`${id}-${title}`} className={styles.container}>
-      <div
-        className={styles.imageContainer}
-        style={{
-          backgroundImage: imageError ? 'none' : NOT_FOUND_IMAGE,
-        }}
-      >
-        <Image
-          src={imagePath}
-          alt="Picture of the author"
-          width={94}
-          height={141}
-          onError={handleImageError}
-        />
+    <Link href={`/${resultType}/${id}-${title.split(' ').join('-')}`}>
+      <div key={`${id}-${title}`} className={styles.container}>
+        <div
+          className={styles.imageContainer}
+          style={{
+            backgroundImage: imageError ? 'none' : NOT_FOUND_IMAGE,
+          }}
+        >
+          <Image
+            src={imagePath}
+            alt="Picture of the author"
+            width={94}
+            height={141}
+            onError={handleImageError}
+          />
+        </div>
+        <div className={styles.textContainer}>
+          <h2>{title}</h2>
+          <h3>{date}</h3>
+          {mediaType === 'person' && <h3>{mediaType}</h3>}
+          {description && <p>{description}</p>}
+          {knownFor && knownFor.length > 0 && (
+            <>
+              <h4>Known For</h4>
+              <div className={styles.knownForContainer}>
+                {knownFor.slice(0, 2).map((element) => (
+                  <span key={element.id}>
+                    {element.original_name || element.original_title}
+                  </span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
       </div>
-      <div className={styles.textContainer}>
-        <h2>{title}</h2>
-        <h3>{date}</h3>
-        {mediaType === 'person' && <h3>{mediaType}</h3>}
-        {description && <p>{description}</p>}
-        {knownFor && knownFor.length > 0 && (
-          <>
-            <h4>Known For</h4>
-            <div className={styles.knownForContainer}>
-              {knownFor.slice(0, 2).map((element) => (
-                <span key={element.id}>
-                  {element.original_name || element.original_title}
-                </span>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-    </div>
+    </Link>
   );
 };
 

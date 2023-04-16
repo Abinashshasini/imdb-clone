@@ -18,6 +18,7 @@ const defaultConfig = {
 };
 
 const apiSettings = {
+  // * Trending movies or tv shows * //
   fetchTrendingMovies: async (type) => {
     const endpoint = `${TRENDING_MOVIES_BASE_URL}/${type}?api_key=${API_KEY}`;
     return await (
@@ -25,13 +26,14 @@ const apiSettings = {
     ).json();
   },
 
+  // * Top rated movies * //
   fetchTopRatedMovies: async () => {
     const endpoint = `${TOPRATED_BASE_URL}`;
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();
   },
-
+  // * Popular Persons * //
   fetchPopularPersons: async () => {
     const endpoint = `${POPULAR_PERSON_BASE_URL}`;
     return await (
@@ -39,6 +41,7 @@ const apiSettings = {
     ).json();
   },
 
+  // * Popular movie or tv shows * //
   fetchWhatsPopular: async (type, page) => {
     const endpoint = `${API_URL}${type}/popular?api_key=${API_KEY}&page=${page}`;
     return await (
@@ -46,27 +49,58 @@ const apiSettings = {
     ).json();
   },
 
+  // * Search movies tv shows or persons * //
   fetchSearchResults: async (searchTerm, page) => {
     const endpoint = `${SEARCH_BASE_URL}&query=${searchTerm}&page=${page}`;
-    return await (await fetch(endpoint, { next: { revalidate: 10 } })).json();
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
   },
 
-  fetchMovie: async (movieId) => {
-    const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
-    return await (await fetch(endpoint)).json();
+  // * Movie or Tv Shows details API's * //
+  fetchMovieOrTvDetails: async (type, id) => {
+    const endpoint = `${API_URL}${type}/${id}?api_key=${API_KEY}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
   },
 
-  fetchMovieVideo: async (movieId) => {
-    const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
-    return await (await fetch(endpoint)).json();
-  },  
-
-  fetchCredits: async (movieId) => {
-    const creditsEndpoint = `${API_URL}movie/${movieId}/videos?api_key=${API_KEY}`;
-    return await (await fetch(creditsEndpoint)).json();
+  fetchMovieOrTvVideos: async (type, id) => {
+    const endpoint = `${API_URL}${type}/${id}/videos?api_key=${API_KEY}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
   },
 
-  // Bonus material below for login
+  fetchMovieOrTvCredits: async (type, id) => {
+    const endpoint = `${API_URL}${type}/${id}/credits?api_key=${API_KEY}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
+  },
+
+  fetchMovieOrTvSimilar: async (type, id) => {
+    const endpoint = `${API_URL}${type}/${id}/similar?api_key=${API_KEY}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
+  },
+
+  fetchMovieOrTvRecomendation: async (type, id) => {
+    const endpoint = `${API_URL}${type}/${id}/recommendations?api_key=${API_KEY}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
+  },
+
+  fetchMovieOrTvReviews: async (type, id) => {
+    const endpoint = `${API_URL}${type}/${id}/reviews?api_key=${API_KEY}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
+  },
+
+  // * Login and authentication * //
   getRequestToken: async () => {
     const reqToken = await (await fetch(REQUEST_TOKEN_URL)).json();
     return reqToken.request_token;

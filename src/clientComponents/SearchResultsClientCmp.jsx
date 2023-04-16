@@ -9,6 +9,7 @@ import API from '../api';
 import styles from '../styles/SearchPage.module.css';
 
 const SearchResultsClientCmp = ({ data: dataFromServer }) => {
+  console.log('dataFromServer: ', dataFromServer);
   const { searchTerm } = useParams();
   // * Required states and refs * //
   const [data, setData] = useState(dataFromServer);
@@ -71,6 +72,7 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
         data.map((element, index) => (
           <MovieHorizontalCard
             id={`${element.id}-${index}`}
+            resultType={element.media_type}
             src={element.poster_path || element.profile_path}
             title={element.title || element.name || ''}
             date={element.release_date || element.first_air_date || ''}

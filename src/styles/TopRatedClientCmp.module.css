@@ -14,7 +14,7 @@
 .heading {
   font-size: 1.5em;
   font-weight: 600;
-  padding: 20px 0;
+  padding-top: 20px;
   color: #fff;
   padding-left: 40px;
 }
@@ -27,6 +27,7 @@
   align-items: center;
   flex-wrap: nowrap;
   transition: height 0.5s linear;
+  padding: 20px 0;
 }
 
 .innerWrapper::-webkit-scrollbar {
@@ -34,7 +35,7 @@
 }
 
 .cardContainer {
-  margin-right: 20px;
+  margin-right: 30px;
   display: flex;
   flex-wrap: wrap;
   width: 300px;
@@ -52,6 +53,7 @@
   background: #dbdbdb;
   position: relative;
   opacity: 0.8;
+  transition: transform 0.5s;
 }
 
 .cardContainer img {
@@ -63,6 +65,7 @@
 .cardImageContaiiner:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .payBtnContainer {

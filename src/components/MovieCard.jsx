@@ -2,8 +2,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
-import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
+import Link from 'next/link';
 import Image from 'next/image';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import styles from '../styles/MovieCard.module.css';
 
@@ -14,6 +15,7 @@ const MovieCard = ({
   percentage = '',
   id,
   type,
+  resultType,
 }) => {
   // * Required states and refs * //
   const [imagePath, setImagePath] = useState(
@@ -56,57 +58,61 @@ const MovieCard = ({
   }, [isVisible]);
 
   return (
-    <div
-      className={type === 'small' ? styles.containerSmall : styles.containerBig}
-      key={`${id}-${title}`}
-      ref={componentRef}
-    >
+    <Link href={`/${resultType}/${id}-${title.split(' ').join('-')}`}>
       <div
         className={
-          type === 'small' ? styles.imgContainerSmall : styles.imgContainerBig
+          type === 'small' ? styles.containerSmall : styles.containerBig
         }
+        key={`${id}-${title}`}
+        ref={componentRef}
       >
-        <Image
-          src={imagePath}
-          alt="Picture of the author"
-          width={type === 'small' ? 150 : 180}
-          height={225}
-          onError={() =>
-            setImagePath(
-              'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg'
-            )
+        <div
+          className={
+            type === 'small' ? styles.imgContainerSmall : styles.imgContainerBig
           }
-        />
-        <div className={styles.threeDots}>
-          <BsThreeDots />
-        </div>
-      </div>
-      <div className={styles.textContainer}>
-        <div className={styles.percentageContainer}>
-          <div className={styles.percentage}>
-            {percentage ? Math.floor((Number(percentage) * 100) / 10) : 0}%
+        >
+          <Image
+            src={imagePath}
+            alt="Picture of the author"
+            width={type === 'small' ? 150 : 180}
+            height={225}
+            onError={() =>
+              setImagePath(
+                'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg'
+              )
+            }
+          />
+          <div className={styles.threeDots}>
+            <BsThreeDots />
           </div>
-          <svg width="40" height="40">
-            <circle
-              className={styles.circle1}
-              cx="17"
-              cy="20"
-              r="15"
-              ref={circleOneRef}
-            ></circle>
-            <circle
-              className={styles.circle2}
-              cx="17"
-              cy="20"
-              r="15"
-              ref={circleTwoRef}
-            ></circle>
-          </svg>
         </div>
-        <h3>{title}</h3>
-        <p>{date}</p>
+        <div className={styles.textContainer}>
+          <div className={styles.percentageContainer}>
+            <div className={styles.percentage}>
+              {percentage ? Math.floor((Number(percentage) * 100) / 10) : 0}%
+            </div>
+            <svg width="40" height="40">
+              <circle
+                className={styles.circle1}
+                cx="17"
+                cy="20"
+                r="15"
+                ref={circleOneRef}
+              ></circle>
+              <circle
+                className={styles.circle2}
+                cx="17"
+                cy="20"
+                r="15"
+                ref={circleTwoRef}
+              ></circle>
+            </svg>
+          </div>
+          <h3>{title}</h3>
+          <p>{date}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -58,6 +58,7 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
             ? data.map((element) => (
                 <MovieCard
                   type="small"
+                  resultType={element.media_type}
                   id={element.id}
                   src={element.poster_path}
                   title={element.title || element.name}
