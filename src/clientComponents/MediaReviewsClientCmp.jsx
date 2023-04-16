@@ -1,6 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import { AiTwotoneStar } from 'react-icons/ai';
 import API from '../api';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
+import NoUserSvg from '../assets/male.svg';
+import Image from 'next/image';
+import styles from '../styles/MediaReviewsCmp.module.css';
+
+const ReviewImageCmp = ({ src }) => {
+  // * Required states for src * //
+  const [imagePath, setImagePath] = useState(
+    IMAGE_BASE_URL + POSTER_SIZE + src
+  );
+
+  // * Function to handle image erro * //
+  const handleImageError = () => {
+    setImagePath(NoUserSvg);
+  };
+
+  return (
+    <Image
+      src={imagePath}
+      alt="Picture of the author"
+      fill
+      onError={handleImageError}
+    />
+  );
+};
 
 export default function MovieReviewsComponent() {
   const { mediaid } = useParams();
@@ -10,7 +36,6 @@ export default function MovieReviewsComponent() {
 
   // * Required state for reviews * //
   const [data, setData] = useState([]);
-  console.log('data: ', data);
   const [loading, setLoading] = useState(false);
 
   // * Function to fetch media reviews * //
@@ -36,8 +61,46 @@ export default function MovieReviewsComponent() {
   }, []);
 
   return (
-    <div>
-      <h1>Media review details</h1>
-    </div>
+    <>
+      {data.length > 0 && (
+        <div className={styles.container}>
+          <h2>Social</h2>
+          <div className={styles.backdropCnt}>
+            <div className={styles.wrapper}>
+              {data.map((element) => (
+                <div className={styles.cardContainer}>
+                  <div className={styles.cardContainerLeft}>
+                    <ReviewImageCmp src={element.author_details.avatar_path} />
+                  </div>
+                  <div className={styles.cardContainerRight}>
+                    <div className={styles.userNameContainer}>
+                      <h2>A review by {element.author}</h2>
+                      {element.author_details.rating && (
+                        <div className={styles.ratingContainer}>
+                          {element.author_details.rating}
+                          <AiTwotoneStar className="text-m cursor-pointer text-white" />
+                        </div>
+                      )}
+                    </div>
+                    <p className={styles.description}>
+                      Written on{' '}
+                      {new Date(element.created_at).toLocaleDateString(
+                        'en-US',
+                        {
+                          weekday: 'long',
+                          month: 'short',
+                          day: 'numeric',
+                        }
+                      )}
+                    </p>
+                    <h5 className={styles.ratingContent}>{element.content}</h5>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
