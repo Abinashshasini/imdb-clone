@@ -104,7 +104,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
         </div>
       </section>
       <section className={styles.sectionTwoContainer}>
-        <CastClientCmp data={cast} />
+        <CastClientCmp cast={cast} crew={crew} />
         <MediaClientCmp videos={videos} images={images} />
       </section>
     </>

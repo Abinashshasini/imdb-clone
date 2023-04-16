@@ -9,7 +9,6 @@ import API from '../api';
 import styles from '../styles/SearchPage.module.css';
 
 const SearchResultsClientCmp = ({ data: dataFromServer }) => {
-  console.log('dataFromServer: ', dataFromServer);
   const { searchTerm } = useParams();
   // * Required states and refs * //
   const [data, setData] = useState(dataFromServer);

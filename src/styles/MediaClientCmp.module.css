@@ -35,7 +35,7 @@
 
 .wrapper {
   width: 100%;
-  min-height: 320px;
+  min-height: 240px;
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
@@ -44,6 +44,9 @@
   flex-wrap: nowrap;
   transition: height 0.5s linear;
   position: relative;
+  margin: 20px 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .backdropCnt::after {
@@ -68,49 +71,43 @@
   display: none;
 }
 
-.cardContainer {
-  min-width: 138px;
-  flex: 1;
-  min-height: 270px;
-  width: 138px;
-  margin-right: 20px;
-  border: 1px solid rgba(227, 227, 227, 1);
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.imageContainer {
-  min-width: 138px;
-  width: 138px;
-  height: 175px;
-  display: block;
+.youtubeContainer,
+.backdropContainer {
   position: relative;
-}
-
-.imageContainer > img {
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
+  height: 200px;
+  width: 350px;
+  min-width: 350px;
   object-fit: cover;
 }
 
-.textContainer {
-  padding: 10px;
+.youtubeContainer:hover,
+.backdropContainer:hover {
+  opacity: 0.9;
 }
 
-.textContainer > h3 {
-  font-weight: bold;
-  color: #000;
-  font-size: 1rem;
+.playIcnContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.textContainer > p {
-  font-weight: 400;
-  font-size: 0.9em;
-  text-overflow: ellipsis;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
+.playIcnContainer > svg {
+  height: 60px;
+  width: 60px;
+  color: #fff;
+  transition: transform 0.5s;
+}
+
+.playIcnContainer:hover > svg {
+  transform: scale(1.5);
+}
+
+.youtubeContainer:first-child > img,
+.backdropContainer:first-child > img {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {

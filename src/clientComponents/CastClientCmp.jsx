@@ -30,14 +30,14 @@ const CastImageCmp = ({ src, gender }) => {
   );
 };
 
-const CastClientCmp = ({ data }) => {
+const CastClientCmp = ({ cast, crew }) => {
   // * Required state for error handeling * //
   return (
     <div className={styles.container}>
       <h2>Top Billed Cast</h2>
       <div className={styles.backdropCnt}>
         <div className={styles.wrapper}>
-          {data?.map((element) => (
+          {cast?.map((element) => (
             <div className={styles.cardContainer}>
               <div className={styles.imageContainer}>
                 <CastImageCmp
@@ -51,6 +51,21 @@ const CastClientCmp = ({ data }) => {
               </div>
             </div>
           ))}
+          {cast?.length <= 3 &&
+            crew?.map((element) => (
+              <div className={styles.cardContainer}>
+                <div className={styles.imageContainer}>
+                  <CastImageCmp
+                    src={element.profile_path}
+                    gender={element.gender}
+                  />
+                </div>
+                <div className={styles.textContainer}>
+                  <h3>{element.name}</h3>
+                  <p>{element.job}</p>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>
