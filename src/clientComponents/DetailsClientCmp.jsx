@@ -4,10 +4,10 @@ import { handleCalculateTime } from '../utils';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import MediaPlay from '../components/MediaPlay';
 import CastClientCmp from '../clientComponents/CastClientCmp';
+import MediaClientCmp from '../clientComponents/MediaClientCmp';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
-  console.log('data: ', data);
   // * Destructuring Data * //
   const {
     backdrop_path = '',
@@ -22,6 +22,8 @@ const DetailsClientCmp = ({ data, creditsData }) => {
     runtime = 0,
     tagline = '',
     overview = '',
+    videos = {},
+    images = {},
   } = data;
 
   const { cast = [], crew = [] } = creditsData;
@@ -103,6 +105,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
       </section>
       <section className={styles.sectionTwoContainer}>
         <CastClientCmp data={cast} />
+        <MediaClientCmp videos={videos} images={images} />
       </section>
     </>
   );

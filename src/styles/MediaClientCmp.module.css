@@ -4,15 +4,38 @@
   position: relative;
 }
 
-.container > h2 {
+.headingContainer {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.headingContainer > h2 {
   font-weight: 600;
   font-size: 1.4em;
   margin-bottom: 20px;
+  margin: 0;
+}
+
+.tabsContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.tabsContainer > .tabs {
+  color: #000;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.activeTab {
+  border-bottom: 3px solid #000;
 }
 
 .wrapper {
   width: 100%;
-  min-height: 280px;
+  min-height: 320px;
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
@@ -88,4 +111,18 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .headingContainer {
+    gap: 20px;
+  }
+
+  .tabsContainer {
+    gap: 10px;
+  }
+
+  .tabs {
+    font-size: 0.9rem;
+  }
 }
