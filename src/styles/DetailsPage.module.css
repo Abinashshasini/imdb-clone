@@ -152,12 +152,12 @@
 
 .crewContainer {
   display: flex;
-  gap: 40px;
+  gap: 10px 40px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 70%;
+  width: 80%;
   margin-top: 20px;
 }
 
@@ -244,11 +244,14 @@
     justify-content: flex-start;
     padding: 0 20px 20px;
   }
+
+  .crewWrapper {
+    width: 40%;
+  }
 }
 
 @media only screen and (max-width: 1200px) and (min-width: 610px) {
   .wrapper {
-    padding: 30px 40px;
-    padding: 20px;
+    padding: 30px 60px;
   }
 }

@@ -6,7 +6,6 @@ import MediaPlay from '../components/MediaPlay';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
-  console.log('creditsData: ', creditsData);
   // * Destructuring Data * //
   const {
     backdrop_path = '',
@@ -29,7 +28,8 @@ const DetailsClientCmp = ({ data, creditsData }) => {
       element.job === 'Director' ||
       element.job === 'Writer' ||
       element.job === 'Novel' ||
-      element.job === 'Visual Effects'
+      element.job === 'Visual Effects' ||
+      element.job === 'Executive Producer'
   );
   return (
     <>
@@ -90,10 +90,10 @@ const DetailsClientCmp = ({ data, creditsData }) => {
             <div className={styles.crewContainer}>
               {mediaCrew?.length > 0 &&
                 mediaCrew.slice(0, 5).map((_crew) => (
-                  <di key={_crew.credit_id} className={styles.crewWrapper}>
+                  <div key={_crew.credit_id} className={styles.crewWrapper}>
                     <h4>{_crew.name}</h4>
                     <p>{_crew.known_for_department}</p>
-                  </di>
+                  </div>
                 ))}
             </div>
           </div>
