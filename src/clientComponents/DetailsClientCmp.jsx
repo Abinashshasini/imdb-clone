@@ -6,8 +6,9 @@ import MediaPlay from '../components/MediaPlay';
 import CastClientCmp from '../clientComponents/CastClientCmp';
 import MediaClientCmp from '../clientComponents/MediaClientCmp';
 import MovieReviewsComponent from './MediaReviewsClientCmp';
-import SimilarMoviesComponent from './SimilarMoviesClientCmp';
+import SimilarMediaComponent from './SimilarMediaClientCmp';
 import styles from '../styles/DetailsPage.module.css';
+import Footer from '../components/Footer';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
   // * Destructuring Data * //
@@ -109,8 +110,9 @@ const DetailsClientCmp = ({ data, creditsData }) => {
         <CastClientCmp cast={cast} crew={crew} />
         <MediaClientCmp videos={videos} images={images} />
         <MovieReviewsComponent />
-        <SimilarMoviesComponent />
+        <SimilarMediaComponent />
       </section>
+      <Footer />
     </>
   );
 };

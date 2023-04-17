@@ -6,7 +6,7 @@ import MovieCard from '../components/MovieCard';
 import CardSkeleton from '../skeleton/CardSkeleton';
 import styles from '../styles/SectionClientCmp.module.css';
 
-const SimilarMoviesComponent = ({ data: dataFromServer }) => {
+const SimilarMediaComponent = ({ data: dataFromServer }) => {
   const { mediaid } = useParams();
   // * Getting the movie id from props * //
   const mediaID = mediaid.split('-')[1];
@@ -61,4 +61,4 @@ const SimilarMoviesComponent = ({ data: dataFromServer }) => {
   );
 };
 
-export default SimilarMoviesComponent;
+export default SimilarMediaComponent;
