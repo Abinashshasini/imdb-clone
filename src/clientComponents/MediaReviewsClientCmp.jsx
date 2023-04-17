@@ -64,7 +64,7 @@ export default function MovieReviewsComponent() {
     <>
       {data.length > 0 && (
         <div className={styles.container}>
-          <h2>Social</h2>
+          <h2>Social Reviews</h2>
           <div className={styles.backdropCnt}>
             <div className={styles.wrapper}>
               {data.map((element) => (
