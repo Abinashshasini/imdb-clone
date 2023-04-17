@@ -11,6 +11,7 @@ const TopRatedCard = ({
   backdrop = '',
   releaseDate = '',
   handelClickOnCard,
+  handleMouseOver
 }) => {
   return (
     <div key={key} className={styles.cardContainer} onClick={handelClickOnCard}>
@@ -20,6 +21,7 @@ const TopRatedCard = ({
           alt="Picture of the author"
           width={300}
           height={168}
+          onMouseOver={() => handleMouseOver(backdrop)}
         />
         <div className={styles.payBtnContainer}>
           <BsFillPlayFill />
