@@ -5,7 +5,7 @@
 
 .wrapper {
   min-height: 380px;
-  background-position: top;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   transition: all 0.5s;
