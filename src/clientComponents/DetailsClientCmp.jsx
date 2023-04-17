@@ -6,6 +6,7 @@ import MediaPlay from '../components/MediaPlay';
 import CastClientCmp from '../clientComponents/CastClientCmp';
 import MediaClientCmp from '../clientComponents/MediaClientCmp';
 import MovieReviewsComponent from './MediaReviewsClientCmp';
+import SimilarMoviesComponent from './SimilarMoviesClientCmp';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
@@ -108,6 +109,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
         <CastClientCmp cast={cast} crew={crew} />
         <MediaClientCmp videos={videos} images={images} />
         <MovieReviewsComponent />
+        <SimilarMoviesComponent />
       </section>
     </>
   );

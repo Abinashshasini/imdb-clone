@@ -79,13 +79,6 @@ const apiSettings = {
     ).json();
   },
 
-  fetchMovieOrTvRecomendation: async (type, id) => {
-    const endpoint = `${API_URL}${type}/${id}/recommendations?api_key=${API_KEY}`;
-    return await (
-      await fetch(endpoint, { next: { revalidate: 10000 } })
-    ).json();
-  },
-
   fetchMovieOrTvReviews: async (type, id) => {
     const endpoint = `${API_URL}${type}/${id}/reviews?api_key=${API_KEY}`;
     return await (

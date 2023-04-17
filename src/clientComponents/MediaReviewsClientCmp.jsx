@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { AiTwotoneStar } from 'react-icons/ai';
@@ -43,7 +44,6 @@ export default function MovieReviewsComponent() {
     setLoading(true);
     try {
       const response = await API.fetchMovieOrTvReviews(mediaType, mediaID);
-      console.log('response: ', response);
       if (response) {
         setData(response.results);
         setLoading(false);
