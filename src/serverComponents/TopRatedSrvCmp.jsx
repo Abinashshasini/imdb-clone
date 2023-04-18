@@ -1,13 +1,43 @@
 import API from '../api';
-import TopRatedClientCmp from '../clientComponents/TopRatedClientCmp';
+import Carousel from '../components/Carousel';
 
 export default async function TopRatedSrvCmp() {
-  const topRatedData = await API.fetchTopRatedMovies();
+  // * Fetching data * //
+  const response = await API.fetchCarouselData({
+    type: 'movie',
+    category: 'top_rated',
+    page: 1,
+  });
+
+  // * options for popular movie section * //
+  const options = [
+    {
+      id: 1,
+      name: 'Movies',
+      category: 'movie',
+    },
+    {
+      id: 2,
+      name: 'TV Shows',
+      category: 'tv',
+    },
+  ];
 
   // * This will be caught by the error page and passed to the page as props * //
-  if (!topRatedData) {
+  if (!response) {
     throw new Error('Failed to fetch data');
   }
 
-  return <TopRatedClientCmp data={topRatedData.results} />;
+  return (
+    <Carousel
+      data={response.results}
+      options={options}
+      title="Toprated"
+      apiParams={{
+        type: 'movie',
+        category: 'top_rated',
+        page: 1,
+      }}
+    />
+  );
 }

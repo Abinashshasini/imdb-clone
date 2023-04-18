@@ -33,7 +33,6 @@ const Header = () => {
 
   // * Effect to listin to the window scroll event * //
   useEffect(() => {
-    window.scrollTo(0, 0);
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);

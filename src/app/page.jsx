@@ -13,8 +13,8 @@ export default function Home() {
       <section className={styles.carouselWrapper}>
         <TrendingSrvCmp />
         <PopularSrvCmp />
-        {/* <TopRatedSrvCmp />
-        <PersonSrvCmp /> */}
+        <TopRatedSrvCmp />
+        {/* <PersonSrvCmp /> */}
       </section>
       <Footer />
     </main>
