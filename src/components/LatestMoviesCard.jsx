@@ -2,16 +2,16 @@
 import Image from 'next/image';
 import { BsThreeDots, BsFillPlayFill } from 'react-icons/bs';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
-import styles from '../styles/TopRatedClientCmp.module.css';
+import styles from '../styles/LatestMovies.module.css';
 
-const TopRatedCard = ({
+const LatestMoviesCard = ({
   key = '',
   title = '',
   description = '',
   backdrop = '',
   releaseDate = '',
   handelClickOnCard,
-  handleMouseOver
+  handleMouseOver,
 }) => {
   return (
     <div key={key} className={styles.cardContainer} onClick={handelClickOnCard}>
@@ -39,4 +39,4 @@ const TopRatedCard = ({
   );
 };
 
-export default TopRatedCard;
+export default LatestMoviesCard;
