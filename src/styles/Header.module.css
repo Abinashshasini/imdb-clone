@@ -12,19 +12,6 @@
   transition: all ease 0.5s;
 }
 
-.top {
-  backdrop-filter: blur(3.5px);
-  background: rgba(3, 29, 51, 0.75);
-}
-
-.show {
-  background-color: red;
-}
-
-.hide {
-  background-color: green;
-}
-
 .container {
   display: flex;
   justify-content: space-between;

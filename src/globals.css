@@ -3,13 +3,13 @@
 :root {
   --lightGrey: rgb(227, 227, 227);
   --darkerGrey: rgb(200, 200, 200);
-  --tmdbDarkBlue: rgb(3, 37, 65);
-  --tmdbLightBlue: rgb(1, 180, 228);
-  --tmdbLighterGreen: rgb(192, 254, 207);
-  --tmdbLightGreen: rgb(30, 213, 169);
-  --tmdbLogoGreen: rgb(144, 206, 161);
-  --tmdbLogoOrange: rgb(253, 193, 112);
-  --tmdbLogoRed: rgb(217, 59, 99);
+  --DarkBlue: rgb(3, 37, 65);
+  --LightBlue: rgb(1, 180, 228);
+  --LighterGreen: rgb(192, 254, 207);
+  --LightGreen: rgb(30, 213, 169);
+  --LogoGreen: rgb(144, 206, 161);
+  --LogoOrange: rgb(253, 193, 112);
+  --LogoRed: rgb(217, 59, 99);
   --accountSilver: rgb(149, 149, 149);
   --accountPink: rgb(234, 20, 140);
   --accountPurple: rgb(128, 91, 231);
@@ -25,6 +25,7 @@
 body {
   -webkit-tap-highlight-color: transparent;
   font-family: 'Source Sans Pro', Arial, sans-serif;
+  background-color: var(--DarkBlue);
 }
 
 @tailwind base;

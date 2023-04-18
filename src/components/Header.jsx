@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import DarkModeSwitch from './DarkModeSwitch';
 import Logo from '../assets/logo.svg';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { BiMenu } from 'react-icons/bi';
