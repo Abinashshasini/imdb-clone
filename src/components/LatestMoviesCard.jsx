@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { BsThreeDots, BsFillPlayFill } from 'react-icons/bs';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import API from '../api';
+import VideoPopUp from '../components/VideoPopUp';
 import styles from '../styles/LatestMovies.module.css';
 
 const LatestMoviesCard = ({
@@ -14,6 +15,8 @@ const LatestMoviesCard = ({
   releaseDate = '',
   handleMouseOver,
 }) => {
+  // * Required states for playing video * //
+  const [showTrailer, setShowTrailer] = useState(false);
   const [trailerKey, setTrailerKey] = useState('');
 
   // * Function to handle Clik on Card * //
@@ -21,10 +24,11 @@ const LatestMoviesCard = ({
     try {
       const response = await API.fetchMovieOrTvDetails('movie', id);
       if (response?.videos?.results.length > 0) {
-        const officialTrailer = response.videos.results.filter(
-          (video) => video.name === 'Official Trailer'
+        const officialTrailer = response.videos.results.filter((video) =>
+          video.name.includes('Official Trailer')
         );
-        setTrailerKey(officialTrailer.key);
+        setTrailerKey(officialTrailer[0].key);
+        setShowTrailer(true);
       }
     } catch (error) {
       console.error(
@@ -55,6 +59,13 @@ const LatestMoviesCard = ({
         <h4>{description}</h4>
         <p>{releaseDate}</p>
       </div>
+      {showTrailer && (
+        <VideoPopUp
+          setShowTrailer={setShowTrailer}
+          trailerKey={trailerKey}
+          setTrailerKey={setTrailerKey}
+        />
+      )}
     </div>
   );
 };

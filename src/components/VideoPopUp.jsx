@@ -1,22 +1,24 @@
-import ReactPlayer from 'react-player/youtube';
-import { GrClose } from 'react-icons/gr';
+import ReactPlayer from 'react-player';
+import { AiOutlineClose } from 'react-icons/ai';
+import styles from '../styles/VideoPopUp.module.css';
 
-const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
+const VideoPopup = ({ setShowTrailer, trailerKey, setTrailerKey }) => {
   // * Function to hide pop video pop up * //
-  const handleHidePopup = () => {
-    setShow(false);
-    setVideoId(null);
+  const handleHidePopup = (e) => {
+    e.stopPropagation();
+    setShowTrailer(false);
+    setTrailerKey('');
   };
 
   return (
-    <div className={`videoPopup ${show ? 'visible' : ''}`}>
-      <div className="opacityLayer" onClick={handleHidePopup}></div>
-      <div className="videoPlayer">
-        <span className="closeBtn" onClick={handleHidePopup}>
-          <GrClose />
+    <div className={styles.container} onClick={(e) => handleHidePopup(e)}>
+      <div className={styles.videoCnt}>
+        <span className={styles.closeIcon} onClick={(e) => handleHidePopup(e)}>
+          close
+          <AiOutlineClose />
         </span>
         <ReactPlayer
-          url={`https://www.youtube.com/watch?v=${videoId}`}
+          url={`https://www.youtube.com/watch?v=${trailerKey}`}
           controls
           width="100%"
           height="100%"

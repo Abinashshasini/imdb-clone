@@ -1,0 +1,44 @@
+.container {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.videoCnt {
+  width: 70%;
+  height: 80%;
+  z-index: 30;
+}
+
+.closeIcon {
+  display: flex;
+  font-size: 1rem;
+  gap: 5px;
+  position: relative;
+  z-index: 40;
+  color: var(--white);
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  bottom: -30px;
+  right: 10px;
+}
+
+.closeIcon > svg {
+  color: var(--white);
+}
+
+@media only screen and (max-width: 600px) {
+  .videoCnt {
+    width: 90%;
+    height: 40%;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 610px) {
+}
