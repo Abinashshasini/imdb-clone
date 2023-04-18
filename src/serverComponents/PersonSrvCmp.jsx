@@ -1,13 +1,19 @@
 import API from '../api';
 import PersonClientCmp from '../clientComponents/PersonClientCmp';
 
+// * Popular person server component * //
 export default async function PersonSrvCmp() {
-  const populaMovieData = await API.fetchPopularPersons();
+  // * Fetching data * //
+  const response = await API.fetchCarouselData({
+    type: 'person',
+    category: 'popular',
+    page: 1,
+  });
 
   // * This will be caught by the error page and passed to the page as props * //
-  if (!populaMovieData) {
+  if (!response) {
     throw new Error('Failed to fetch data');
   }
 
-  return <PersonClientCmp data={populaMovieData.results} />;
+  return <PersonClientCmp data={response.results} />;
 }

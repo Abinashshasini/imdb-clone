@@ -1,14 +1,12 @@
 'use client';
+import CarouselHeader from '../components/CarouselHeader';
 import PopularPersonCard from '../components/PopularPersonCard';
-import styles from '../styles/SectionClientCmp.module.css';
+import styles from '../styles/Carousel.module.css';
 
 const PersonClientCmp = ({ data }) => {
   return (
-    <section
-      className={styles.container}
-      style={{ flexDirection: 'column', paddingTop: 0 }}
-    >
-      <h2>Popular Person&apos;s</h2>
+    <>
+      <CarouselHeader title="Popular Person's" />
       <div className={styles.shadowContainer}>
         <div className={styles.wrapper} style={{ minHeight: '250px' }}>
           {data &&
@@ -24,7 +22,7 @@ const PersonClientCmp = ({ data }) => {
             ))}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

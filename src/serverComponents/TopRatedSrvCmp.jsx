@@ -1,6 +1,7 @@
 import API from '../api';
 import Carousel from '../components/Carousel';
 
+// * Top rated movie server component * //
 export default async function TopRatedSrvCmp() {
   // * Fetching data * //
   const response = await API.fetchCarouselData({

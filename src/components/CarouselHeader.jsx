@@ -4,7 +4,7 @@ import styles from '../styles/CarouselHeader.module.css';
 
 const CarouselHeader = ({ title, options, handleGetSelectedTab }) => {
   // * Required States * //
-  const [selected, setSelected] = useState(options[0].name);
+  const [selected, setSelected] = useState(options ? options[0].name : '');
 
   // * Function to handle Selection * //
   const handleSelection = (_selected) => {

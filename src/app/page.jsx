@@ -14,7 +14,7 @@ export default function Home() {
         <TrendingSrvCmp />
         <PopularSrvCmp />
         <TopRatedSrvCmp />
-        {/* <PersonSrvCmp /> */}
+        <PersonSrvCmp />
       </section>
       <Footer />
     </main>
