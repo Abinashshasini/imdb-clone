@@ -15,10 +15,9 @@ const CarouselHeader = ({ title, options, handleGetSelectedTab }) => {
   return (
     <div className={styles.container}>
       <h2>{title}</h2>
-      <div className={styles.optionsWrapper}>
-        {options &&
-          options.length > 0 &&
-          options.map((element, index) => (
+      {options && options.length > 0 && (
+        <div className={styles.optionsWrapper}>
+          {options.map((element, index) => (
             <div key={`${element.name}-${index}`}>
               <input
                 type="checkbox"
@@ -36,7 +35,8 @@ const CarouselHeader = ({ title, options, handleGetSelectedTab }) => {
               </span>
             </div>
           ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

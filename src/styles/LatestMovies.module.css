@@ -149,6 +149,12 @@
   .cardContainer:first-child {
     margin-left: 20px;
   }
+
+  .cardImageContaiiner:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media only screen and (max-width: 1200px) and (min-width: 601px) {
