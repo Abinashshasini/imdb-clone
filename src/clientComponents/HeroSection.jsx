@@ -4,6 +4,7 @@ import Hero3 from '../assets/hero3.jpg';
 import Hero4 from '../assets/hero4.jpg';
 import Hero5 from '../assets/hero5.jpg';
 import Hero6 from '../assets/hero6.jpg';
+import Hero7 from '../assets/hero7.jpg';
 import SearchBar from '../components/SearchBar';
 import handleGenerateRandomNumber from '../utils';
 import styles from '../styles/HeroSection.module.css';
@@ -17,6 +18,7 @@ const HeroSection = () => {
     4: Hero4.src,
     5: Hero5.src,
     6: Hero6.src,
+    7: Hero7.src,
   };
 
   return (

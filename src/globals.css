@@ -25,8 +25,8 @@
 
 body {
   -webkit-tap-highlight-color: transparent;
-  font-family: 'Source Sans Pro', Arial, sans-serif;
-  background-color: var(--DarkBlue);
+  font-family: 'Source Sans Pro', sans-serif;
+  background: rgb(3, 29, 51);
 }
 
 @tailwind base;

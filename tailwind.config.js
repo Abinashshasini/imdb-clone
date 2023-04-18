@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      Source: ['Source Sans Pro'],
+    },
     colors: {
       blue: '#18181b',
       white: '#f8fafc',
