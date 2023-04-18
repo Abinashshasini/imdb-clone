@@ -4,9 +4,8 @@ import {
   REQUEST_TOKEN_URL,
   LOGIN_URL,
   SESSION_ID_URL,
-  TRENDING_MOVIES_BASE_URL,
-  TOPRATED_BASE_URL,
-  POPULAR_PERSON_BASE_URL,
+  // TOPRATED_BASE_URL,
+  // POPULAR_PERSON_BASE_URL,
   SEARCH_BASE_URL,
 } from './config';
 
@@ -18,36 +17,41 @@ const defaultConfig = {
 };
 
 const apiSettings = {
-  // * Trending movies or tv shows * //
-  fetchTrendingMovies: async (type) => {
-    const endpoint = `${TRENDING_MOVIES_BASE_URL}/${type}?api_key=${API_KEY}`;
+  // * Fetch carousel data * //
+  fetchCarouselData: async ({ type, category, page, timing }) => {
+    let endpoint = '';
+    if (type === 'trending') {
+      endpoint = `${API_URL}${type}/${category}/${timing}?api_key=${API_KEY}&page=${page}`;
+    } else {
+      endpoint = `${API_URL}${type}/${category}?api_key=${API_KEY}&page=${page}`;
+    }
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();
   },
 
   // * Top rated movies * //
-  fetchTopRatedMovies: async () => {
-    const endpoint = `${TOPRATED_BASE_URL}`;
-    return await (
-      await fetch(endpoint, { next: { revalidate: 10000 } })
-    ).json();
-  },
+  // fetchTopRatedMovies: async () => {
+  //   const endpoint = `${TOPRATED_BASE_URL}`;
+  //   return await (
+  //     await fetch(endpoint, { next: { revalidate: 10000 } })
+  //   ).json();
+  // },
   // * Popular Persons * //
-  fetchPopularPersons: async () => {
-    const endpoint = `${POPULAR_PERSON_BASE_URL}`;
-    return await (
-      await fetch(endpoint, { next: { revalidate: 10000 } })
-    ).json();
-  },
+  // fetchPopularPersons: async () => {
+  //   const endpoint = `${POPULAR_PERSON_BASE_URL}`;
+  //   return await (
+  //     await fetch(endpoint, { next: { revalidate: 10000 } })
+  //   ).json();
+  // },
 
   // * Popular movie or tv shows * //
-  fetchWhatsPopular: async (type, page) => {
-    const endpoint = `${API_URL}${type}/popular?api_key=${API_KEY}&page=${page}`;
-    return await (
-      await fetch(endpoint, { next: { revalidate: 10000 } })
-    ).json();
-  },
+  // fetchWhatsPopular: async (type, page) => {
+  //   const endpoint = `${API_URL}${type}/popular?api_key=${API_KEY}&page=${page}`;
+  //   return await (
+  //     await fetch(endpoint, { next: { revalidate: 10000 } })
+  //   ).json();
+  // },
 
   // * Search movies tv shows or persons * //
   fetchSearchResults: async (searchTerm, page) => {

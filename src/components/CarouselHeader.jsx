@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
-import styles from '../styles/SectionHeader.module.css';
+import styles from '../styles/CarouselHeader.module.css';
 
-const SectionHeader = ({ title, options, handleGetSelectedTab }) => {
+const CarouselHeader = ({ title, options, handleGetSelectedTab }) => {
   // * Required States * //
   const [selected, setSelected] = useState(options[0].name);
 
@@ -41,4 +41,4 @@ const SectionHeader = ({ title, options, handleGetSelectedTab }) => {
   );
 };
 
-export default SectionHeader;
+export default CarouselHeader;

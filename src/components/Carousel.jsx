@@ -1,36 +1,33 @@
 'use client';
 import { useEffect, useState } from 'react';
-import API from '../api';
-import SectionHeader from '../components/SectionHeader';
+import CarouselHeader from '../components/CarouselHeader';
 import MovieCard from '../components/MovieCard';
 import CardSkeleton from '../skeleton/CardSkeleton';
-import styles from '../styles/SectionClientCmp.module.css';
+import API from '../api';
+import styles from '../styles/Carousel.module.css';
 
-const TrendingClientCmp = ({ data: dataFromServer }) => {
+const Carousel = ({ data: dataFromServer, options, title, apiParams }) => {
   // * Required states * //
   const [data, setData] = useState(dataFromServer);
   const [selectdCategory, setSelectedCategory] = useState();
   const [loading, setLoading] = useState(false);
-
-  // * options for trending movie section * //
-  const options = [
-    {
-      id: 1,
-      name: 'Today',
-      category: 'day',
-    },
-    {
-      id: 2,
-      name: 'This Week',
-      category: 'week',
-    },
-  ];
+  const { type, category, page } = apiParams;
 
   // * Function to fetch data * //
-  const handleFetchTrendingData = async (type) => {
+  const handleFetchTrendingData = async (_selectd) => {
+    let params = {};
+    if (type === 'trending') {
+      params = { type, category, page, timing: _selectd };
+    } else {
+      params = {
+        type: _selectd,
+        category,
+        page,
+      };
+    }
     try {
       setLoading(true);
-      const results = await API.fetchTrendingMovies(type);
+      const results = await API.fetchCarouselData(params);
       if (results) {
         setLoading(false);
         setData(results.results);
@@ -46,9 +43,9 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
   }, [selectdCategory]);
 
   return (
-    <section className={styles.container}>
-      <SectionHeader
-        title="Trending"
+    <>
+      <CarouselHeader
+        title={title}
         options={options}
         handleGetSelectedTab={(_params) => setSelectedCategory(_params)}
       />
@@ -69,8 +66,8 @@ const TrendingClientCmp = ({ data: dataFromServer }) => {
             : new Array(10).fill(1).map((_) => <CardSkeleton />)}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
-export default TrendingClientCmp;
+export default Carousel;

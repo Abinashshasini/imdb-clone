@@ -1,14 +1,44 @@
 import API from '../api';
-import PopularClientCmp from '../clientComponents/PopularClientCmp';
+import Carousel from '../components/Carousel';
 
-// * Trending movie server component * //
+// * Popular movie server component * //
 export default async function PopularSrvCmp() {
-  const populaMovieData = await API.fetchWhatsPopular('movie', 1);
+  // * Fetching data * //
+  const response = await API.fetchCarouselData({
+    type: 'movie',
+    category: 'popular',
+    page: 1,
+  });
+
+  // * options for popular movie section * //
+  const options = [
+    {
+      id: 1,
+      name: 'Movies',
+      category: 'movie',
+    },
+    {
+      id: 2,
+      name: 'TV Shows',
+      category: 'tv',
+    },
+  ];
 
   // * This will be caught by the error page and passed to the page as props * //
-  if (!populaMovieData) {
+  if (!response) {
     throw new Error('Failed to fetch data');
   }
 
-  return <PopularClientCmp data={populaMovieData.results} />;
+  return (
+    <Carousel
+      data={response.results}
+      options={options}
+      title="What's Popular"
+      apiParams={{
+        type: 'movie',
+        category: 'popular',
+        page: 1,
+      }}
+    />
+  );
 }

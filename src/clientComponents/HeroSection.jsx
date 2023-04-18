@@ -21,7 +21,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className={`${styles.container} max-w-8xl sm:mx-auto`}
+      className={styles.container}
       style={{
         backgroundImage: `linear-gradient(to right, rgba(3,37,65, 0.8) 0%, rgba(3,37,65, 0) 100%), url(${
           images[handleGenerateRandomNumber(1, 6)] || Hero5.src

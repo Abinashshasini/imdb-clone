@@ -12,9 +12,9 @@ export default function Home() {
       <HeroSection />
       <section className={styles.carouselWrapper}>
         <TrendingSrvCmp />
-        <TopRatedSrvCmp />
         <PopularSrvCmp />
-        <PersonSrvCmp />
+        {/* <TopRatedSrvCmp />
+        <PersonSrvCmp /> */}
       </section>
       <Footer />
     </main>

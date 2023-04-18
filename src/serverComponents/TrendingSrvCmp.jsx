@@ -1,14 +1,45 @@
 import API from '../api';
-import TrendingClientCmp from '../clientComponents/TrendingClientCmp';
+import Carousel from '../components/Carousel';
 
 // * Trending movie server component * //
 export default async function TrendingSrvCmp() {
-  const trendingMoviesData = await API.fetchTrendingMovies('day');
+  // * Fetching data * //
+  const response = await API.fetchCarouselData({
+    type: 'trending',
+    category: 'all',
+    page: 1,
+    timing: 'day',
+  });
+
+  // * options for trending movie section * //
+  const options = [
+    {
+      id: 1,
+      name: 'Today',
+      category: 'day',
+    },
+    {
+      id: 2,
+      name: 'This Week',
+      category: 'week',
+    },
+  ];
 
   // * This will be caught by the error page and passed to the page as props * //
-  if (!trendingMoviesData) {
-    throw new Error('Failed to fetch data');
+  if (!response) {
+    throw new Error('Failed to fetch trending movies data');
   }
 
-  return <TrendingClientCmp data={trendingMoviesData.results} />;
+  return (
+    <Carousel
+      data={response.results}
+      options={options}
+      title="Trending"
+      apiParams={{
+        type: 'trending',
+        category: 'all',
+        page: 1,
+      }}
+    />
+  );
 }
