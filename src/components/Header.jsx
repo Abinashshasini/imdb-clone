@@ -33,8 +33,8 @@ const Header = () => {
 
   // * Effect to listin to the window scroll event * //
   useEffect(() => {
+    window.scrollTo(0, 0);
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -48,8 +48,7 @@ const Header = () => {
             <Image src={Logo} alt="Logo" height={20} width={150} />
           </Link>
         </div>
-        <div className={styles.wrapper}>
-          {/* <DarkModeSwitch /> */}
+        <div className={styles.textWrapper}>
           <Link href="/movie" className="hidden sm:inline cursor-pointer">
             <h2>Movies</h2>
           </Link>

@@ -24,38 +24,18 @@
   width: 100%;
 }
 
-.wrapper {
+.textWrapper {
   display: flex;
   gap: 0 20px;
-  color: #fff;
+  color: var(--white);
   align-items: center;
 }
 
-.wrapper > h2,
-.wrapper > a {
+.textWrapper > h2,
+.textWrapper > a {
   font-size: 0.8rem;
-  color: #fff;
+  color: var(--white);
   font-weight: 600;
-}
-
-.userIcon {
-  width: 32px;
-  height: 32px;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 0.9em;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(30, 213, 169, 1);
-}
-
-.userIcon:hover {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 @media only screen and (max-width: 600px) {
