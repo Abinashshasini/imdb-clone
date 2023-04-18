@@ -26,6 +26,7 @@
 body {
   -webkit-tap-highlight-color: transparent;
   font-family: 'Source Sans Pro', sans-serif;
+  font-display: swap;
   background: rgb(3, 29, 51);
 }
 

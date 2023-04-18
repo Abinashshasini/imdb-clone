@@ -10,9 +10,6 @@ const LatestMovies = ({ data }) => {
     data[0]?.backdrop_path
   );
 
-  // * Function to handle Clik on Card * //
-  const handelClickOnCard = () => {};
-
   // * Function to handleMouse over event on cadr * //
   const handleMouseOver = (_backdrop) => {
     setBackgroundImage(_backdrop);
@@ -34,12 +31,11 @@ const LatestMovies = ({ data }) => {
             data.length > 0 &&
             data.map((element) => (
               <LatestMoviesCard
-                key={element.id}
+                id={element.id}
                 description={element.overview}
                 title={element.title}
                 releaseDate={element.release_date}
                 backdrop={element.backdrop_path}
-                handelClickOnCard={handelClickOnCard}
                 handleMouseOver={handleMouseOver}
               />
             ))}

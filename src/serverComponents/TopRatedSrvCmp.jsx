@@ -33,7 +33,7 @@ export default async function TopRatedSrvCmp() {
     <Carousel
       data={response.results}
       options={options}
-      title="Toprated"
+      title="Top Rated"
       apiParams={{
         type: 'movie',
         category: 'top_rated',

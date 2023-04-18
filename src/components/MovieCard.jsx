@@ -58,12 +58,14 @@ const MovieCard = ({
   }, [isVisible]);
 
   return (
-    <Link href={`/${resultType}-${id}/${title.split(' ').join('-')}`}>
+    <Link
+      href={`/${resultType}-${id}/${title.split(' ').join('-')}`}
+      key={`${id}-${title}`}
+    >
       <div
         className={
           type === 'small' ? styles.containerSmall : styles.containerBig
         }
-        key={`${id}-${title}`}
         ref={componentRef}
       >
         <div
