@@ -11,9 +11,9 @@ const Footer = () => {
     <footer className={styles.container}>
       <div className={styles.headContainer}>
         <h2>Terms of use</h2>
-        <h2>Privacy policy</h2>
         <h2>About</h2>
         <h2>Blog</h2>
+        <h2>Privacy policy</h2>
       </div>
       <div className={styles.aboutContainer}>
         <p>

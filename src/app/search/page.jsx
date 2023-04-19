@@ -2,6 +2,7 @@ import Image from 'next/image';
 import SearchImage from '../../assets/search.svg';
 import styles from '../../styles/NotFound.module.css';
 
+// * Search page component * //
 const SearchPage = () => {
   return (
     <div className={styles.container}>

@@ -4,7 +4,6 @@ import PopularSrvCmp from '../serverComponents/PopularSrvCmp';
 import TopRatedSrvCmp from '../serverComponents/TopRatedSrvCmp';
 import LatestSrvCmp from '../serverComponents/LatestSrvCmp';
 import PersonSrvCmp from '../serverComponents/PersonSrvCmp';
-import Footer from '../components/Footer';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
         <TopRatedSrvCmp />
         <PersonSrvCmp />
       </section>
-      <Footer />
     </main>
   );
 }

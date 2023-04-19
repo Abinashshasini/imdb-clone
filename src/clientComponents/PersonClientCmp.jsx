@@ -8,7 +8,7 @@ const PersonClientCmp = ({ data }) => {
     <>
       <CarouselHeader title="Popular Person's" />
       <div className={styles.shadowContainer}>
-        <div className={styles.wrapper} style={{ minHeight: '250px' }}>
+        <div className={styles.wrapper}>
           {data &&
             data.length > 0 &&
             data.map((element) => (
