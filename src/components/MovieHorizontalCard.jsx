@@ -42,7 +42,7 @@ const MovieHorizontalCard = ({
   };
 
   return (
-    <Link href={`/${resultType}/${id}-${title.split(' ').join('-')}`}>
+    <Link href={`/${resultType}-${id}/${title.split(' ').join('-')}`}>
       <div key={`${id}-${title}`} className={styles.container}>
         <div
           className={styles.imageContainer}

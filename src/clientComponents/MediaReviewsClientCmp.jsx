@@ -62,7 +62,7 @@ export default function MovieReviewsComponent() {
 
   return (
     <>
-      {data.length > 0 && (
+      {data?.length > 0 && (
         <div className={styles.container}>
           <h2>Social Reviews</h2>
           <div className={styles.backdropCnt}>

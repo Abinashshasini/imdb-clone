@@ -55,7 +55,9 @@ const Carousel = ({ data: dataFromServer, options, title, apiParams }) => {
             ? data.map((element) => (
                 <MovieCard
                   type="small"
-                  resultType={element.media_type}
+                  resultType={
+                    element.media_type || (element.title ? 'movie' : 'tv')
+                  }
                   id={element.id}
                   src={element.poster_path}
                   title={element.title || element.name}
