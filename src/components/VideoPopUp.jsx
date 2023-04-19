@@ -14,7 +14,6 @@ const VideoPopup = ({ setShowTrailer, trailerKey, setTrailerKey }) => {
     <div className={styles.container} onClick={(e) => handleHidePopup(e)}>
       <div className={styles.videoCnt}>
         <span className={styles.closeIcon} onClick={(e) => handleHidePopup(e)}>
-          close
           <AiOutlineClose />
         </span>
         <ReactPlayer

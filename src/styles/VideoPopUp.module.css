@@ -16,7 +16,7 @@
 
 .closeIcon {
   display: flex;
-  font-size: 1rem;
+  font-size: 1.4rem;
   gap: 5px;
   position: relative;
   z-index: 40;
@@ -25,8 +25,8 @@
   align-items: center;
   justify-content: flex-end;
   text-transform: uppercase;
-  bottom: -30px;
-  right: 10px;
+  bottom: 20px;
+  right: 0px;
 }
 
 .closeIcon > svg {
