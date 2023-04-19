@@ -2,12 +2,16 @@ import API from '../../api';
 import ResultsClientCmp from '../../clientComponents/ResultsClientCmp';
 
 export default async function MovieResultsPage() {
-  const res = await API.fetchWhatsPopular('movie', 1);
+  const response = await API.fetchMoviesOrTvShows({
+    type: 'movie',
+    category: 'popular',
+    page: 1,
+  });
 
   // * This will be caught by the error page and passed to the page as props * //
-  if (!res) {
+  if (!response) {
     throw new Error('Failed to fetch data');
   }
 
-  return <ResultsClientCmp data={res.results} type="movie" />;
+  return <ResultsClientCmp data={response.results} type="movie" />;
 }

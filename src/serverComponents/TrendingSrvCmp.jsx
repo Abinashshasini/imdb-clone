@@ -4,7 +4,7 @@ import Carousel from '../components/Carousel';
 // * Trending movie server component * //
 export default async function TrendingSrvCmp() {
   // * Fetching data * //
-  const response = await API.fetchCarouselData({
+  const response = await API.fetchMoviesOrTvShows({
     type: 'trending',
     category: 'all',
     page: 1,

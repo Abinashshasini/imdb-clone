@@ -3,7 +3,7 @@ import HorizontalSkeleton from '../../skeleton/HorizontalSkeleton';
 
 const Loading = () => {
   return (
-    <div className="px-5 py-5 lg:px-48 lg:py-10 md:px-20 mt-20">
+    <div className="px-5 py-5 xl:px-36 xl:py-8 lg:py-8 lg:px-16 mt-20">
       <div
         style={{
           gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',

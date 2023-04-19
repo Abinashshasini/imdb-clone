@@ -4,7 +4,7 @@ import PersonClientCmp from '../clientComponents/PersonClientCmp';
 // * Popular person server component * //
 export default async function PersonSrvCmp() {
   // * Fetching data * //
-  const response = await API.fetchCarouselData({
+  const response = await API.fetchMoviesOrTvShows({
     type: 'person',
     category: 'popular',
     page: 1,

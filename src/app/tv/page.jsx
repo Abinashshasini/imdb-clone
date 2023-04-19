@@ -2,7 +2,11 @@ import API from '../../api';
 import ResultsClientCmp from '../../clientComponents/ResultsClientCmp';
 
 export default async function TVResultsPage() {
-  const res = await API.fetchWhatsPopular('tv', 1);
+  const res = await API.fetchMoviesOrTvShows({
+    type: 'tv',
+    category: 'popular',
+    page: 1,
+  });
 
   // * This will be caught by the error page and passed to the page as props * //
   if (!res) {

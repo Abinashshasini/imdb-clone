@@ -16,14 +16,18 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
   const { isIntersecting = false } = useInfiniteScroll(loadMoreRef, {
     threshold: 0,
     root: null,
-    rootMargin: '400px',
+    rootMargin: '200px',
   });
 
   // * Function to fetch data * //
   const handleFetchData = async () => {
     setLoading(true);
     try {
-      const response = await API.fetchWhatsPopular(type, page);
+      const response = await API.fetchMoviesOrTvShows({
+        type,
+        category: 'popular',
+        page,
+      });
       setLoading(false);
       if (response && response.results && response.results.length > 0) {
         setData([...data, ...response.results]);

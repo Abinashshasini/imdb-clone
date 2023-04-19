@@ -27,7 +27,7 @@ const Carousel = ({ data: dataFromServer, options, title, apiParams }) => {
     }
     try {
       setLoading(true);
-      const results = await API.fetchCarouselData(params);
+      const results = await API.fetchMoviesOrTvShows(params);
       if (results) {
         setLoading(false);
         setData(results.results);

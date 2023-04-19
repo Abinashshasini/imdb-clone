@@ -1,3 +1,5 @@
+import styles from '../../styles/ResultsPage.module.css';
+
 export const metadata = {
   title: 'Explore TV shows',
   description: 'This is a IMDb clone website',
@@ -5,7 +7,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <main>
+    <main className={styles.main}>
       <div>{children}</div>
     </main>
   );

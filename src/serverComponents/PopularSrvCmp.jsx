@@ -4,7 +4,7 @@ import Carousel from '../components/Carousel';
 // * Popular movie server component * //
 export default async function PopularSrvCmp() {
   // * Fetching data * //
-  const response = await API.fetchCarouselData({
+  const response = await API.fetchMoviesOrTvShows({
     type: 'movie',
     category: 'popular',
     page: 1,
