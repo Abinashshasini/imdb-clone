@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
+import Link from 'next/link';
 import Image from 'next/image';
 import MaleSvg from '../assets/male.svg';
 import FemaleSvg from '../assets/female.svg';
 import styles from '../styles/MovieHorizontalCard.module.css';
-import Link from 'next/link';
 
 const NOT_FOUND_IMAGE =
   'https://akam.cdn.jdmagicbox.com/images/icontent/newwap/prot/noposter.svg';
@@ -67,7 +67,7 @@ const MovieHorizontalCard = ({
             <>
               <h4>Known For</h4>
               <div className={styles.knownForContainer}>
-                {knownFor.slice(0, 2).map((element) => (
+                {knownFor.map((element) => (
                   <span key={element.id}>
                     {element.original_name || element.original_title}
                   </span>

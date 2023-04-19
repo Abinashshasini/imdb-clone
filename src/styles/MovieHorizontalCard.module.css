@@ -105,10 +105,10 @@
 
   .textContainer > .knownForContainer {
     flex-wrap: wrap;
-    gap: 1px;
+    gap: 0 5px;
   }
 
   .textContainer > .knownForContainer > span {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
 }

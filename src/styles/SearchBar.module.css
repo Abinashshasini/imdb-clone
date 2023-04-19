@@ -17,6 +17,7 @@
   cursor: default;
   background-color: #fff;
   outline: none;
+  text-transform: capitalize;
 }
 
 .searchBarHome > input:hover,
@@ -64,7 +65,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0 100px;
+  padding: 0 140px;
   border-bottom: 1px solid rgba(227, 227, 227, 1);
 }
 
@@ -79,6 +80,7 @@
   cursor: default;
   background-color: transparent;
   outline: none;
+  text-transform: capitalize;
 }
 
 @media only screen and (max-width: 600px) {
@@ -93,6 +95,6 @@
 
 @media only screen and (max-width: 1200px) and (min-width: 610px) {
   .searchBarSearch {
-    padding: 0 50px;
+    padding: 0 60px;
   }
 }

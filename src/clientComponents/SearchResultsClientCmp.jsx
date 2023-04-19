@@ -10,6 +10,7 @@ import styles from '../styles/SearchPage.module.css';
 
 const SearchResultsClientCmp = ({ data: dataFromServer }) => {
   const { searchTerm } = useParams();
+
   // * Required states and refs * //
   const [data, setData] = useState(dataFromServer);
   const [page, setPage] = useState(1);
@@ -21,7 +22,7 @@ const SearchResultsClientCmp = ({ data: dataFromServer }) => {
   const { isIntersecting = false } = useInfiniteScroll(loadMoreRef, {
     threshold: 0,
     root: null,
-    rootMargin: '400px',
+    rootMargin: '200px',
   });
 
   // * Function to fetch data * //
