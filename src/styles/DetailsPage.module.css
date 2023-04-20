@@ -160,12 +160,14 @@
 .crewContainer {
   display: flex;
   gap: 10px 40px;
-  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 80%;
   margin-top: 20px;
+}
+
+.crewWrapper {
+  min-width: 25%;
 }
 
 .crewWrapper > h4 {
@@ -187,7 +189,25 @@
   padding: 0px 140px;
 }
 
-@media only screen and (max-width: 600px) {
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  .backgroundWrp {
+    background-position: calc((((100vw / 2.222222) - 20px) / 1.5) / 2) 0;
+    min-height: 180px;
+    height: 180px;
+  }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .backgroundWrp {
+    background-position: calc((((100vw / 2.222222) - 20px) / 1.5) / 2) 0;
+    min-height: 400px;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
   .container {
     height: auto;
   }
@@ -201,12 +221,6 @@
       rgba(31.5, 31.5, 52.5, 1) 20%,
       rgba(31.5, 31.5, 52.5, 0) 50%
     );
-  }
-
-  .backgroundWrp {
-    background-position: calc((((100vw / 2.222222) - 20px) / 1.5) / 2) 0;
-    min-height: 180px;
-    height: 180px;
   }
 
   .imgContainer {
@@ -248,6 +262,10 @@
     content: none;
   }
 
+  .overViwContainer {
+    padding: 0px 20px;
+  }
+
   .crewContainer {
     margin-top: 0;
     width: 100%;
@@ -256,21 +274,15 @@
     padding: 0 20px 20px;
   }
 
+  .tagline {
+    font-size: 1rem;
+  }
+
   .crewWrapper {
     width: 40%;
   }
 
   .sectionTwoContainer {
     padding: 0px 20px;
-  }
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 610px) {
-  .wrapper {
-    padding: 30px 60px;
-  }
-
-  .sectionTwoContainer {
-    padding: 0px 60px;
   }
 }

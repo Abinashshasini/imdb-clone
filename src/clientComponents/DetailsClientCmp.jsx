@@ -8,7 +8,6 @@ import MediaClientCmp from '../clientComponents/MediaClientCmp';
 import MovieReviewsComponent from './MediaReviewsClientCmp';
 import SimilarMediaComponent from './SimilarMediaClientCmp';
 import styles from '../styles/DetailsPage.module.css';
-import Footer from '../components/Footer';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
   // * Destructuring Data * //
@@ -87,7 +86,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
               </div>
             </div>
             <MediaPlay percentage={vote_average} />
-            <div className="px-5 md:px-0">
+            <div className={styles.overViwContainer}>
               <div className={styles.tagline}>{tagline}</div>
               <div className={styles.overview}>
                 <h3>Overview</h3>
