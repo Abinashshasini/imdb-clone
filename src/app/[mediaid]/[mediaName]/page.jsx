@@ -18,11 +18,12 @@ export default async function MovieDetailsPage({ params }) {
   }
 
   return (
-    <main className="pt-14">
+    <main>
       <DetailsClientCmp
         data={mediaDetails}
         creditsData={creditDetails}
         type={mediaType}
+        mediaID={mediaID}
       />
     </main>
   );
