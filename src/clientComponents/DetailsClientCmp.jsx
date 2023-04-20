@@ -112,7 +112,6 @@ const DetailsClientCmp = ({ data, creditsData }) => {
         <MovieReviewsComponent />
         <SimilarMediaComponent />
       </section>
-      <Footer />
     </>
   );
 };
