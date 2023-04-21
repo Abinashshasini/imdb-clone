@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../assets/logo.svg';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { BiMenu } from 'react-icons/bi';
+import { AiOutlineClose } from 'react-icons/ai';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Header.module.css';
@@ -20,6 +21,7 @@ const Header = () => {
 
   // * Required states for header * //
   const [style, setStyle] = useState('show');
+  const [isMobileMenu, setIsMobileMenu] = useState(false);
 
   // * Function to measure scroll position * //
   const handleScroll = () => {
@@ -59,8 +61,36 @@ const Header = () => {
           <Link href="/search" className="cursor-pointer">
             <HiOutlineSearch className="text-xl cursor-pointer text-white" />
           </Link>
-          <BiMenu className="md:hidden text-2xl cursor-pointer text-white" />
+          <div onClick={() => setIsMobileMenu(!isMobileMenu)}>
+            {isMobileMenu ? (
+              <AiOutlineClose className="md:hidden text-2xl cursor-pointer text-white" />
+            ) : (
+              <BiMenu className="md:hidden text-2xl cursor-pointer text-white" />
+            )}
+          </div>
         </div>
+      </div>
+      <div
+        className={`${styles.mobileMenuContainer} ${
+          isMobileMenu ? styles.showMenu : ''
+        }`}
+      >
+        <Link
+          href="/movie"
+          className="cursor-pointer"
+          onClick={() => setIsMobileMenu(false)}
+        >
+          <h2>Movies</h2>
+        </Link>
+        <Link
+          href="/tv"
+          className="cursor-pointer"
+          onClick={() => setIsMobileMenu(false)}
+        >
+          <h2>TV Shows</h2>
+        </Link>
+        <h2 className="cursor-pointer">People</h2>
+        <h2 className="cursor-pointer">More</h2>
       </div>
     </header>
   );

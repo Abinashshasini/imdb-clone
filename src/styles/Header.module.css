@@ -38,6 +38,31 @@
   font-weight: 600;
 }
 
+.mobileMenuContainer {
+  background: rgba(3, 29, 51, 3);
+  width: 100%;
+  position: fixed;
+  height: 70px;
+  padding: 20px;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.5s;
+  top: -70px;
+}
+
+.showMenu {
+  top: 60px;
+}
+
+.mobileMenuContainer h2 {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     padding: 0 20px;
