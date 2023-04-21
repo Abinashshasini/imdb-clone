@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { BsFillPlayFill } from 'react-icons/bs';
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../config';
+import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import VideoPopup from '../components/VideoPopUp';
 import styles from '../styles/TopMediaComponent.module.css';
 
@@ -22,6 +22,7 @@ const Tabs = [
 ];
 
 const TopMediaComponent = ({ videos, backdrops }) => {
+  console.log('backdrops: ', backdrops);
   // * Required states and refs * //
   const [selectedTab, setSelectedTab] = useState('Popular');
   const [showTrailer, setShowTrailer] = useState(false);
@@ -51,7 +52,7 @@ const TopMediaComponent = ({ videos, backdrops }) => {
         <h2>Top Media</h2>
         <div className={styles.tabsContainer}>
           {Tabs?.map((tab) => (
-              <div
+            <div
               className={`${styles.tabs} ${
                 selectedTab === tab.name ? styles.activeTab : ''
               }`}
@@ -95,6 +96,17 @@ const TopMediaComponent = ({ videos, backdrops }) => {
                               backdrops?.backdrops[0].file_path
                             }
                             alt="Backdrop path"
+                            fill
+                          />
+                        </div>
+                        <div className={styles.posterContainer}>
+                          <Image
+                            src={
+                              IMAGE_BASE_URL +
+                              POSTER_SIZE +
+                              backdrops?.posters[0]?.file_path
+                            }
+                            alt="Poster image"
                             fill
                           />
                         </div>
