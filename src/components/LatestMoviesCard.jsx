@@ -27,7 +27,13 @@ const LatestMoviesCard = ({
         const officialTrailer = response.videos.results.filter((video) =>
           video.name.includes('Official Trailer')
         );
-        setTrailerKey(officialTrailer[0].key);
+        if (officialTrailer.length > 0) {
+          setTrailerKey(
+            officialTrailer[0].key || response.videos.results[0].key
+          );
+        } else {
+          setTrailerKey(response.videos.results[0].key);
+        }
         setShowTrailer(true);
       }
     } catch (error) {
