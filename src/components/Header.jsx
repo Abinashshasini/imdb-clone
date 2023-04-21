@@ -26,6 +26,7 @@ const Header = () => {
   // * Function to measure scroll position * //
   const handleScroll = () => {
     const scrollY = window.scrollY;
+    setIsMobileMenu(false);
     if (scrollY > 400) {
       setStyle('hide');
     } else {
