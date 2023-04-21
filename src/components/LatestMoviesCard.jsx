@@ -28,9 +28,7 @@ const LatestMoviesCard = ({
           video.name.includes('Official Trailer')
         );
         if (officialTrailer.length > 0) {
-          setTrailerKey(
-            officialTrailer[0].key || response.videos.results[0].key
-          );
+          setTrailerKey(officialTrailer[0].key);
         } else {
           setTrailerKey(response.videos.results[0].key);
         }

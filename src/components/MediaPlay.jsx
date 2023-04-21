@@ -1,12 +1,31 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { BsFillPlayFill, BsBookmarkFill, BsStarFill } from 'react-icons/bs';
 import { AiOutlineUnorderedList, AiFillHeart } from 'react-icons/ai';
 import styles from '../styles/MediaPlay.module.css';
+import VideoPopup from './VideoPopUp';
 
-const MediaPlay = ({ percentage }) => {
+const MediaPlay = ({ percentage, videos }) => {
+  console.log('videos: ', videos);
   // * Required states and refs * //
   const circleOneRef = useRef(null);
   const circleTwoRef = useRef(null);
+  const [showTrailer, setShowTrailer] = useState(false);
+  const [trailerKey, setTrailerKey] = useState('');
+
+  // * Function to play the media trailer * //
+  const handlePlayTrailer = () => {
+    if (videos?.results.length > 0) {
+      const officialTrailer = videos.results.filter(
+        (video) => video.name === 'Official Trailer'
+      );
+      if (officialTrailer.length > 0) {
+        setTrailerKey(officialTrailer[0].key);
+      } else {
+        setTrailerKey(videos.results[0].key);
+      }
+      setShowTrailer(true);
+    }
+  };
 
   // * Effect to calculate the total length of circle if content is available on DOM * //
   useEffect(() => {
@@ -78,10 +97,17 @@ const MediaPlay = ({ percentage }) => {
           <BsStarFill style={{ width: '14px' }} />
         </div>
       </div>
-      <div className={styles.playContainer}>
+      <div className={styles.playContainer} onClick={handlePlayTrailer}>
         <BsFillPlayFill className="text-2xl cursor-pointer text-white" />
         Play Trailer
       </div>
+      {showTrailer && (
+        <VideoPopup
+          setShowTrailer={setShowTrailer}
+          trailerKey={trailerKey}
+          setTrailerKey={setTrailerKey}
+        />
+      )}
     </div>
   );
 };

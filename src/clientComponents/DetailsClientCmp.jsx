@@ -106,7 +106,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
                 ) : null}
               </div>
             </div>
-            <MediaPlay percentage={vote_average} />
+            <MediaPlay percentage={vote_average} videos={videos} />
             <div className={styles.overViwContainer}>
               <div className={styles.tagline}>{tagline}</div>
               <div className={styles.overview}>
