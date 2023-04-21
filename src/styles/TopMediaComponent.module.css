@@ -80,8 +80,9 @@
   min-width: 350px;
   object-fit: cover;
   background: url('../assets/movie.svg');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .posterContainer {

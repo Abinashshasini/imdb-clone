@@ -1,7 +1,9 @@
+import DetailsSkeleton from '../../../skeleton/DetailsSkeleton';
+
 const Loading = () => {
   return (
     <div>
-      <h1>Loading movie details page</h1>
+      <DetailsSkeleton />
     </div>
   );
 };
