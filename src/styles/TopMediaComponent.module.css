@@ -78,7 +78,7 @@
   width: 350px;
   min-width: 350px;
   object-fit: cover;
-  background: url('../assets//movie.svg');
+  background: url('../assets/movie.svg');
   background-size: cover;
   background-position: center;
 }

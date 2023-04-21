@@ -40,7 +40,9 @@ const MediaPlay = ({ percentage }) => {
       <div className={styles.percentageWrp}>
         <div className={styles.percentageContainer}>
           <div className={styles.percentage}>
-            {percentage ? Math.floor((Number(percentage) * 100) / 10) : 0}%
+            {percentage
+              ? `${Math.floor((Number(percentage) * 100) / 10)}%`
+              : 'NR'}
           </div>
           <svg width="58" height="58">
             <circle

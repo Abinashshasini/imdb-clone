@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import { handleCalculateTime } from '../utils';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
@@ -7,6 +8,7 @@ import CastClientCmp from '../clientComponents/CastClientCmp';
 import TopMediaComponent from './TopMediaComponent';
 import MovieReviewsComponent from './MediaReviewsClientCmp';
 import SimilarMediaComponent from './SimilarMediaClientCmp';
+import NoMediaImage from '../assets/movie.svg';
 import styles from '../styles/DetailsPage.module.css';
 
 const DetailsClientCmp = ({ data, creditsData }) => {
@@ -28,6 +30,12 @@ const DetailsClientCmp = ({ data, creditsData }) => {
     images = {},
   } = data;
 
+  // * Required states for image error * //
+  const [imagePath, setImagePath] = useState(
+    IMAGE_BASE_URL + POSTER_SIZE + poster_path
+  );
+
+  // * Getting the names of important persons * //
   const { cast = [], crew = [] } = creditsData;
   const mediaCrew = crew?.filter(
     (element) =>
@@ -37,6 +45,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
       element.job === 'Visual Effects' ||
       element.job === 'Executive Producer'
   );
+
   return (
     <>
       <section className={styles.container}>
@@ -51,9 +60,10 @@ const DetailsClientCmp = ({ data, creditsData }) => {
         <div className={styles.wrapper}>
           <div className={styles.imgContainer}>
             <Image
-              src={IMAGE_BASE_URL + POSTER_SIZE + poster_path}
+              src={imagePath}
               alt="Picture of the author"
               fill
+              onError={() => setImagePath(NoMediaImage)}
             />
           </div>
           <div className={styles.textContainer}>
@@ -61,7 +71,18 @@ const DetailsClientCmp = ({ data, creditsData }) => {
               <h2 className={styles.title}>
                 {title || name}{' '}
                 <span className={styles.tag_release_date}>
-                  ({release_date.split('-')[0] || first_air_date.split('-')[0]})
+                  {(() => {
+                    if (release_date || first_air_date) {
+                      return (
+                        <span>
+                          (
+                          {release_date.split('-')[0] ||
+                            first_air_date.split('-')[0]}
+                          )
+                        </span>
+                      );
+                    }
+                  })()}
                 </span>
               </h2>
               <div className={styles.flexContainer}>

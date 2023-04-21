@@ -35,6 +35,9 @@ const SimilarMediaComponent = ({ data: dataFromServer }) => {
     handleFetchSimilarMoviesData();
   }, []);
 
+  // * If no data available then return null * //
+  if (!loading && data?.length < 1) return null;
+
   return (
     <section className={styles.similarContainer}>
       <h2>

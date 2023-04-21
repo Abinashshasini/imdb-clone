@@ -33,8 +33,15 @@ const TopMediaComponent = ({ videos, backdrops }) => {
     setShowTrailer(true);
   };
 
+  // * Select the backdrop tab if no videos available * //
+  useEffect(() => {
+    if (videos?.results.length < 1) {
+      setSelectedTab('Backdrops');
+    }
+  }, []);
+
   // * If no video or backdrop available don't show anything * //
-  if (videos?.length < 1 && backdrops?.length < 1) {
+  if (videos?.results?.length < 1 && backdrops?.backdrops?.length < 1) {
     return null;
   }
 
@@ -44,7 +51,7 @@ const TopMediaComponent = ({ videos, backdrops }) => {
         <h2>Top Media</h2>
         <div className={styles.tabsContainer}>
           {Tabs?.map((tab) => (
-            <div
+              <div
               className={`${styles.tabs} ${
                 selectedTab === tab.name ? styles.activeTab : ''
               }`}

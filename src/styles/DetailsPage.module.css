@@ -50,6 +50,8 @@
   border-radius: 8px;
   position: relative;
   transition: transform 0.5s;
+  background-color: #dbdbdb;
+  background-size: 50%;
 }
 
 .imgContainer:hover {
@@ -236,6 +238,7 @@
   .textContainer {
     background-color: rgba(31.5, 31.5, 52.5, 1);
     gap: 15px;
+    width: 100%;
   }
 
   .title {
