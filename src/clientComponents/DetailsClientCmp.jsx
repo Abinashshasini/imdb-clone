@@ -4,7 +4,7 @@ import { handleCalculateTime } from '../utils';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import MediaPlay from '../components/MediaPlay';
 import CastClientCmp from '../clientComponents/CastClientCmp';
-import MediaClientCmp from '../clientComponents/MediaClientCmp';
+import TopMediaComponent from './TopMediaComponent';
 import MovieReviewsComponent from './MediaReviewsClientCmp';
 import SimilarMediaComponent from './SimilarMediaClientCmp';
 import styles from '../styles/DetailsPage.module.css';
@@ -107,7 +107,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
       </section>
       <section className={styles.sectionTwoContainer}>
         <CastClientCmp cast={cast} crew={crew} />
-        <MediaClientCmp videos={videos} images={images} />
+        <TopMediaComponent videos={videos} backdrops={images} />
         <MovieReviewsComponent />
         <SimilarMediaComponent />
       </section>

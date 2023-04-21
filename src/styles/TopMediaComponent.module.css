@@ -20,7 +20,7 @@
 .tabsContainer {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .tabsContainer > .tabs {
@@ -128,7 +128,7 @@
     gap: 10px;
   }
 
-  .tabs {
+  .tabsContainer > .tabs {
     font-size: 0.9rem;
   }
 }

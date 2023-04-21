@@ -3,6 +3,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import styles from '../styles/VideoPopUp.module.css';
 
 const VideoPopup = ({ setShowTrailer, trailerKey, setTrailerKey }) => {
+  // console.log('trailerKey: ', trailerKey);
   // * Function to hide pop video pop up * //
   const handleHidePopup = (e) => {
     e.stopPropagation();
