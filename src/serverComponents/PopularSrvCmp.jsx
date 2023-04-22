@@ -33,7 +33,7 @@ export default async function PopularSrvCmp() {
     <Carousel
       data={response.results}
       options={options}
-      title="What's Popular"
+      title="Popular"
       apiParams={{
         type: 'movie',
         category: 'popular',
