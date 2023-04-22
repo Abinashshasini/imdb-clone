@@ -20,28 +20,26 @@ const CarouselHeader = ({ title, options, handleGetSelectedTab }) => {
     <div className={styles.container}>
       <h2>{title}</h2>
       {options && options.length > 0 && (
-        <div className={styles.optionContainer}>
-          <div className={styles.optionsWrapper}>
-            {options.map((element, index) => (
-              <div key={`${element.name}-${index}`}>
-                <input
-                  type="checkbox"
-                  checked={selected === element.name}
-                  readOnly
-                />
-                <span
-                  key={element.id}
-                  className={styles.option}
-                  onClick={() => {
-                    handleSelection(element, index);
-                  }}
-                >
-                  <p>{element.name}</p>
-                </span>
-              </div>
-            ))}
-            <span className={styles.optionMovingBG} style={{ left }} />
-          </div>
+        <div className={styles.optionsWrapper}>
+          {options.map((element, index) => (
+            <div key={`${element.name}-${index}`}>
+              <input
+                type="checkbox"
+                checked={selected === element.name}
+                readOnly
+              />
+              <span
+                key={element.id}
+                className={styles.option}
+                onClick={() => {
+                  handleSelection(element, index);
+                }}
+              >
+                <p>{element.name}</p>
+              </span>
+            </div>
+          ))}
+          <span className={styles.optionMovingBG} style={{ left }} />
         </div>
       )}
     </div>
