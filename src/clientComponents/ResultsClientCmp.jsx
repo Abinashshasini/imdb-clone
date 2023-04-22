@@ -24,8 +24,8 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
     setLoading(true);
     try {
       const response = await API.fetchMoviesOrTvShows({
-        type,
-        category: 'popular',
+        type: 'discover',
+        category: type,
         page,
       });
       setLoading(false);
@@ -57,7 +57,7 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
 
   return (
     <div className={styles.container}>
-      <h1>{type === 'tv' ? 'Popular TV Shows' : 'Popular Movies'}</h1>
+      <h1>Explore {type === 'tv' ? 'TV Shows' : 'Movies'}</h1>
       <div className={styles.wrapperGrid}>
         {data &&
           data.length > 0 &&

@@ -3,8 +3,8 @@ import ResultsClientCmp from '../../clientComponents/ResultsClientCmp';
 
 export default async function MovieResultsPage() {
   const response = await API.fetchMoviesOrTvShows({
-    type: 'movie',
-    category: 'popular',
+    type: 'discover',
+    category: 'movie',
     page: 1,
   });
 
