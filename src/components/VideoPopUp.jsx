@@ -1,6 +1,7 @@
 import ReactPlayer from 'react-player';
 import { AiOutlineClose } from 'react-icons/ai';
 import styles from '../styles/VideoPopUp.module.css';
+import { useEffect } from 'react';
 
 const VideoPopup = ({ setShowTrailer, trailerKey, setTrailerKey }) => {
   // console.log('trailerKey: ', trailerKey);
@@ -10,6 +11,14 @@ const VideoPopup = ({ setShowTrailer, trailerKey, setTrailerKey }) => {
     setShowTrailer(false);
     setTrailerKey('');
   };
+
+  // * Fix the body when opened * //
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   return (
     <div className={styles.container} onClick={(e) => handleHidePopup(e)}>
