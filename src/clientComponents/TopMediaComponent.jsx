@@ -22,7 +22,6 @@ const Tabs = [
 ];
 
 const TopMediaComponent = ({ videos, backdrops }) => {
-  console.log('backdrops: ', backdrops);
   // * Required states and refs * //
   const [selectedTab, setSelectedTab] = useState('Popular');
   const [showTrailer, setShowTrailer] = useState(false);

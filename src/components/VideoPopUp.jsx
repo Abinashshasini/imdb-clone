@@ -4,7 +4,6 @@ import styles from '../styles/VideoPopUp.module.css';
 import { useEffect } from 'react';
 
 const VideoPopup = ({ setShowTrailer, trailerKey, setTrailerKey }) => {
-  // console.log('trailerKey: ', trailerKey);
   // * Function to hide pop video pop up * //
   const handleHidePopup = (e) => {
     e.stopPropagation();

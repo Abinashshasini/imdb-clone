@@ -1,12 +1,28 @@
+'use client';
 import styles from '../styles/Footer.module.css';
 import {
   FaFacebookSquare,
   FaGithubSquare,
-  FaInstagramSquare,
+  FaTwitter,
   FaLinkedin,
 } from 'react-icons/fa';
 
 const Footer = () => {
+  // * Function to naviagte the user to my link's * //
+  const handleNavigateToSocilaMedia = (_media) => {
+    let link = '';
+    if (_media === 'fb') {
+      link = 'https://www.facebook.com/abinash.shasini';
+    } else if (_media === 'tw') {
+      link = 'https://twitter.com/ShasiniAbinash';
+    } else if (_media === 'git') {
+      link = 'https://github.com/Abinashshasini';
+    } else {
+      link = 'https://www.linkedin.com/in/abinash-shasini';
+    }
+    window.open(link);
+  };
+
   return (
     <footer className={styles.container}>
       <div className={styles.headContainer}>
@@ -26,10 +42,10 @@ const Footer = () => {
         </p>
       </div>
       <div className={styles.iconContainer}>
-        <FaFacebookSquare />
-        <FaGithubSquare />
-        <FaInstagramSquare />
-        <FaLinkedin />
+        <FaFacebookSquare onClick={() => handleNavigateToSocilaMedia('fb')} />
+        <FaGithubSquare onClick={() => handleNavigateToSocilaMedia('git')} />
+        <FaTwitter onClick={() => handleNavigateToSocilaMedia('tw')} />
+        <FaLinkedin onClick={() => handleNavigateToSocilaMedia('ld')} />
       </div>
     </footer>
   );

@@ -3,8 +3,7 @@ import Header from '../components/Header';
 import '../globals.css';
 
 export const metadata = {
-  title:
-    'IMDB - Millions of movies, TV shows and people to discover. Explore now.',
+  title: 'Millions of movies, TV shows and people to discover. Explore now.',
   description:
     'Millions of movies, TV shows and people to discover. Explore now. This is a TMDB clone website',
 };

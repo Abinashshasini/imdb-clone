@@ -5,7 +5,6 @@ import styles from '../styles/MediaPlay.module.css';
 import VideoPopup from './VideoPopUp';
 
 const MediaPlay = ({ percentage, videos }) => {
-  console.log('videos: ', videos);
   // * Required states and refs * //
   const circleOneRef = useRef(null);
   const circleTwoRef = useRef(null);

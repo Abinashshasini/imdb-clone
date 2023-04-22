@@ -91,7 +91,7 @@
 }
 
 .ratingContainer {
-  background-color: #000;
+  background-color: var(--accountGreen);
   display: flex;
   padding: 0px 10px;
   border-radius: 4px;
