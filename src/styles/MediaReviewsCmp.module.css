@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .container > h2 {
@@ -80,7 +81,7 @@
 
 .userNameContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -88,6 +89,12 @@
   font-weight: 700;
   color: #000;
   font-size: 1.3rem;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* autoprefixer: off */
 }
 
 .ratingContainer {
@@ -101,6 +108,8 @@
   font-weight: 600;
   gap: 4px;
   font-size: 1rem;
+  position: relative;
+  top: 5px;
 }
 
 .description {

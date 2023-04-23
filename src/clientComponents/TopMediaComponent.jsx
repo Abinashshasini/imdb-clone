@@ -46,7 +46,7 @@ const TopMediaComponent = ({ videos, backdrops }) => {
   }
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.headingContainer}>
         <h2>Top Media</h2>
         <div className={styles.tabsContainer}>
@@ -173,7 +173,7 @@ const TopMediaComponent = ({ videos, backdrops }) => {
           setTrailerKey={setTrailerKey}
         />
       )}
-    </div>
+    </section>
   );
 };
 

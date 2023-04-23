@@ -63,7 +63,7 @@ export default function MovieReviewsComponent() {
   return (
     <>
       {data?.length > 0 && (
-        <div className={styles.container}>
+        <section className={styles.container}>
           <h2>Social Reviews</h2>
           <div className={styles.backdropCnt}>
             <div className={styles.wrapper}>
@@ -99,7 +99,7 @@ export default function MovieReviewsComponent() {
               ))}
             </div>
           </div>
-        </div>
+        </section>
       )}
     </>
   );

@@ -31,9 +31,8 @@ const CastImageCmp = ({ src, gender }) => {
 };
 
 const CastClientCmp = ({ cast, crew }) => {
-  // * Required state for error handeling * //
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <h2>Top Billed Cast</h2>
       <div className={styles.backdropCnt}>
         <div className={styles.wrapper}>
@@ -68,7 +67,7 @@ const CastClientCmp = ({ cast, crew }) => {
             ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
