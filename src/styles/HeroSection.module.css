@@ -36,8 +36,8 @@
   .container {
     padding: 30px 20px;
     background-size: cover;
-    height: calc(100vh / 3);
-    min-height: calc(100vh / 3);
+    height: calc(100vh / 2.5);
+    min-height: calc(100vh / 2.5);
     background-position: center;
   }
 
