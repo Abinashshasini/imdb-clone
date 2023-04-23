@@ -23,9 +23,8 @@ const ResultsClientCmp = ({ data: dataFromServer, type }) => {
   const handleFetchData = async () => {
     setLoading(true);
     try {
-      const response = await API.fetchMoviesOrTvShows({
-        type: 'discover',
-        category: type,
+      const response = await API.fetchDiscoverMediaData({
+        type: type,
         page,
       });
       setLoading(false);

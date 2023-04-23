@@ -28,6 +28,14 @@ const apiSettings = {
     ).json();
   },
 
+  // * Fetch discover media data * //
+  fetchDiscoverMediaData: async ({ type, page }) => {
+    const endpoint = `${API_URL}discover/${type}?api_key=${API_KEY}&page=${page}`;
+    return await (
+      await fetch(endpoint, { next: { revalidate: 10000 } })
+    ).json();
+  },
+
   // * Search movies tv shows or persons * //
   fetchSearchResults: async (searchTerm, page) => {
     const endpoint = `${SEARCH_BASE_URL}&query=${searchTerm}&page=${page}`;
