@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   z-index: 20;
 }
 
@@ -12,21 +13,33 @@
   width: 85%;
   height: 80%;
   z-index: 30;
+  border-radius: 8px;
+  background-color: #000;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.playerCnt {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  flex-shrink: 0;
+}
+
+.videoNameCnt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  margin-bottom: 20px;
 }
 
 .closeIcon {
-  display: flex;
   font-size: 1.4rem;
-  gap: 5px;
-  position: relative;
   z-index: 40;
   color: var(--white);
-  width: 100%;
-  align-items: center;
-  justify-content: flex-end;
-  text-transform: uppercase;
-  bottom: 20px;
-  right: 0px;
 }
 
 .closeIcon > svg {
@@ -37,6 +50,11 @@
   .videoCnt {
     width: 90%;
     height: 40%;
+    padding-top: 10px;
+  }
+
+  .videoNameCnt {
+    margin-bottom: 10px;
   }
 }
 
