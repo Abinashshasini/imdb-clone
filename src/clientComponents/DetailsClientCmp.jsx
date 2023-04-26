@@ -128,7 +128,11 @@ const DetailsClientCmp = ({ data, creditsData }) => {
       </section>
       <section className={styles.sectionTwoContainer}>
         <CastClientCmp cast={cast} crew={crew} />
-        <TopMediaComponent videos={videos} backdrops={images} />
+        <TopMediaComponent
+          videos={videos}
+          backdrops={images}
+          title={title || name}
+        />
         <MovieReviewsComponent />
         <SimilarMediaComponent />
       </section>

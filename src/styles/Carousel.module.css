@@ -13,6 +13,10 @@
 .shadowContainer {
   width: 100%;
   position: relative;
+  background-position: 0% 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 10px;
 }
 
 .shadowContainer::after {
@@ -35,4 +39,12 @@
 
 .wrapper::-webkit-scrollbar {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .shadowContainer {
+    background-position: 0% 160px;
+    background-size: inherit;
+    padding-left: 0px;
+  }
 }

@@ -21,15 +21,21 @@ const Tabs = [
   },
 ];
 
-const TopMediaComponent = ({ videos, backdrops }) => {
+const TopMediaComponent = ({ videos, backdrops, title }) => {
   // * Required states and refs * //
   const [selectedTab, setSelectedTab] = useState('Popular');
   const [showTrailer, setShowTrailer] = useState(false);
-  const [trailerKey, setTrailerKey] = useState('');
+  const [trailerDetails, setTrailerDetails] = useState({
+    key: '',
+    name: '',
+  });
 
   // * Function to play videos * //
   const handleClickOnVideo = (_key) => {
-    setTrailerKey(_key);
+    setTrailerDetails({
+      key: _key,
+      name: title,
+    });
     setShowTrailer(true);
   };
 
@@ -169,8 +175,8 @@ const TopMediaComponent = ({ videos, backdrops }) => {
       {showTrailer && (
         <VideoPopup
           setShowTrailer={setShowTrailer}
-          trailerKey={trailerKey}
-          setTrailerKey={setTrailerKey}
+          trailerDetails={trailerDetails}
+          setTrailerDetails={setTrailerDetails}
         />
       )}
     </section>

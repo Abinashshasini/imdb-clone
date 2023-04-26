@@ -36,6 +36,17 @@
   margin-bottom: 20px;
 }
 
+.videoNameCnt > h1 {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
+  margin-left: 20px;
+}
+
 .closeIcon {
   font-size: 1.4rem;
   z-index: 40;
@@ -55,6 +66,11 @@
 
   .videoNameCnt {
     margin-bottom: 10px;
+  }
+
+  .videoNameCnt > h1 {
+    font-size: 1rem;
+    margin-left: 10px;
   }
 }
 

@@ -17,7 +17,10 @@ const LatestMoviesCard = ({
 }) => {
   // * Required states for playing video * //
   const [showTrailer, setShowTrailer] = useState(false);
-  const [trailerKey, setTrailerKey] = useState('');
+  const [trailerDetails, setTrailerDetails] = useState({
+    key: '',
+    name: '',
+  });
 
   // * Function to handle Clik on Card * //
   const handelClickOnCard = async () => {
@@ -28,9 +31,15 @@ const LatestMoviesCard = ({
           video.name.includes('Official Trailer')
         );
         if (officialTrailer.length > 0) {
-          setTrailerKey(officialTrailer[0].key);
+          setTrailerDetails({
+            key: officialTrailer[0].key,
+            name: title,
+          });
         } else {
-          setTrailerKey(response.videos.results[0].key);
+          setTrailerDetails({
+            key: response.videos.results[0].key,
+            name: title,
+          });
         }
         setShowTrailer(true);
       }
@@ -66,8 +75,8 @@ const LatestMoviesCard = ({
       {showTrailer && (
         <VideoPopUp
           setShowTrailer={setShowTrailer}
-          trailerKey={trailerKey}
-          setTrailerKey={setTrailerKey}
+          trailerDetails={trailerDetails}
+          setTrailerDetails={setTrailerDetails}
         />
       )}
     </div>

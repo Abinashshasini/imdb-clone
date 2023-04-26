@@ -34,6 +34,7 @@ export default async function TopRatedSrvCmp() {
       data={response.results}
       options={options}
       title="Top Rated"
+      hasBackgroundImage={false}
       apiParams={{
         type: 'movie',
         category: 'top_rated',

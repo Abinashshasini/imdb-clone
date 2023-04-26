@@ -35,6 +35,7 @@ export default async function TrendingSrvCmp() {
       data={response.results}
       options={options}
       title="Trending"
+      hasBackgroundImage
       apiParams={{
         type: 'trending',
         category: 'all',

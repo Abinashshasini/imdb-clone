@@ -34,6 +34,7 @@ export default async function PopularSrvCmp() {
       data={response.results}
       options={options}
       title="Popular"
+      hasBackgroundImage={false}
       apiParams={{
         type: 'movie',
         category: 'popular',

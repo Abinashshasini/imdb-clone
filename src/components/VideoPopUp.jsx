@@ -3,17 +3,16 @@ import { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import styles from '../styles/VideoPopUp.module.css';
 
-const VideoPopup = ({
-  setShowTrailer,
-  trailerKey,
-  setTrailerKey,
-  trailerName,
-}) => {
+const VideoPopup = ({ setShowTrailer, trailerDetails, setTrailerDetails }) => {
+  const { key, name } = trailerDetails;
   // * Function to hide pop video pop up * //
   const handleHidePopup = (e) => {
     e.stopPropagation();
     setShowTrailer(false);
-    setTrailerKey('');
+    setTrailerDetails({
+      key: '',
+      name: '',
+    });
   };
 
   // * Fix the body when opened * //
@@ -28,7 +27,7 @@ const VideoPopup = ({
     <div className={styles.container} onClick={(e) => handleHidePopup(e)}>
       <div className={styles.videoCnt}>
         <div className={styles.videoNameCnt}>
-          <h1>{trailerName}</h1>
+          <h1>{name}</h1>
           <span
             className={styles.closeIcon}
             onClick={(e) => handleHidePopup(e)}
@@ -38,7 +37,7 @@ const VideoPopup = ({
         </div>
         <div className={styles.playerCnt}>
           <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${trailerKey}`}
+            url={`https://www.youtube.com/watch?v=${key}`}
             controls
             width="100%"
             height="100%"

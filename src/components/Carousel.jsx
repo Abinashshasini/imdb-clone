@@ -4,9 +4,10 @@ import CarouselHeader from '../components/CarouselHeader';
 import MovieCard from '../components/MovieCard';
 import CardSkeleton from '../skeleton/CardSkeleton';
 import API from '../api';
+import BgBar from '../assets/bgbar.svg'
 import styles from '../styles/Carousel.module.css';
 
-const Carousel = ({ data: dataFromServer, options, title, apiParams }) => {
+const Carousel = ({ data: dataFromServer, options, title, apiParams, hasBackgroundImage }) => {
   // * Required states * //
   const [data, setData] = useState(dataFromServer);
   const [selectdCategory, setSelectedCategory] = useState();
@@ -49,7 +50,7 @@ const Carousel = ({ data: dataFromServer, options, title, apiParams }) => {
         options={options}
         handleGetSelectedTab={(_params) => setSelectedCategory(_params)}
       />
-      <div className={styles.shadowContainer}>
+      <div className={styles.shadowContainer} style={{ backgroundImage: hasBackgroundImage ? `url(${BgBar.src})` : '' }}>
         <div className={styles.wrapper}>
           {!loading && data && data.length > 0
             ? data.map((element) => (

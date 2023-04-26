@@ -4,12 +4,15 @@ import { AiOutlineUnorderedList, AiFillHeart } from 'react-icons/ai';
 import styles from '../styles/MediaPlay.module.css';
 import VideoPopup from './VideoPopUp';
 
-const MediaPlay = ({ percentage, videos }) => {
+const MediaPlay = ({ percentage, videos, title }) => {
   // * Required states and refs * //
   const circleOneRef = useRef(null);
   const circleTwoRef = useRef(null);
   const [showTrailer, setShowTrailer] = useState(false);
-  const [trailerKey, setTrailerKey] = useState('');
+  const [trailerDetails, setTrailerDetails] = useState({
+    key: '',
+    name: '',
+  });
 
   // * Function to play the media trailer * //
   const handlePlayTrailer = () => {
@@ -18,9 +21,15 @@ const MediaPlay = ({ percentage, videos }) => {
         (video) => video.name === 'Official Trailer'
       );
       if (officialTrailer.length > 0) {
-        setTrailerKey(officialTrailer[0].key);
+        setTrailerDetails({
+          key: officialTrailer[0].key,
+          name: title,
+        });
       } else {
-        setTrailerKey(videos.results[0].key);
+        setTrailerDetails({
+          key: videos.results[0].key,
+          name: title,
+        });
       }
       setShowTrailer(true);
     }
@@ -103,8 +112,8 @@ const MediaPlay = ({ percentage, videos }) => {
       {showTrailer && (
         <VideoPopup
           setShowTrailer={setShowTrailer}
-          trailerKey={trailerKey}
-          setTrailerKey={setTrailerKey}
+          trailerDetails={trailerDetails}
+          setTrailerDetails={setTrailerDetails}
         />
       )}
     </div>
