@@ -260,6 +260,11 @@
   .runtime {
     display: none;
   }
+  .genres {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+  }
 
   .genres::before,
   .runtime::before {

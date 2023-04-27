@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../config';
 import styles from '../styles/PopularPersonCard.module.css';
@@ -32,18 +33,25 @@ const PopularPersonCard = ({ key, knownFor, department, title, photo }) => {
         <div className={styles.knownForCont}>
           {knownFor &&
             knownFor.slice(0, 11).map((elemnet) => (
-              <div
-                key={elemnet.id}
-                className={styles.knownForCard}
-                style={{
-                  backgroundImage: `linear-gradient(to right, rgba(0,0,0, 0.5) 0%, rgba(0,0,0, 0.5) 100%) ,url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${elemnet.backdrop_path})`,
-                }}
+              <Link
+                href={`/${elemnet.media_type}-${elemnet.id}/${
+                  elemnet.title?.split(' ').join('-') ||
+                  elemnet.original_name?.split(' ').join('-')
+                } `}
               >
-                <div className={styles.textContainer}>
-                  <h5>{elemnet.title || elemnet.original_name}</h5>
-                  <p>{elemnet.release_date || elemnet.first_air_date}</p>
+                <div
+                  key={elemnet.id}
+                  className={styles.knownForCard}
+                  style={{
+                    backgroundImage: `linear-gradient(to right, rgba(0,0,0, 0.5) 0%, rgba(0,0,0, 0.5) 100%) ,url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${elemnet.backdrop_path})`,
+                  }}
+                >
+                  <div className={styles.textContainer}>
+                    <h5>{elemnet.title || elemnet.original_name}</h5>
+                    <p>{elemnet.release_date || elemnet.first_air_date}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
         </div>
       </div>

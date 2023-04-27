@@ -90,7 +90,7 @@ const MediaPlay = ({ percentage, videos, title }) => {
         </div>
         <h3>Users score</h3>
       </div>
-      <div class={styles.pipe}></div>
+      <div className={styles.pipe}></div>
       <div className={styles.iconsContainer}>
         <div className={styles.iconsWrp}>
           <AiOutlineUnorderedList />

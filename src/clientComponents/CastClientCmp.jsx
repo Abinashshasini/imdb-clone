@@ -36,8 +36,11 @@ const CastClientCmp = ({ cast, crew }) => {
       <h2>Top Billed Cast</h2>
       <div className={styles.backdropCnt}>
         <div className={styles.wrapper}>
-          {cast?.map((element) => (
-            <div className={styles.cardContainer}>
+          {cast?.map((element, index) => (
+            <div
+              className={styles.cardContainer}
+              key={element.id + '-' + index}
+            >
               <div className={styles.imageContainer}>
                 <CastImageCmp
                   src={element.profile_path}
@@ -51,8 +54,11 @@ const CastClientCmp = ({ cast, crew }) => {
             </div>
           ))}
           {cast?.length <= 3 &&
-            crew?.map((element) => (
-              <div className={styles.cardContainer}>
+            crew?.map((element, index) => (
+              <div
+                className={styles.cardContainer}
+                key={element.id + '-' + index}
+              >
                 <div className={styles.imageContainer}>
                   <CastImageCmp
                     src={element.profile_path}

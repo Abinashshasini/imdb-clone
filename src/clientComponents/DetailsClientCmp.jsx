@@ -6,7 +6,7 @@ import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
 import MediaPlay from '../components/MediaPlay';
 import CastClientCmp from '../clientComponents/CastClientCmp';
 import TopMediaComponent from './TopMediaComponent';
-import MovieReviewsComponent from './MediaReviewsClientCmp';
+import MediaReviewsComponent from './MediaReviewsClientCmp';
 import SimilarMediaComponent from './SimilarMediaClientCmp';
 import NoMediaImage from '../assets/movie.svg';
 import styles from '../styles/DetailsPage.module.css';
@@ -137,7 +137,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
           backdrops={images}
           title={title || name}
         />
-        <MovieReviewsComponent />
+        <MediaReviewsComponent />
         <SimilarMediaComponent />
       </section>
     </>

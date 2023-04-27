@@ -29,7 +29,7 @@ const ReviewImageCmp = ({ src }) => {
   );
 };
 
-export default function MovieReviewsComponent() {
+export default function MediaReviewsComponent() {
   const { mediaid } = useParams();
   // * Getting the movie id from props * //
   const mediaID = mediaid.split('-')[1];
@@ -68,7 +68,7 @@ export default function MovieReviewsComponent() {
           <div className={styles.backdropCnt}>
             <div className={styles.wrapper}>
               {data.map((element) => (
-                <div className={styles.cardContainer}>
+                <div className={styles.cardContainer} key={element.id}>
                   <div className={styles.cardContainerLeft}>
                     <ReviewImageCmp src={element.author_details.avatar_path} />
                   </div>
