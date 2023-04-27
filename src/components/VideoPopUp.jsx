@@ -25,7 +25,7 @@ const VideoPopup = ({ setShowTrailer, trailerDetails, setTrailerDetails }) => {
 
   return (
     <div className={styles.container} onClick={(e) => handleHidePopup(e)}>
-      <div className={styles.videoCnt}>
+      <div className={styles.videoCnt} onClick={(e) => e.stopPropagation()}>
         <div className={styles.videoNameCnt}>
           <h1>{name}</h1>
           <span
