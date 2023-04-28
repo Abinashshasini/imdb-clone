@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import useKeyPress from '../hooks/useKeyPress';
 import { GoSearch } from 'react-icons/go';
@@ -12,6 +12,7 @@ const SearchBar = ({ page }) => {
 
   // * Required state for search term * //
   const [searchTerm, setSearchTerm] = useState(searchedText || '');
+  const inputRef = useRef(null);
 
   const enterKeyPressed = useKeyPress('Enter');
 
@@ -25,6 +26,7 @@ const SearchBar = ({ page }) => {
   useEffect(() => {
     if (searchTerm.length > 0) {
       handleClicknOnSearch();
+      inputRef.current.blur();
     }
   }, [enterKeyPressed]);
 
@@ -40,6 +42,7 @@ const SearchBar = ({ page }) => {
         placeholder="Search for a movie, tv show, person...."
         autoComplete="off"
         value={searchTerm}
+        ref={inputRef}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       {page === 'search' && searchTerm.length > 0 && (
