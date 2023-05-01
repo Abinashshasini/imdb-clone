@@ -37,11 +37,9 @@ export default function MediaReviewsComponent() {
 
   // * Required state for reviews * //
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   // * Function to fetch media reviews * //
   const handleFethcMediaReviews = async () => {
-    setLoading(true);
     try {
       const response = await API.fetchMovieOrTvSectionData(
         mediaType,
@@ -50,10 +48,8 @@ export default function MediaReviewsComponent() {
       );
       if (response) {
         setData(response.results);
-        setLoading(false);
       }
     } catch (error) {
-      setLoading(false);
       console.error(
         `Something wrong happend while fetching media reviews ${error}`
       );

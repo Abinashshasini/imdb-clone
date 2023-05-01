@@ -199,14 +199,12 @@
 }
 
 .sectionGridWrpOne {
-  width: 75%;
+  width: 70%;
 }
 
 .sectionGridWrpTwo {
-  height: 200px;
   flex: 1;
-  margin-top: 50px;
-  padding: 25px 20px 0;
+  padding: 25px 0 20px 60px;
   background-color: #fff;
 }
 
@@ -323,7 +321,6 @@
   }
 
   .sectionGridWrpTwo {
-    margin-top: 0;
     padding: 0;
     margin-bottom: 20px;
   }

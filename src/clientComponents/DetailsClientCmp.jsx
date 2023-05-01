@@ -142,7 +142,7 @@ const DetailsClientCmp = ({ data, creditsData }) => {
             />
           </div>
           <div className={styles.sectionGridWrpTwo}>
-            <MediaDetails />
+            <MediaDetails data={data} />
           </div>
         </section>
         <MediaReviewsComponent />
