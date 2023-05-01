@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { FaImdb, FaLink } from 'react-icons/fa';
+import { IMAGE_BASE_URL } from '../config';
 import API from '../api';
+import { handleConvertMoney } from '../utils';
 import styles from '../styles/MediaDetails.module.css';
-import Link from 'next/link';
 
 const MediaDetails = ({ data }) => {
-  console.log('data: ', data);
   const { mediaid } = useParams();
   // * Getting the movie id from props * //
   const mediaID = mediaid.split('-')[1];
@@ -16,7 +17,7 @@ const MediaDetails = ({ data }) => {
   // * Required states and refs * //
   const [keywords, setKeyWords] = useState([]);
   const [externalIDS, setExternalIDS] = useState([]);
-  console.log('externalIDS: ', externalIDS);
+  const [keywordLoading, setKeywordLoading] = useState(true);
 
   // * Function to fetch media keywords * //
   const handleFetchMediaKeyWords = async () => {
@@ -26,11 +27,14 @@ const MediaDetails = ({ data }) => {
         mediaID,
         'keywords'
       );
+      setKeywordLoading(false);
       if (response) {
         setKeyWords(response.keywords || response.results);
       }
     } catch (error) {
       console.error('Something went wrong while fetching keywords', error);
+    } finally {
+      setKeywordLoading(false);
     }
   };
 
@@ -80,13 +84,60 @@ const MediaDetails = ({ data }) => {
           <FaLink className={styles.homeIcn} />
         </Link>
       </div>
+      <div className={styles.mediaFactsCnt}>
+        <h3>Status</h3>
+        <p>{data?.status}</p>
+      </div>
+
+      {mediaType === 'tv' && (
+        <div className={styles.mediaFactsCnt}>
+          <h3>Type</h3>
+          <p>{data?.type}</p>
+        </div>
+      )}
+
+      {mediaType === 'tv' && data?.networks.length > 0 && (
+        <div className={styles.mediaFactsCnt}>
+          <h3>Network</h3>
+          <img src={IMAGE_BASE_URL + 'h30' + data.networks[0].logo_path}></img>
+        </div>
+      )}
+
+      <div className={styles.mediaFactsCnt}>
+        <h3>Original Language</h3>
+        <p>{data?.spoken_languages[0]?.name}</p>
+      </div>
+
+      {mediaType === 'movie' && (
+        <div className={styles.mediaFactsCnt}>
+          <h3>Budget</h3>
+          <p>{data.budget ? handleConvertMoney(data.budget) : '-'}</p>
+        </div>
+      )}
+
+      {mediaType === 'movie' && (
+        <div className={styles.mediaFactsCnt}>
+          <h3>Revenue</h3>
+          <p>{data.revenue ? handleConvertMoney(data.revenue) : '-'}</p>
+        </div>
+      )}
+
       <h3 className={styles.keywordTitle}>Keywords</h3>
+      {keywordLoading && (
+        <div className={styles.keywordsContainer}>
+          {new Array(15).fill(1).map((_) => (
+            <div className={styles.loading} />
+          ))}
+        </div>
+      )}
       <div className={styles.keywordsContainer}>
-        {keywords?.map((keyword) => (
-          <div key={keyword.id} className={styles.keyword}>
-            {keyword.name}
-          </div>
-        ))}
+        {!keywordLoading && keywords?.length > 0
+          ? keywords?.map((keyword) => (
+              <div key={keyword.id} className={styles.keyword}>
+                {keyword.name}
+              </div>
+            ))
+          : !keywordLoading && 'No keywords available 😔'}
       </div>
     </div>
   );

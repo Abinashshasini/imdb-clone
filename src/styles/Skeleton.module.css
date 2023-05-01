@@ -1,7 +1,7 @@
 /* Common css */
 .skeleton {
   animation: skeleton-loading 1s linear infinite alternate;
-  border: 8px;
+  border-radius: 8px;
 }
 
 @keyframes skeleton-loading {

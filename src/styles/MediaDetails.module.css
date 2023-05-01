@@ -32,6 +32,24 @@
   opacity: 0.9;
 }
 
+.mediaFactsCnt {
+  margin-bottom: 15px;
+}
+
+.mediaFactsCnt > h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.mediaFactsCnt > p {
+  font-size: 1rem;
+}
+
+.mediaFactsCnt > img {
+  max-width: 260px;
+  max-height: 30px;
+}
+
 .keywordTitle {
   font-size: 1.1em;
   font-weight: 600;
@@ -61,4 +79,20 @@
 
 .keyword:hover {
   opacity: 0.7;
+}
+
+.loading {
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 4px;
+  height: 34px;
+  width: 80px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
 }
