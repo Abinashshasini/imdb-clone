@@ -191,6 +191,25 @@
   padding: 0px 140px;
 }
 
+.sectionGridContainer {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.sectionGridWrpOne {
+  width: 75%;
+}
+
+.sectionGridWrpTwo {
+  height: 200px;
+  flex: 1;
+  margin-top: 50px;
+  padding: 25px 20px 0;
+  background-color: #fff;
+}
+
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
   .backgroundWrp {
@@ -293,5 +312,19 @@
 
   .sectionTwoContainer {
     padding: 0px 20px;
+  }
+
+  .sectionGridContainer {
+    flex-direction: column;
+  }
+
+  .sectionGridWrpOne {
+    width: 100%;
+  }
+
+  .sectionGridWrpTwo {
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 20px;
   }
 }

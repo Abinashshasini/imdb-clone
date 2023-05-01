@@ -10,7 +10,11 @@ export default async function MovieDetailsPage({ params }) {
   const mediaDetails = await API.fetchMovieOrTvDetails(mediaType, mediaID);
 
   // * Fetching credits details * //
-  const creditDetails = await API.fetchMovieOrTvCredits(mediaType, mediaID);
+  const creditDetails = await API.fetchMovieOrTvSectionData(
+    mediaType,
+    mediaID,
+    'credits'
+  );
 
   // * This will be caught by the error page and passed to the page as props * //
   if (!mediaDetails || !creditDetails) {

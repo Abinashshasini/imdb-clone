@@ -20,7 +20,11 @@ const SimilarMediaComponent = ({ data: dataFromServer }) => {
   const handleFetchSimilarMoviesData = async (type) => {
     try {
       setLoading(true);
-      const results = await API.fetchMovieOrTvSimilar(mediaType, mediaID);
+      const results = await API.fetchMovieOrTvSectionData(
+        mediaType,
+        mediaID,
+        'similar'
+      );
       if (results) {
         setLoading(false);
         setData(results.results);

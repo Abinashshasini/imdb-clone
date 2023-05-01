@@ -8,6 +8,7 @@ import CastClientCmp from '../clientComponents/CastClientCmp';
 import TopMediaComponent from './TopMediaComponent';
 import MediaReviewsComponent from './MediaReviewsClientCmp';
 import SimilarMediaComponent from './SimilarMediaClientCmp';
+import MediaDetails from './MediaDetails';
 import NoMediaImage from '../assets/movie.svg';
 import styles from '../styles/DetailsPage.module.css';
 
@@ -131,12 +132,19 @@ const DetailsClientCmp = ({ data, creditsData }) => {
         </div>
       </section>
       <section className={styles.sectionTwoContainer}>
-        <CastClientCmp cast={cast} crew={crew} />
-        <TopMediaComponent
-          videos={videos}
-          backdrops={images}
-          title={title || name}
-        />
+        <section className={styles.sectionGridContainer}>
+          <div className={styles.sectionGridWrpOne}>
+            <CastClientCmp cast={cast} crew={crew} />
+            <TopMediaComponent
+              videos={videos}
+              backdrops={images}
+              title={title || name}
+            />
+          </div>
+          <div className={styles.sectionGridWrpTwo}>
+            <MediaDetails />
+          </div>
+        </section>
         <MediaReviewsComponent />
         <SimilarMediaComponent />
       </section>

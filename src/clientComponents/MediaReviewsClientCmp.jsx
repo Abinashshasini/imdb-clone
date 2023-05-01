@@ -43,7 +43,11 @@ export default function MediaReviewsComponent() {
   const handleFethcMediaReviews = async () => {
     setLoading(true);
     try {
-      const response = await API.fetchMovieOrTvReviews(mediaType, mediaID);
+      const response = await API.fetchMovieOrTvSectionData(
+        mediaType,
+        mediaID,
+        'reviews'
+      );
       if (response) {
         setData(response.results);
         setLoading(false);

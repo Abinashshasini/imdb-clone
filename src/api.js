@@ -52,22 +52,8 @@ const apiSettings = {
     ).json();
   },
 
-  fetchMovieOrTvCredits: async (type, id) => {
-    const endpoint = `${API_URL}${type}/${id}/credits?api_key=${API_KEY}`;
-    return await (
-      await fetch(endpoint, { next: { revalidate: 10000 } })
-    ).json();
-  },
-
-  fetchMovieOrTvSimilar: async (type, id) => {
-    const endpoint = `${API_URL}${type}/${id}/similar?api_key=${API_KEY}`;
-    return await (
-      await fetch(endpoint, { next: { revalidate: 10000 } })
-    ).json();
-  },
-
-  fetchMovieOrTvReviews: async (type, id) => {
-    const endpoint = `${API_URL}${type}/${id}/reviews?api_key=${API_KEY}`;
+  fetchMovieOrTvSectionData: async (type, id, _endpoint) => {
+    const endpoint = `${API_URL}${type}/${id}/${_endpoint}?api_key=${API_KEY}`;
     return await (
       await fetch(endpoint, { next: { revalidate: 10000 } })
     ).json();
