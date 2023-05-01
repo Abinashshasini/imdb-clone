@@ -47,7 +47,6 @@
   border-radius: 8px;
   background: #dbdbdb;
   position: relative;
-  opacity: 0.8;
   transition: transform 0.5s;
 }
 
@@ -59,7 +58,6 @@
 
 .cardImageContaiiner:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  opacity: 1;
   transform: scale(1.1);
 }
 
