@@ -21,6 +21,7 @@
   flex-wrap: nowrap;
   transition: height 0.5s linear;
   position: relative;
+  gap: 20px;
 }
 
 .backdropCnt::after {
@@ -43,47 +44,4 @@
 
 .wrapper::-webkit-scrollbar {
   display: none;
-}
-
-.cardContainer {
-  min-width: 138px;
-  min-height: 270px;
-  width: 138px;
-  margin-right: 20px;
-  border: 1px solid rgba(227, 227, 227, 1);
-  background-color: #fff;
-  border-radius: 8px;
-}
-
-.imageContainer {
-  min-width: 138px;
-  width: 138px;
-  height: 175px;
-  display: block;
-  position: relative;
-}
-
-.imageContainer > img {
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-  object-fit: cover;
-}
-
-.textContainer {
-  padding: 10px;
-}
-
-.textContainer > h3 {
-  font-weight: bold;
-  color: #000;
-  font-size: 1rem;
-}
-
-.textContainer > p {
-  font-weight: 400;
-  font-size: 0.9em;
-  text-overflow: ellipsis;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
 }

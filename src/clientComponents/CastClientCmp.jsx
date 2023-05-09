@@ -1,34 +1,5 @@
-import { useState } from 'react';
-import Image from 'next/image';
-import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
-import MaleSvg from '../assets/male.svg';
-import FemaleSvg from '../assets/female.svg';
+import CastCard from '../components/CastCard';
 import styles from '../styles/CastClientCmp.module.css';
-
-const CastImageCmp = ({ src, gender }) => {
-  // * Required states for src * //
-  const [imagePath, setImagePath] = useState(
-    IMAGE_BASE_URL + POSTER_SIZE + src
-  );
-
-  // * Function to handle image erro * //
-  const handleImageError = () => {
-    if (gender === 0) {
-      setImagePath(MaleSvg);
-    } else {
-      setImagePath(FemaleSvg);
-    }
-  };
-
-  return (
-    <Image
-      src={imagePath}
-      alt="Picture of the author"
-      fill
-      onError={handleImageError}
-    />
-  );
-};
 
 const CastClientCmp = ({ cast, crew }) => {
   return (
@@ -36,40 +7,28 @@ const CastClientCmp = ({ cast, crew }) => {
       <h2>Top Billed Cast</h2>
       <div className={styles.backdropCnt}>
         <div className={styles.wrapper}>
-          {cast?.map((element, index) => (
-            <div
-              className={styles.cardContainer}
-              key={element.id + '-' + index}
-            >
-              <div className={styles.imageContainer}>
-                <CastImageCmp
-                  src={element.profile_path}
-                  gender={element.gender}
-                />
-              </div>
-              <div className={styles.textContainer}>
-                <h3>{element.name}</h3>
-                <p>{element.character}</p>
-              </div>
-            </div>
+          {cast?.map((element) => (
+            <CastCard
+              id={element.id}
+              gender={element.gender}
+              name={element.name}
+              character={element.character}
+              src={element.profile_path}
+              width="140px"
+              height="175px"
+            />
           ))}
           {cast?.length <= 3 &&
             crew?.map((element, index) => (
-              <div
-                className={styles.cardContainer}
-                key={element.id + '-' + index}
-              >
-                <div className={styles.imageContainer}>
-                  <CastImageCmp
-                    src={element.profile_path}
-                    gender={element.gender}
-                  />
-                </div>
-                <div className={styles.textContainer}>
-                  <h3>{element.name}</h3>
-                  <p>{element.job}</p>
-                </div>
-              </div>
+              <CastCard
+                id={element.id}
+                gender={element.gender}
+                name={element.name}
+                character={element.job}
+                src={element.profile_path}
+                width="140px"
+                height="175px"
+              />
             ))}
         </div>
       </div>
