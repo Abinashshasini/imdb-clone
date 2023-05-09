@@ -4,7 +4,7 @@ import Carousel from '../components/Carousel';
 // * Top rated movie server component * //
 export default async function TopRatedSrvCmp() {
   // * Fetching data * //
-  const response = await API.fetchMoviesOrTvShows({
+  const response = await API.fetchMoviesTvshowsOrPersons({
     type: 'movie',
     category: 'top_rated',
     page: 1,

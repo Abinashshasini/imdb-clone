@@ -5,6 +5,7 @@ import Hero4 from '../assets/hero4.jpg';
 import Hero5 from '../assets/hero5.jpg';
 import Hero6 from '../assets/hero6.jpg';
 import Hero7 from '../assets/hero7.jpg';
+import Hero8 from '../assets/hero8.jpeg';
 import SearchBar from '../components/SearchBar';
 import handleGenerateRandomNumber from '../utils';
 import styles from '../styles/HeroSection.module.css';
@@ -19,6 +20,7 @@ const HeroSection = () => {
     5: Hero5.src,
     6: Hero6.src,
     7: Hero7.src,
+    8: Hero8.src,
   };
 
   return (
@@ -26,7 +28,7 @@ const HeroSection = () => {
       className={styles.container}
       style={{
         backgroundImage: `linear-gradient(to right, rgba(3,37,65, 0.8) 0%, rgba(3,37,65, 0) 100%), url(${
-          images[handleGenerateRandomNumber(1, 6)] || Hero5.src
+          images[handleGenerateRandomNumber(1, 8)] || Hero5.src
         })`,
       }}
     >

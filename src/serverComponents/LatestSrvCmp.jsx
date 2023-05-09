@@ -4,9 +4,9 @@ import LatestMovies from '../clientComponents/LatestClientCmp';
 // * Latest movie server component * //
 export default async function LatestSrvCmp() {
   // * Fetching data * //
-  const response = await API.fetchMoviesOrTvShows({
+  const response = await API.fetchMoviesTvshowsOrPersons({
     type: 'movie',
-    category: 'upcoming',
+    category: 'now_playing',
     page: 1,
   });
 

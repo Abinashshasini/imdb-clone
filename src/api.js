@@ -16,7 +16,7 @@ const defaultConfig = {
 
 const apiSettings = {
   // * Fetch carousel data * //
-  fetchMoviesOrTvShows: async ({ type, category, page, timing }) => {
+  fetchMoviesTvshowsOrPersons: async ({ type, category, page, timing }) => {
     let endpoint = '';
     if (type === 'trending') {
       endpoint = `${API_URL}${type}/${category}/${timing}?api_key=${API_KEY}&page=${page}`;
