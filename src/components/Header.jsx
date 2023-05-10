@@ -90,7 +90,14 @@ const Header = () => {
         >
           <h2>TV Shows</h2>
         </Link>
-        <h2 className="cursor-pointer">People</h2>
+        <Link
+          href="/people"
+          className="cursor-pointer"
+          onClick={() => setIsMobileMenu(false)}
+        >
+          <h2 className="cursor-pointer">People</h2>
+        </Link>
+
         <h2 className="cursor-pointer">More</h2>
       </div>
     </header>

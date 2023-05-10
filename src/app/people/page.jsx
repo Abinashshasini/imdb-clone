@@ -1,9 +1,9 @@
 import API from '../../api';
 import ResultsClientCmp from '../../clientComponents/ResultsClientCmp';
 
-export default async function MovieResultsPage() {
+export default async function TVResultsPage() {
   const response = await API.fetchDiscoverMediaData({
-    type: 'movie',
+    type: 'tv',
     page: 1,
   });
 
@@ -12,5 +12,5 @@ export default async function MovieResultsPage() {
     throw new Error('Failed to fetch data');
   }
 
-  return <ResultsClientCmp data={response.results} type="movie" />;
+  return <ResultsClientCmp data={response.results} type="tv" />;
 }
